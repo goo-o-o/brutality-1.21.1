@@ -1,0 +1,130 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_LEGENDARY",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "LEGENDARY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_FABLED",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "FABLED"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_MYTHIC",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "MYTHIC"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_DIVINE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "DIVINE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_CATACLYSMIC",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "CATACLYSMIC"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_GODLY",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "GODLY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_GLACIAL",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "GLACIAL"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_ENCRYPTED",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "ENCRYPTED"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_CORALINE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "CORALINE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_SMOLDERING",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "SMOLDERING"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_CONDUCTIVE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "CONDUCTIVE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_STYGIAN",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "STYGIAN"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_VOIDTOUCHED",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "VOIDTOUCHED"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "BRUTALITY_COSMIC",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/goo/brutality/common/registry/BrutalityRarities",
+        "field": "COSMIC"
+      }
+    }
+  ]
+}

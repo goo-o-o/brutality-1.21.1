@@ -1,0 +1,58 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "brutality:font/stat_icons.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "🕒📏🗡🟫❤⌛🦺🛡⛨📐🪄⏲💘🧟🔢◽🎲🪓🧛💨💥🧨🦘🎉🎈🎊🪡🏹👁🍀❗‼"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "brutality:font/spell_type_icons.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "🎯◯🧍⬆⬇🔧⏯🎚🚹↺"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "brutality:font/seal_icons.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "💣💫"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "brutality:font/school_icons.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "⚫🍃🔊🪐👼🌙✖☠💀"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "brutality:font/rage_icons.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "💢🔴⭕😡"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "brutality:font/mana_icons.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "💧💦🔵🔹"
+      ]
+    }
+  ]
+}
