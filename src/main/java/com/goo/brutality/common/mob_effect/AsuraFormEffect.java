@@ -103,7 +103,7 @@ public class AsuraFormEffect extends ExpirableEffect {
 
     @Override
     public @NotNull Component getDisplayName() {
-        return super.getDisplayName().copy().withStyle(Styles.RAGE_STYLE);
+        return super.getDisplayName().copy().withStyle(Styles.Special.RAGE);
     }
 
     @Override

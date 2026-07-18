@@ -10,7 +10,8 @@
     "PlayerMixin"
   ],
   "client": [
-    "ItemTransformDeserializerMixin"
+    "ItemTransformDeserializerMixin",
+    "LightTextureMixin"
   ],
   "injectors": {
     "defaultRequire": 1

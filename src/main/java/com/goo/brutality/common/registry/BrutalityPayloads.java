@@ -4,6 +4,7 @@ import com.goo.brutality.common.Brutality;
 import com.goo.brutality.common.networking.BrutalityClientGamePacketListener;
 import com.goo.brutality.common.networking.BrutalityServerGamePacketListener;
 import com.goo.brutality.common.networking.clientbound.DisplayItemActivationPayload;
+import com.goo.brutality.common.networking.serverbound.TriggerActiveAbilityPayload;
 import com.goo.brutality.common.networking.serverbound.TriggerRagePayload;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -18,6 +19,7 @@ public class BrutalityPayloads {
         final PayloadRegistrar registrar = event.registrar("1");
 
         registrar.playToServer(TriggerRagePayload.TYPE, TriggerRagePayload.STREAM_CODEC, BrutalityServerGamePacketListener::handleTriggerRage);
+        registrar.playToServer(TriggerActiveAbilityPayload.TYPE, TriggerActiveAbilityPayload.STREAM_CODEC, BrutalityServerGamePacketListener::handleActiveAbility);
         registrar.playToClient(DisplayItemActivationPayload.TYPE, DisplayItemActivationPayload.STREAM_CODEC, BrutalityClientGamePacketListener::handleItemActivation);
     }
 }

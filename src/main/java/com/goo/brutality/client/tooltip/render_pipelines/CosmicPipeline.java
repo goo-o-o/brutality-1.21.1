@@ -37,7 +37,7 @@ public class CosmicPipeline extends TooltipRenderPipeline {
 //        float scale = (float) BrutalityClientConfig.CONFIG.COSMIC_STAR_SIZE_MULTIPLIER.getAsDouble();
 //        if (chance > 0 && scale > 0) {
         // I forgot, still render the nebula
-        ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeStarsShader();
+        ShaderInstance shader = BrutalityRenderTypes.InternalShaders.STARS.getInstance();
         if (shader != null) {
             shader.safeGetUniform("StarChance").set((float) BrutalityClientConfig.CONFIG.COSMIC_STAR_CHANCE.getAsDouble());
             shader.safeGetUniform("StarScale").set((float) BrutalityClientConfig.CONFIG.COSMIC_STAR_SIZE_MULTIPLIER.getAsDouble());

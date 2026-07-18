@@ -4,6 +4,7 @@ import com.goo.brutality.client.render.layer.geckolib.AutoFullbrightGeoLayer;
 import com.goo.brutality.client.render.layer.geckolib.BrutalityGeoEntityRenderer;
 import com.goo.brutality.common.Brutality;
 import com.goo.brutality.common.registry.BrutalityEntities;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -23,7 +24,8 @@ import java.util.function.Function;
 public class BrutalityEntityRenderers {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        registerWithLayers(event, BrutalityEntities.MIST_WRAITH.get(), AutoFullbrightGeoLayer::new);
+        registerWithLayers(event, BrutalityEntities.MIST_WRAITH.value(), AutoFullbrightGeoLayer::new);
+        event.registerEntityRenderer(BrutalityEntities.CYLINDER_COLLIDER.value(), NoopRenderer::new);
     }
 
     /**

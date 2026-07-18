@@ -1,10 +1,15 @@
 package com.goo.brutality.util;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.Targeting;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -66,5 +71,36 @@ public class EntityUtil {
         }
 
         return false;
+    }
+
+    @Nullable
+    public static Double getClosestGroundY(Entity entity, int threshold) {
+        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos(entity.getX(), entity.getY(), entity.getZ());
+        Level level = entity.level();
+
+        while (threshold > 0 && level.getBlockState(mutableBlockPos).isAir() && mutableBlockPos.getY() > level.getMinBuildHeight()) {
+            BlockPos below = mutableBlockPos.below();
+            if (!level.getBlockState(below).isAir()) {
+                mutableBlockPos.move(Direction.DOWN);
+                break;
+            }
+
+            mutableBlockPos.move(Direction.DOWN);
+            threshold--;
+        }
+
+        // If we finished the loop and it's still air, we didn't find any ground
+        if (level.getBlockState(mutableBlockPos).isAir()) {
+            return null;
+        }
+
+        double maxHeight = level.getBlockState(mutableBlockPos).getShape(level, mutableBlockPos).max(Direction.Axis.Y, 0.0, 0.0);
+
+        if (!Double.isFinite(maxHeight)) {
+            return null;
+        }
+
+        // Combine the block's base Y coordinate with its precise collision surface offset
+        return mutableBlockPos.getY() + maxHeight;
     }
 }

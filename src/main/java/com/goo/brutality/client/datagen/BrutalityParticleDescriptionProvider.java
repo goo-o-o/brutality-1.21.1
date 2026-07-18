@@ -35,6 +35,9 @@ public class BrutalityParticleDescriptionProvider extends ParticleDescriptionPro
         spriteSet(BrutalityParticles.TRANQUILITY.get(), Brutality.loc("tranquility/tranquility"), 3, false);
         spriteSet(BrutalityParticles.BLOODSPLOSION.get(), Brutality.loc("bloodsplosion/bloodsplosion"), 7, false);
         spriteSet(BrutalityParticles.HEXING_CIRCLE.get(), Brutality.loc("hexing_circle/hexing_circle"), 3, false);
+        spriteSet(BrutalityParticles.MATH.get(), Brutality.loc("math/math"), 31, false);
+        sprite(BrutalityParticles.OMEGA.get(), Brutality.loc("math/math_15"));
+        spriteSet(BrutalityParticles.ONOMATOPOEIA.get(), Brutality.loc("onomatopoeia/onomatopoeia"), 9, false);
         sprite(BrutalityParticles.BLACK_HOLE.get(), Brutality.loc("circle"));
     }
 }

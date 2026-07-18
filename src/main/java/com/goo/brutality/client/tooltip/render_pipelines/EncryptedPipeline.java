@@ -40,7 +40,7 @@ public class EncryptedPipeline extends TooltipRenderPipeline {
         int padding = BrutalityClientConfig.CONFIG.ENCRYPTED_OBJECT_PADDING.getAsInt();
 
 
-        ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeEncryptedShader();
+        ShaderInstance shader = BrutalityRenderTypes.InternalShaders.ENCRYPTED.getInstance();
         if (shader != null)
             shader.safeGetUniform("CellSize").set(10F);
 
@@ -123,9 +123,10 @@ public class EncryptedPipeline extends TooltipRenderPipeline {
         }
 
         public void render(GuiGraphics gui) {
-            ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeEncryptedShader();
+            ShaderInstance shader = BrutalityRenderTypes.InternalShaders.ENCRYPTED.getInstance();
             if (shader == null) return;
             shader.safeGetUniform("CellSize").set(width * 0.45F);
+            gui.fill(x, y, x + width, y + height, 400, Colors.BLACK);
             RenderUtil.fillWithUv(BrutalityRenderTypes.getEncryptedRenderType(RenderStateShard.LEQUAL_DEPTH_TEST), gui, x, y, x + width, y + height, 400, Colors.ERIN);
         }
     }

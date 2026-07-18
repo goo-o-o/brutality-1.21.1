@@ -40,7 +40,7 @@ public class VoidTouchedPipeline extends TooltipRenderPipeline {
 
     @Override
     protected void renderOverlayPass() {
-        ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeBoxShadowShader();
+        ShaderInstance shader = BrutalityRenderTypes.InternalShaders.BOX_SHADOW.getInstance();
         if (shader != null) {
             float margin = (float) BrutalityClientConfig.CONFIG.VOIDTOUCHED_SHADOW_RADIUS.getAsDouble();
 

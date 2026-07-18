@@ -19,6 +19,7 @@ public class BrutalityServerConfig {
 
 
     public final ModConfigSpec.IntValue FLIPPERS_OF_ICARUS_BURN_HEIGHT;
+    public final ModConfigSpec.IntValue XRAY_GOGGLES_RADIUS;
 
 
     private BrutalityServerConfig(ModConfigSpec.Builder builder) {
@@ -34,11 +35,17 @@ public class BrutalityServerConfig {
 
         builder.pop();
 
+
+
+        builder.push("curio");
+
         FLIPPERS_OF_ICARUS_BURN_HEIGHT = builder
                 .comment("Y Level at which the Wearer burns when exposed to Sunlight")
                 .defineInRange("flippers_of_icarus_burn_height", 150, -64, 1000);
 
-        builder.push("curio");
+        XRAY_GOGGLES_RADIUS = builder
+                .comment("Effective radius of X-Ray Goggles")
+                .defineInRange("xray_goggles_radius", 20, 0, 100);
 
 
         builder.pop();

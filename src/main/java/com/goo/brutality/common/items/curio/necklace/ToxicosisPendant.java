@@ -40,10 +40,11 @@ public class ToxicosisPendant extends BrutalityRageCurioItem {
             int count = 0;
             for (MobEffectInstance mobEffectInstance : slotContext.entity().getActiveEffects())
                 if (mobEffectInstance.getEffect().value().getCategory() == MobEffectCategory.HARMFUL) count++;
+            if (count > 0) {
+                builder.put(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, new AttributeModifier(id, count * 0.15F, AttributeModifier.Operation.ADD_VALUE));
 
-            builder.put(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, new AttributeModifier(id, count * 0.15F, AttributeModifier.Operation.ADD_VALUE));
-
-            return builder.build();
+                return builder.build();
+            }
         }
         return super.getAttributeModifiers(slotContext, id, stack);
     }

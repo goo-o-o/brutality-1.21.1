@@ -1,5 +1,6 @@
 package com.goo.brutality.common.items;
 
+import com.goo.brutality.common.networking.serverbound.TriggerActiveAbilityPayload;
 import com.goo.goo_lib.common.attribute.AttributeContainer;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -11,12 +12,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.common.damagesource.DamageContainer;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
+import net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
@@ -31,6 +36,11 @@ import java.util.Optional;
 public class BrutalityCurioItem extends Item implements ICurioItem {
     public BrutalityCurioItem(Properties properties) {
         super(properties.stacksTo(1));
+    }
+
+    @Override
+    public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
+        return true;
     }
 
     private List<AttributeContainer> attributeContainers = List.of();
@@ -62,6 +72,27 @@ public class BrutalityCurioItem extends Item implements ICurioItem {
     public BrutalityCurioItem withAttributes(AttributeContainer... attributes) {
         attributeContainers = List.of(attributes);
         return this;
+    }
+
+
+    /**
+     * Triggers when the Wearer knocks an entity back
+     * @param attacker
+     * @param victim
+     * @param curio
+     * @param event
+     */
+    public void onWearerKnockback(LivingEntity attacker, @NotNull LivingEntity victim, ItemStack curio, LivingKnockBackEvent event) {
+    }
+
+    /**
+     * Triggers when the Wearer gets knocked back
+     * @param victim
+     * @param attacker nullable
+     * @param curio
+     * @param event
+     */
+    public void onWearerKnockedBack(LivingEntity victim, @Nullable LivingEntity attacker, ItemStack curio, LivingKnockBackEvent event) {
     }
 
 
@@ -155,6 +186,16 @@ public class BrutalityCurioItem extends Item implements ICurioItem {
     public void onWearerFall(LivingFallEvent event, ItemStack curio) {
     }
 
+    /**
+     * Triggers when the player presses {@link com.goo.brutality.client.registry.BrutalityKeyMappings#ACTIVE_ABILITY}, ran on both sides via different hooks, technically client side runs first
+     *
+     * @param player
+     * @param curio
+     */
+    public void onWearerPressActiveAbility(Player player, ItemStack curio) {
+
+    }
+
     protected double getDynamicAttributeBonus(SlotContext slotContext, ItemStack stack, AttributeInstance attributeInstance, double total, double unmodified) {
         return 0.0F;
     }
@@ -163,6 +204,14 @@ public class BrutalityCurioItem extends Item implements ICurioItem {
      * This is where the relevant methods (e.g. {@link BrutalityCurioItem#onWearerKill(LivingEntity, Entity, ItemStack, DamageSource, LivingDeathEvent)} will be called from
      */
     public static class Hooks {
+
+        public static void onPressActiveAbilityKeymapping(Player player) {
+            CuriosApi.getCuriosInventory(player).ifPresent(handler ->
+                    handler.findCurios(s -> s.getItem() instanceof BrutalityCurioItem).forEach(result ->
+                            ((BrutalityCurioItem) result.stack().getItem()).onWearerPressActiveAbility(player, result.stack())));
+
+            PacketDistributor.sendToServer(new TriggerActiveAbilityPayload());
+        }
 
         /**
          * Modifies the given dynamic attributeInstance value by calculating additional bonuses
@@ -195,6 +244,26 @@ public class BrutalityCurioItem extends Item implements ICurioItem {
             return total;
         }
 
+
+        /**
+         * Called when the Wearer knocks back an entity
+         */
+        public static void applyOnWearerKnockback(@NotNull LivingEntity attacker, LivingEntity victim, LivingKnockBackEvent event) {
+            CuriosApi.getCuriosInventory(attacker).ifPresent(handler ->
+                    handler.findCurios(s -> s.getItem() instanceof BrutalityCurioItem).forEach(result ->
+                            ((BrutalityCurioItem) result.stack().getItem()).onWearerKnockback(attacker, victim, result.stack(), event)));
+        }
+
+        /**
+         * Called when the Wearer gets knocked back
+         *
+         * @param attacker can be null, the entity that knocked the player back
+         */
+        public static void applyOnWearerKnockedBack(LivingEntity victim, @Nullable LivingEntity attacker, LivingKnockBackEvent event) {
+            CuriosApi.getCuriosInventory(victim).ifPresent(handler ->
+                    handler.findCurios(s -> s.getItem() instanceof BrutalityCurioItem).forEach(result ->
+                            ((BrutalityCurioItem) result.stack().getItem()).onWearerKnockedBack(victim, attacker, result.stack(), event)));
+        }
 
         /**
          * Applies healing effects for curios worn by the given entity. This method is used to modify

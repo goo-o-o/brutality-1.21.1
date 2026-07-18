@@ -150,26 +150,27 @@ public class RageMeterOverlay implements LayeredDraw.Layer {
             // remaining time factor from 1.0 (start) down to 0.0 (near expiration)
 
             // shake amplifies slightly as rage runs out (inverted intensity)
-            if (!Minecraft.getInstance().isPaused())  {
+            if (!Minecraft.getInstance().isPaused()) {
                 float force = 1.5F + intensity;
 
-            // calculate jitter offsets using high-frequency sine waves
-            float shakeX = Mth.sin(time * 0.08F) * force;
-            float shakeY = Mth.cos(time * 0.07F) * (force * 0.8F);
+                // calculate jitter offsets using high-frequency sine waves
+                float shakeX = Mth.sin(time * 0.08F) * force;
+                float shakeY = Mth.cos(time * 0.07F) * (force * 0.8F);
 
-            // calculate smooth rotational rocking back and forth (-4 to +4 degrees max)
-            float rotation = Mth.sin(time * 0.04F) * (((1 + intensity) * 2) * force);
+                // calculate smooth rotational rocking back and forth (-4 to +4 degrees max)
+                float rotation = Mth.sin(time * 0.04F) * (((1 + intensity) * 2) * force);
 
-            // apply transformations relative to the meter's origin point
-            guiGraphics.pose().translate(x + (totalWidth / 2.0F), y + (totalHeight / 2.0F), 0.0F);
-            guiGraphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation));
-            guiGraphics.pose().translate(-(x + (totalWidth / 2.0F)) + shakeX, -(y + (totalHeight / 2.0F)) + shakeY, 0.0F);
+                // apply transformations relative to the meter's origin point
+                guiGraphics.pose().translate(x + (totalWidth / 2.0F), y + (totalHeight / 2.0F), 0.0F);
+                guiGraphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation));
+                guiGraphics.pose().translate(-(x + (totalWidth / 2.0F)) + shakeX, -(y + (totalHeight / 2.0F)) + shakeY, 0.0F);
             }
         }
 
         guiGraphics.blitSprite(bg, x + style.meterOffset, y + 8, 401, style.meterWidth, 5);
 
         if (smoothRatio > 0) {
+
             RenderUtil.blitSprite(guiGraphics, meter, style.meterWidth, 5, 0, 0,
                     x + style.meterOffset, y + 8, 401, style.meterWidth * smoothRatio, 5);
 
@@ -181,24 +182,31 @@ public class RageMeterOverlay implements LayeredDraw.Layer {
                         401,
                         FastColor.ARGB32.color((int) (flashAlpha * 255), 255, 255, 255));
             }
+
         }
 
         guiGraphics.blitSprite(frame, x, y, 402, totalWidth, totalHeight);
         style.renderOverlay(guiGraphics, x, y, smoothRatio);
 
         if (smoothRatio > 0) {
-            PostEffectRegistry.renderGuiWithEffect(GLRenderTypes.BLOOM_SHADER_LOCATION, guiGraphics, () -> {
-                RenderUtil.blitSprite(guiGraphics, meter, style.meterWidth, 5, 0, 0,
-                        x + style.meterOffset, y + 8, 401, style.meterWidth * smoothRatio, 5);
+            PostEffectRegistry.renderGuiWithEffect(GLRenderTypes.BLOOM_SHADER_LOCATION, guiGraphics,
+                    postPass -> {
+                        if (postPass.getEffect().getName().equals("goo_lib:bloom_upsample"))
+                            postPass.getEffect().safeGetUniform("Intensity").set(1.35F);
+                    },
+                    () -> {
+                        RenderUtil.blitSprite(guiGraphics, meter, style.meterWidth, 5, 0, 0,
+                                x + style.meterOffset, y + 8, 401, style.meterWidth * smoothRatio, 5);
 
-                if (flashAlpha > 0.0F) {
-                    RenderUtil.fill(RenderType.gui(), guiGraphics,
-                            x + style.meterOffset, y + 8,
-                            x + style.meterOffset + (style.meterWidth * smoothRatio), y + 8 + 5,
-                            402,
-                            FastColor.ARGB32.color((int) (flashAlpha * 255), 255, 255, 255));
-                }
-            });
+                        if (flashAlpha > 0.0F) {
+                            RenderUtil.fill(RenderType.gui(), guiGraphics,
+                                    x + style.meterOffset, y + 8,
+                                    x + style.meterOffset + (style.meterWidth * smoothRatio), y + 8 + 5,
+                                    402,
+                                    FastColor.ARGB32.color((int) (flashAlpha * 255), 255, 255, 255));
+                        }
+                    });
+
         }
 
         if (isEnraged) guiGraphics.pose().popPose();
@@ -290,18 +298,21 @@ public class RageMeterOverlay implements LayeredDraw.Layer {
 
             @Override
             protected void renderUnderlay(GuiGraphics guiGraphics, int x, int y, float ratio) {
-//                guiGraphics.fill(
-//                        x, y - totalWidth + 8, x + totalWidth, y + 8, 399,
-//                        FastColor.ARGB32.color(100, 100, 100));
-                ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeFireShader();
+
+                ShaderInstance shader = BrutalityRenderTypes.InternalShaders.FIRE.getInstance();
                 if (shader != null)
                     shader.safeGetUniform("Amount").set(ratio);
+
 
                 RenderUtil.fillWithUv(BrutalityRenderTypes.getFireRenderType(RenderStateShard.LEQUAL_DEPTH_TEST), guiGraphics,
                         x, y - totalWidth + 8, x + totalWidth, y + 8, 399,
                         FastColor.ARGB32.color(255, 255, 255));
-                PostEffectRegistry.renderGuiWithEffect(GLRenderTypes.BLOOM_SHADER_LOCATION, guiGraphics, () ->
-                        RenderUtil.fillWithUv(BrutalityRenderTypes.getFireRenderType(RenderStateShard.LEQUAL_DEPTH_TEST), guiGraphics,
+
+                PostEffectRegistry.renderGuiWithEffect(GLRenderTypes.BLOOM_SHADER_LOCATION, guiGraphics,
+                        postPass -> {
+                            if (postPass.getEffect().getName().equals("goo_lib:bloom_upsample"))
+                                postPass.getEffect().safeGetUniform("Intensity").set(1.15F);
+                        }, () -> RenderUtil.fillWithUv(BrutalityRenderTypes.getFireRenderType(RenderStateShard.LEQUAL_DEPTH_TEST), guiGraphics,
                                 x, y - totalWidth + 8, x + totalWidth, y + 8, 399,
                                 FastColor.ARGB32.color(255, 255, 255)));
             }

@@ -130,7 +130,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
 //                BrutalityItems.PETROLEUM_JELLY,
 //                BrutalityItems.ZEPHYR_IN_A_BOTTLE,
 //                BrutalityItems.BLOOD_STONE,
-//                BrutalityItems.RAGE_STONE,
+                BrutalityItems.Curio.Rage.RAGE_STONE.value(),
 //                BrutalityItems.RAGE_BAIT,
 //                BrutalityItems.PAIN_CATALYST,
                 BrutalityItems.Curio.Rage.GRUDGE_TOTEM.value(),
@@ -139,12 +139,12 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
                 BrutalityItems.Curio.Rage.MECHANICAL_AORTA.value(),
 //                BrutalityItems.HATE_SIGIL,
 //                BrutalityItems.FURY_BATTERY,
-//                BrutalityItems.SEROTONIN_PILLS,
                 BrutalityItems.Curio.Rage.WRATH.value(),
-//                BrutalityItems.STRESS_PILLS,
-//                BrutalityItems.ENDER_DRAGON_STEM_CELLS,
+                BrutalityItems.Curio.Rage.STRESS_PILLS.value(),
+                BrutalityItems.Curio.Rage.SEROTONIN_PILLS.value(),
+                BrutalityItems.Curio.Rage.ENDER_DRAGON_STEM_CELLS.value(),
 //                BrutalityItems.BOILING_BLOOD,
-//                BrutalityItems.PACK_OF_CIGARETTES,
+                BrutalityItems.Curio.Rage.PACK_OF_CIGARETTES.value(),
                 BrutalityItems.Curio.Coin.MIRRORED_MINT.value(),
                 BrutalityItems.Curio.Coin.REVERSE_COIN.value(),
 //                BrutalityItems.PRIDE,
@@ -248,6 +248,8 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
                 BrutalityItems.Curio.Coin.OVERDRAW_POUCH.value(),
                 BrutalityItems.Curio.Coin.THE_GLUTTONS_PURSE.value(),
                 BrutalityItems.Curio.SURTRS_HORN.value(),
+                BrutalityItems.Curio.PORTABLE_FIRE_EXTINGUISHER.value(),
+                BrutalityItems.Curio.Rage.GAMMA_SERUM.value(),
                 BrutalityItems.Curio.Rage.BLOODBOIL_BOMB.value(),
 //                BrutalityItems.WARPSLICE_SCABBARD,
                 BrutalityItems.Curio.Coin.MOBIUS_STRIP.value()
@@ -277,8 +279,8 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
 //                BrutalityItems.HANDCUFFS,
 //                BrutalityItems.BLOOD_PULSE_GAUNTLETS,
                 BrutalityItems.Curio.Rage.BROKEN_CONTROLLER.value(),
-                BrutalityItems.Curio.Rage.WIRELESS_CONTROLLER.value()
-//                BrutalityItems.OMEGA_GAUNTLET,
+                BrutalityItems.Curio.Rage.WIRELESS_CONTROLLER.value(),
+                BrutalityItems.Curio.Rage.OMEGA_GAUNTLET.value()
 //                BrutalityItems.PERFECT_CELL,
 //                BrutalityItems.SUSPICIOUSLY_LARGE_HANDLE,
 //                BrutalityGastronomyItems.ICE_CREAM_SANDWICH,
@@ -297,6 +299,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
         this.tag(CuriosTags.HEAD).add(
 //                BrutalityItems.MAGICIANS_TOP_HAT,
 //                BrutalityItems.HEAD_CUSHION,
+                BrutalityItems.Curio.XRAY_GOGGLES.value(),
                 BrutalityItems.Curio.Coin.SWALLOWED_PENNY.value(),
                 BrutalityItems.Curio.LAVA_LENSES.value(),
                 BrutalityItems.Curio.Rage.MONOCLE_OF_BRUTALITY.value()

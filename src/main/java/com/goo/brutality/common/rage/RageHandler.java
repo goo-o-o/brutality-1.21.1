@@ -154,10 +154,11 @@ public class RageHandler {
                 float maxYaw = 2.0F;
                 float maxRoll = 1.5F;
 
-                ScreenShakeUtil.addShake(new ShakeInstance.Builder()
-                        .duration(enragedInstance.getDuration())
-                        .easeIn(Easing.EASE_IN_SINE)
-                        .easeOut(Easing.EASE_IN_SINE)
+                ScreenShakeUtil.addShake(ShakeInstance.builder()
+                        .identifier("rage")
+                        .durationTicks(enragedInstance.getDuration())
+                        .fadeInCurve(Easing.EASE_IN_SINE)
+                        .fadeOutCurve(Easing.EASE_IN_SINE)
                         .speed((float) ((enragedInstance.getAmplifier() + 1) * 0.5F * intensity))
                         .bounds(bounds, bounds)
                         .rotation((float) (maxPitch * intensity), (float) (maxYaw * intensity), (float) (maxRoll * intensity))
@@ -173,8 +174,6 @@ public class RageHandler {
                             rageCurioItem.onTriggerRage(player, stack);
                         }
                 ));
-
-
 
 
     }

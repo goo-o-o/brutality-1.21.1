@@ -178,7 +178,13 @@ public class BrutalityAttributes {
      * Raw multiplier of original coin cooldown
      */
     public static final Holder<Attribute> COIN_COOLDOWN = ATTRIBUTES.register("coin_cooldown", () ->
-            new PercentageAttribute(prepend("coin_cooldown"), 1, 0.1F, 16384F)
+            new PercentageAttribute(prepend("coin_cooldown"), 1, 0F, 16384F)
+                    .setSyncable(true).setSentiment(Attribute.Sentiment.NEGATIVE));
+    /**
+     * Raw multiplier of original curio cooldown
+     */
+    public static final Holder<Attribute> CURIO_COOLDOWN = ATTRIBUTES.register("curio_cooldown", () ->
+            new PercentageAttribute(prepend("curio_cooldown"), 1, 0F, 16384F)
                     .setSyncable(true).setSentiment(Attribute.Sentiment.NEGATIVE));
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -14,7 +14,7 @@ import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BloodExplosionDamageCalculator extends ExplosionDamageCalculator {
-    public static final MutableComponent BLOOD_EXPLOSION = Component.translatable("tooltip." + Brutality.MOD_ID + ".blood_explosion").withStyle(Styles.STYGIAN_STYLE);
+    public static final MutableComponent BLOOD_EXPLOSION = Component.translatable("tooltip." + Brutality.MOD_ID + ".blood_explosion").withStyle(Styles.Special.STYGIAN);
     protected final Entity source;
 
     public BloodExplosionDamageCalculator(Entity source) {

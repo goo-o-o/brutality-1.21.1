@@ -1,21 +1,44 @@
 package com.goo.brutality.client.registry;
 
 import com.goo.brutality.common.Brutality;
+import com.goo.goo_lib.mixin.CompositeRenderTypeAccessor;
+import com.goo.goo_lib.mixin.CompositeStateAccessor;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterShadersEvent;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.function.Consumer;
+
+import static net.minecraft.client.renderer.RenderStateShard.LIGHTNING_TRANSPARENCY;
+import static net.minecraft.client.renderer.RenderStateShard.TRANSLUCENT_TRANSPARENCY;
 
 @EventBusSubscriber(modid = Brutality.MOD_ID, value = Dist.CLIENT)
 public class BrutalityRenderTypes {
+
+    public static RenderType getEncryptedRenderType(ResourceLocation location, RenderStateShard.DepthTestStateShard depthTestStateShard) {
+        return RenderType.create(Brutality.MOD_ID + ":encrypted_texture_" + depthTestStateShard,
+                DefaultVertexFormat.POSITION_TEX_COLOR,
+                VertexFormat.Mode.QUADS,
+                512, false, true,
+                RenderType.CompositeState.builder()
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.ENCRYPTED_TEXTURE::getInstance))
+                        .setTextureState(new RenderStateShard.TextureStateShard(location, false, true))
+                        .setDepthTestState(depthTestStateShard)
+                        .setTransparencyState(LIGHTNING_TRANSPARENCY)
+                        .createCompositeState(true)
+        );
+    }
 
     public static RenderType getEncryptedRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":encrypted_" + depthTestStateShard,
@@ -23,21 +46,23 @@ public class BrutalityRenderTypes {
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeEncryptedShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.ENCRYPTED::getInstance))
                         .setDepthTestState(depthTestStateShard)
+                        .setTransparencyState(LIGHTNING_TRANSPARENCY)
                         .createCompositeState(true)
-                );
+        );
     }
+
     public static RenderType getWaterRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":water_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_COLOR,
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeWaterShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.WATER::getInstance))
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
 
     public static RenderType getStygianRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
@@ -46,23 +71,24 @@ public class BrutalityRenderTypes {
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeStygianShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.STYGIAN::getInstance))
                         .setTransparencyState(RenderStateShard.ADDITIVE_TRANSPARENCY)
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
+
     public static RenderType getSmokeRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":smoke_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_TEX_COLOR,
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeSmokeShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.SMOKE::getInstance))
                         .setTransparencyState(RenderStateShard.ADDITIVE_TRANSPARENCY)
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
 
     public static RenderType getEmbersRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
@@ -71,11 +97,11 @@ public class BrutalityRenderTypes {
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeEmbersShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.EMBERS::getInstance))
                         .setTransparencyState(RenderStateShard.ADDITIVE_TRANSPARENCY)
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
 
     public static RenderType getElectricityRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
@@ -84,150 +110,139 @@ public class BrutalityRenderTypes {
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeElectricityShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.ELECTRICITY::getInstance))
                         .setTransparencyState(RenderStateShard.ADDITIVE_TRANSPARENCY)
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
+
     public static RenderType getVoidRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":void_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_TEX_COLOR,
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeVoidShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.VOID::getInstance))
                         .setTransparencyState(RenderStateShard.ADDITIVE_TRANSPARENCY)
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
+
     public static RenderType getBoxShadowRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":box_shadow_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_TEX_COLOR,
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeBoxShadowShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.BOX_SHADOW::getInstance))
                         .setTransparencyState(RenderStateShard.TRANSLUCENT_TRANSPARENCY)
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
-                );
+        );
     }
+
     public static RenderType getStarsRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":stars_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_TEX_COLOR,
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeStarsShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.STARS::getInstance))
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
         );
     }
+
     public static RenderType getFireRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":fire_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_TEX_COLOR,
                 VertexFormat.Mode.QUADS,
                 512, false, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders::getRenderTypeFireShader))
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.FIRE::getInstance))
                         .setDepthTestState(depthTestStateShard)
                         .createCompositeState(true)
         );
     }
 
+    public static RenderType getTextReefRenderType(RenderType sourceType) {
+        return RenderType.create(
+                Brutality.MOD_ID + ":text_reef",
+                DefaultVertexFormat.POSITION_TEX_COLOR,
+                VertexFormat.Mode.QUADS,
+                256, false, true,
+                RenderType.CompositeState.builder()
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.TEXT_REEF::getInstance))
+                        .setTextureState(((CompositeStateAccessor) (Object) ((CompositeRenderTypeAccessor) sourceType).getState()).getTextureState())
+                        .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                        .createCompositeState(false)
+        );
+    }
 
     @SubscribeEvent
     public static void registerShaders(RegisterShadersEvent event) {
         try {
-            // screen space shaders don't need quad size aka texture
+            for (InternalShaders shader : InternalShaders.values()) {
+                String shaderPath = "rendertype_" + shader.name().toLowerCase(Locale.ROOT);
 
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_water"),
-                    DefaultVertexFormat.POSITION_COLOR), InternalShaders::setRenderTypeWaterShader);
-
-
-            // ─────────────────────────────────────────────────────────────────────────────
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_fire"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeFireShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_encrypted"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeEncryptedShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_smoke"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeSmokeShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_embers"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeEmbersShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_electricity"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeElectricityShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_stygian"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeStygianShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_void"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeVoidShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_box_shadow"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeBoxShadowShader);
-
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Brutality.loc("rendertype_stars"),
-                    DefaultVertexFormat.POSITION_TEX_COLOR), InternalShaders::setRenderTypeStarsShader);
-
-
+                event.registerShader(
+                        new ShaderInstance(event.getResourceProvider(), Brutality.loc(shaderPath), shader.getFormat()),
+                        shader::setInstance
+                );
+            }
             Brutality.LOGGER.info("Successfully consolidated and loaded internal shaders.");
         } catch (IOException exception) {
-            Brutality.LOGGER.error("Failed to register unified pipeline shaders");
-            exception.printStackTrace();
+            Brutality.LOGGER.error("Failed to register unified pipeline shaders", exception);
         }
     }
 
-    public static class InternalShaders {
-        private static ShaderInstance renderTypeFireShader;
-        public static ShaderInstance getRenderTypeFireShader() {
-            renderTypeFireShader.safeGetUniform("GuiScale").set((float) Minecraft.getInstance().getWindow().getGuiScale());
-            return renderTypeFireShader;
+    public enum InternalShaders {
+        TEXT_REEF(DefaultVertexFormat.POSITION_TEX_COLOR),
+        WATER(DefaultVertexFormat.POSITION_COLOR),
+        FIRE(DefaultVertexFormat.POSITION_TEX_COLOR, instance -> {
+            // updates gui scale dynamically on access
+            if (instance != null) {
+                instance.safeGetUniform("GuiScale").set((float) Minecraft.getInstance().getWindow().getGuiScale());
+            }
+        }),
+        ENCRYPTED(DefaultVertexFormat.POSITION_TEX_COLOR),
+        ENCRYPTED_TEXTURE(DefaultVertexFormat.POSITION_TEX_COLOR),
+        SMOKE(DefaultVertexFormat.POSITION_TEX_COLOR),
+        EMBERS(DefaultVertexFormat.POSITION_TEX_COLOR),
+        ELECTRICITY(DefaultVertexFormat.POSITION_TEX_COLOR),
+        STYGIAN(DefaultVertexFormat.POSITION_TEX_COLOR),
+        VOID(DefaultVertexFormat.POSITION_TEX_COLOR),
+        BOX_SHADOW(DefaultVertexFormat.POSITION_TEX_COLOR),
+        STARS(DefaultVertexFormat.POSITION_TEX_COLOR);
+
+        private final VertexFormat format;
+        private final Consumer<ShaderInstance> onGetCallback;
+        private ShaderInstance instance;
+
+        InternalShaders(VertexFormat format) {
+            this(format, instance -> {
+            });
         }
-        public static void setRenderTypeFireShader(ShaderInstance instance) { renderTypeFireShader = instance; }
 
-        private static ShaderInstance renderTypeEncryptedShader;
-        public static ShaderInstance getRenderTypeEncryptedShader() { return renderTypeEncryptedShader; }
-        public static void setRenderTypeEncryptedShader(ShaderInstance instance) { renderTypeEncryptedShader = instance; }
+        InternalShaders(VertexFormat format, Consumer<ShaderInstance> onGetCallback) {
+            this.format = format;
+            this.onGetCallback = onGetCallback;
+        }
 
-        private static ShaderInstance renderTypeWaterShader;
-        public static ShaderInstance getRenderTypeWaterShader() { return renderTypeWaterShader; }
-        public static void setRenderTypeWaterShader(ShaderInstance instance) { renderTypeWaterShader = instance; }
+        public VertexFormat getFormat() {
+            return this.format;
+        }
 
-        private static ShaderInstance renderTypeStarsShader;
-        public static ShaderInstance getRenderTypeStarsShader() { return renderTypeStarsShader; }
-        public static void setRenderTypeStarsShader(ShaderInstance instance) { renderTypeStarsShader = instance; }
+        @Nullable
+        public ShaderInstance getInstance() {
+            this.onGetCallback.accept(this.instance);
+            return this.instance;
+        }
 
-        private static ShaderInstance renderTypeSmokeShader;
-        public static ShaderInstance getRenderTypeSmokeShader() { return renderTypeSmokeShader; }
-        public static void setRenderTypeSmokeShader(ShaderInstance instance) { renderTypeSmokeShader = instance; }
-
-        private static ShaderInstance renderTypeEmbersShader;
-        public static ShaderInstance getRenderTypeEmbersShader() { return renderTypeEmbersShader; }
-        public static void setRenderTypeEmbersShader(ShaderInstance instance) { renderTypeEmbersShader = instance; }
-
-        private static ShaderInstance renderTypeElectricityShader;
-        public static ShaderInstance getRenderTypeElectricityShader() { return renderTypeElectricityShader; }
-        public static void setRenderTypeElectricityShader(ShaderInstance instance) { renderTypeElectricityShader = instance; }
-
-        private static ShaderInstance renderTypeStygianShader;
-        public static ShaderInstance getRenderTypeStygianShader() { return renderTypeStygianShader; }
-        public static void setRenderTypeStygianShader(ShaderInstance instance) { renderTypeStygianShader = instance; }
-
-        private static ShaderInstance renderTypeVoidShader;
-        public static ShaderInstance getRenderTypeVoidShader() { return renderTypeVoidShader; }
-        public static void setRenderTypeVoidShader(ShaderInstance instance) { renderTypeVoidShader = instance; }
-
-        private static ShaderInstance renderTypeBoxShadowShader;
-        public static ShaderInstance getRenderTypeBoxShadowShader() { return renderTypeBoxShadowShader; }
-        public static void setRenderTypeBoxShadowShader(ShaderInstance instance) { renderTypeBoxShadowShader = instance; }
-
+        public void setInstance(ShaderInstance instance) {
+            this.instance = instance;
+        }
     }
 }

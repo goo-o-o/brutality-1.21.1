@@ -62,6 +62,19 @@ public class BrutalityParticles {
     );
     // ─────────────────────────────────────────────────────────────────────────────────────
 
+    public static final Supplier<SimpleParticleType> MATH = PARTICLE_TYPES.register(
+            "math", () -> new SimpleParticleType(false)
+    );
+    public static final Supplier<SimpleParticleType> OMEGA = PARTICLE_TYPES.register(
+            "omega", () -> new SimpleParticleType(false)
+    );
+
+    public static final Supplier<SimpleParticleType> ONOMATOPOEIA = PARTICLE_TYPES.register(
+            "onomatopoeia", () -> new SimpleParticleType(false)
+    );
+
+    // ─────────────────────────────────────────────────────────────────────────────────────
+
     public static final DeferredHolder<ParticleType<?>, ParticleType<ComponentParticleOption>> MULTIPLIER = PARTICLE_TYPES.register(
             "multiplier", () -> new ComponentParticleType(true)
     );

@@ -48,7 +48,7 @@ public class MobEffectEvents {
     @SubscribeEvent
     public static void onEffectRemoved(MobEffectEvent.Remove event) {
         MobEffectInstance effectInstance = event.getEffectInstance();
-        assert effectInstance != null;
+        if (effectInstance == null) return;
         if (effectInstance.getEffect().value() instanceof ExpirableEffect expirableEffect) {
             expirableEffect.onEffectRemoved(event.getEntity(), effectInstance);
         }

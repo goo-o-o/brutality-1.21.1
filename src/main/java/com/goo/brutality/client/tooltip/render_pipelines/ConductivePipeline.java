@@ -43,7 +43,7 @@ public class ConductivePipeline extends TooltipRenderPipeline {
             float speed = (float) BrutalityClientConfig.CONFIG.CONDUCTIVE_STRIKE_SPEED.getAsDouble();
             float volatility = (float) BrutalityClientConfig.CONFIG.CONDUCTIVE_TENDRIL_VOLATILITY.getAsDouble();
 
-            ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeElectricityShader();
+            ShaderInstance shader = BrutalityRenderTypes.InternalShaders.ELECTRICITY.getInstance();
             if (shader != null) {
                 shader.safeGetUniform("InnerBrightnessMultiplier").set(brightnessMultiplier);
                 shader.safeGetUniform("StrikeFadeout").set(strikeFadeout);

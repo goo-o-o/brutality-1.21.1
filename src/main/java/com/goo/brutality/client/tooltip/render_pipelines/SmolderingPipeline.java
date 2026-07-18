@@ -36,7 +36,7 @@ public class SmolderingPipeline extends TooltipRenderPipeline {
     protected void renderOverlayPass() {
         int amount = BrutalityClientConfig.CONFIG.SMOLDERING_EMBER_AMOUNT.getAsInt();
         if (amount > 0) {
-            ShaderInstance embers = BrutalityRenderTypes.InternalShaders.getRenderTypeEmbersShader();
+            ShaderInstance embers = BrutalityRenderTypes.InternalShaders.EMBERS.getInstance();
             if (embers != null)
                 embers.safeGetUniform("Amount").set(amount);
             RenderUtil.fillWithUv(BrutalityRenderTypes.getEmbersRenderType(RenderStateShard.LEQUAL_DEPTH_TEST),
@@ -45,7 +45,7 @@ public class SmolderingPipeline extends TooltipRenderPipeline {
 
         float intensity = (float) BrutalityClientConfig.CONFIG.SMOLDERING_SMOKE_INTENSITY.getAsDouble();
         if (intensity > 0) {
-            ShaderInstance smoke = BrutalityRenderTypes.InternalShaders.getRenderTypeSmokeShader();
+            ShaderInstance smoke = BrutalityRenderTypes.InternalShaders.SMOKE.getInstance();
             if (smoke != null)
                 smoke.safeGetUniform("Intensity").set(intensity);
             RenderUtil.fillWithUv(BrutalityRenderTypes.getSmokeRenderType(RenderStateShard.LEQUAL_DEPTH_TEST), gui, pos.x - 20, pos.y - 40, pos.x + width + 20, pos.y + height + 20, 400, FastColor.ARGB32.color(150, 150, 150));

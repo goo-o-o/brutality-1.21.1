@@ -38,6 +38,8 @@ public class Brutality {
         BrutalityCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         // for force loading
 
+        BrutalityTextEffects.REGISTRY.register(modEventBus);
+
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::onCommonSetup);
         modContainer.registerConfig(ModConfig.Type.SERVER, BrutalityServerConfig.SPEC);

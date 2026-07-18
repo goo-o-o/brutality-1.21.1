@@ -40,6 +40,7 @@ public class TooltipRenderPipelineRegistry {
         register(stack -> stack.getRarity() == BrutalityRarities.STYGIAN.getValue(), StygianPipeline::new);
         register(stack -> stack.getRarity() == BrutalityRarities.VOIDTOUCHED.getValue(), VoidTouchedPipeline::new);
         register(stack -> stack.getRarity() == BrutalityRarities.COSMIC.getValue(), CosmicPipeline::new);
+        register(stack -> stack.getRarity() == BrutalityRarities.GODLY.getValue(), GodlyPipeline::new);
     }
 
     public static boolean isSlotHovered() {

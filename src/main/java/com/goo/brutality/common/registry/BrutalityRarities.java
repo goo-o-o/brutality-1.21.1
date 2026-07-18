@@ -41,18 +41,18 @@ public class BrutalityRarities {
      * </ul>
      */
 
-    public static EnumProxy<Rarity> LEGENDARY = create("legendary", style -> Styles.LEGENDARY_STYLE);
-    public static EnumProxy<Rarity> FABLED = create("fabled", style -> Styles.FABLED_STYLE);
-    public static EnumProxy<Rarity> MYTHIC = create("mythic", style -> Styles.MYTHIC_STYLE);
-    public static EnumProxy<Rarity> DIVINE = create("divine", style -> Styles.DIVINE_STYLE);
-    public static EnumProxy<Rarity> CATACLYSMIC = create("cataclysmic", style -> Styles.CATACLYSMIC_STYLE);
-    public static EnumProxy<Rarity> GODLY = create("godly", style -> Styles.GODLY_STYLE);
-    public static EnumProxy<Rarity> GLACIAL = create("glacial", style -> Styles.GLACIAL_STYLE);
-    public static EnumProxy<Rarity> ENCRYPTED = create("encrypted", style -> Styles.ENCRYPTED_STYLE);
-    public static EnumProxy<Rarity> CORALINE = create("coraline", style -> Styles.CORALINE_STYLE);
-    public static EnumProxy<Rarity> SMOLDERING = create("smoldering", style -> Styles.SMOLDERING_STYLE);
-    public static EnumProxy<Rarity> CONDUCTIVE = create("conductive", style -> Styles.CONDUCTIVE_STYLE);
-    public static EnumProxy<Rarity> STYGIAN = create("stygian", style -> Styles.STYGIAN_STYLE);
-    public static EnumProxy<Rarity> VOIDTOUCHED = create("voidtouched", style -> Styles.VOIDTOUCHED_STYLE);
-    public static EnumProxy<Rarity> COSMIC = create("cosmic", style -> Styles.COSMIC_STYLE);
+    public static EnumProxy<Rarity> LEGENDARY = create("legendary", style -> Styles.Rarity.LEGENDARY);
+    public static EnumProxy<Rarity> FABLED = create("fabled", style -> Styles.Rarity.FABLED);
+    public static EnumProxy<Rarity> MYTHIC = create("mythic", style -> Styles.Rarity.MYTHIC);
+    public static EnumProxy<Rarity> DIVINE = create("divine", style -> Styles.Rarity.DIVINE);
+    public static EnumProxy<Rarity> CATACLYSMIC = create("cataclysmic", style -> Styles.Rarity.CATACLYSMIC);
+    public static EnumProxy<Rarity> GODLY = create("godly", style -> Styles.Rarity.GODLY);
+    public static EnumProxy<Rarity> GLACIAL = create("glacial", style -> Styles.Special.GLACIAL);
+    public static EnumProxy<Rarity> ENCRYPTED = create("encrypted", style -> Styles.Special.ENCRYPTED);
+    public static EnumProxy<Rarity> CORALINE = create("coraline", style -> Styles.Special.CORALINE);
+    public static EnumProxy<Rarity> SMOLDERING = create("smoldering", style -> Styles.Special.SMOLDERING);
+    public static EnumProxy<Rarity> CONDUCTIVE = create("conductive", style -> Styles.Special.CONDUCTIVE);
+    public static EnumProxy<Rarity> STYGIAN = create("stygian", style -> Styles.Special.STYGIAN);
+    public static EnumProxy<Rarity> VOIDTOUCHED = create("voidtouched", style -> Styles.Special.VOIDTOUCHED);
+    public static EnumProxy<Rarity> COSMIC = create("cosmic", style -> Styles.Special.COSMIC);
 }

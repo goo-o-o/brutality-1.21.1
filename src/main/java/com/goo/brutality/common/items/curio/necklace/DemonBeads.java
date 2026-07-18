@@ -1,6 +1,7 @@
 package com.goo.brutality.common.items.curio.necklace;
 
 import com.goo.brutality.common.items.BrutalityRageCurioItem;
+import com.goo.brutality.common.registry.BrutalityAttributes;
 import com.goo.brutality.common.registry.BrutalityEffects;
 import com.goo.goo_lib.util.Easing;
 import com.goo.goo_lib.util.screenshake.ScreenShakeUtil;
@@ -17,15 +18,14 @@ public class DemonBeads extends BrutalityRageCurioItem {
     @Override
     public void onTriggerRage(LivingEntity livingEntity, ItemStack curio) {
         if (livingEntity.hasEffect(BrutalityEffects.ENRAGED)) {
-            MobEffectInstance effectInstance = livingEntity.getEffect(BrutalityEffects.ENRAGED);
-            assert effectInstance != null;
+            float duration = (float) livingEntity.getAttributeValue(BrutalityAttributes.ENRAGED_DURATION);
 
-            livingEntity.addEffect(new MobEffectInstance(BrutalityEffects.ASURA_FORM, effectInstance.getDuration(), 0), livingEntity);
+            livingEntity.addEffect(new MobEffectInstance(BrutalityEffects.ASURA_FORM, (int) (duration * 20), 0), livingEntity);
 
-            ScreenShakeUtil.addShake(new ShakeInstance.Builder()
-                    .duration(10)
-                    .easeIn(Easing.EASE_IN_SINE)
-                    .easeOut(Easing.EASE_IN_SINE)
+            ScreenShakeUtil.addShake(ShakeInstance.builder()
+                    .durationTicks(10)
+                    .fadeInCurve(Easing.EASE_IN_SINE)
+                    .fadeOutCurve(Easing.EASE_IN_SINE)
                     .speed(0.5F)
                     .bounds(10, 10)
                     .build());

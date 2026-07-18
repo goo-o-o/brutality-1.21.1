@@ -25,9 +25,9 @@ void main()
     uv += GameTime * 24000.0 * 0.1;
 
     // smooth mathematical vignette mask
-    float vignette = screenUV.x * screenUV.y * (1.0 - screenUV.x) * (1.0 - screenUV.y);
-    vignette = clamp(16.0 * vignette, 0.0, 1.0);
-    vignette = pow(vignette, 0.5);
+//    float vignette = screenUV.x * screenUV.y * (1.0 - screenUV.x) * (1.0 - screenUV.y);
+//    vignette = clamp(16.0 * vignette, 0.0, 1.0);
+//    vignette = pow(vignette, 0.5);
 
     // cell space tiling transformations
     vec2 cellCoord = fract(uv / CellSize) * CellSize;
@@ -45,13 +45,13 @@ void main()
     // merge elements and amplify core power
     float finalGlowProfile = max(coreLine * 2.5, glowMask);
 
-    // apply emissive profiles to color
+    // 1. Multiply the line color by the Java input color
     vec3 col = vertexColor.rgb * finalGlowProfile;
 
-    // compress outer edges via vignette shadow
-    float vignetteDarkness = 0.0;
-    col *= mix(vignetteDarkness, 1.0, vignette);
+    // 2. Control total opacity using the Java vertex alpha (e.g., your 10 alpha out of 255)
+    // We clamp the profile to a 0.0 - 1.0 scale so it maps correctly to the alpha channel
+    float finalAlpha = vertexColor.a * clamp(finalGlowProfile, 0.0, 1.0);
 
     // final engine alpha composition
-    fragColor = vec4(col, vertexColor.a);
+    fragColor = vec4(col, finalAlpha);
 }

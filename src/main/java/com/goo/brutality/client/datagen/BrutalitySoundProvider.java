@@ -14,18 +14,20 @@ public class BrutalitySoundProvider extends SoundDefinitionsProvider {
         super(output, modId, helper);
     }
 
-    private void sound(DeferredHolder<SoundEvent, SoundEvent> sound, String name) {
+    private void sound(DeferredHolder<SoundEvent, SoundEvent> sound) {
+        String path = sound.getId().getPath();
         this.add(sound, definition()
-                .subtitle("subtitles." + Brutality.MOD_ID + "." + name) // Translation key
-                .with(sound(Brutality.loc(name)))
+                .subtitle("subtitles." + Brutality.MOD_ID + "." + path)
+                .with(sound(sound.getId()))
         );
     }
 
     @Override
     public void registerSounds() {
 
-        sound(BrutalitySounds.ASURA_FORM, "asura_form");
-        sound(BrutalitySounds.BLOOD_SPLATTER, "blood_splatter");
+        sound(BrutalitySounds.ASURA_FORM);
+        sound(BrutalitySounds.BLOOD_SPLATTER);
+        BrutalitySounds.PUNCH_SOUNDS.forEach(this::sound);
 
         // example
 //        this.add(BrutalitySounds.ENRAGED_AMBIENT, definition()

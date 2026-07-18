@@ -21,7 +21,7 @@ public class BloodboilBomb extends BrutalityRageCurioItem {
             float maxRage = (float) livingEntity.getAttributeValue(BrutalityAttributes.MAX_RAGE);
             float enragedLevel = (float) livingEntity.getAttributeValue(BrutalityAttributes.ENRAGED_LEVEL);
 
-            float radius = maxRage * 0.01F + enragedLevel;
+            float radius = maxRage * 0.01F + enragedLevel * 0.5F;
 
             serverLevel.explode(livingEntity, livingEntity.damageSources().explosion(livingEntity, livingEntity),
                     new BloodExplosionDamageCalculator(livingEntity), livingEntity.getX(), livingEntity.getY(0.5), livingEntity.getZ(),

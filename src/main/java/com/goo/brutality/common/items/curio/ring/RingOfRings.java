@@ -1,6 +1,6 @@
 package com.goo.brutality.common.items.curio.ring;
 
-import com.goo.brutality.common.items.BrutalityRageCurioItem;
+import com.goo.brutality.common.items.BrutalityCurioItem;
 import com.goo.brutality.common.registry.BrutalityAttributes;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
-public class RingOfRings extends BrutalityRageCurioItem {
+public class RingOfRings extends BrutalityCurioItem {
     public RingOfRings(Properties properties) {
         super(properties);
     }
@@ -39,11 +39,12 @@ public class RingOfRings extends BrutalityRageCurioItem {
             ImmutableMultimap.Builder<Holder<Attribute>, AttributeModifier> builder = new ImmutableMultimap.Builder<>();
 
             double ringCount = getRingCount(slotContext.entity());
+            if (ringCount > 0) {
+                builder.put(BrutalityAttributes.LETHALITY, new AttributeModifier(id, ringCount, AttributeModifier.Operation.ADD_VALUE));
+                builder.put(Attributes.ARMOR, new AttributeModifier(id, ringCount, AttributeModifier.Operation.ADD_VALUE));
 
-            builder.put(BrutalityAttributes.LETHALITY, new AttributeModifier(id, ringCount, AttributeModifier.Operation.ADD_VALUE));
-            builder.put(Attributes.ARMOR, new AttributeModifier(id, ringCount, AttributeModifier.Operation.ADD_VALUE));
-
-            return builder.build();
+                return builder.build();
+            }
         }
         return super.getAttributeModifiers(slotContext, id, stack);
     }

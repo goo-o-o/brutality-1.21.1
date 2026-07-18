@@ -1,9 +1,11 @@
 package com.goo.brutality.client.particle.custom;
 
+import com.goo.brutality.common.items.curio.charm.Wrath;
 import com.goo.brutality.util.ParticleUtil;
 import com.goo.goo_lib.client.particle.FlatParticle;
 import com.goo.goo_lib.client.particle.FlatParticleOption;
 import com.goo.goo_lib.client.registry.GLRenderTypes;
+import com.goo.goo_lib.util.Easing;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -12,19 +14,27 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 
 public class HexingCircleParticle extends FlatParticle {
     private final SpriteSet sprites;
-
-    public HexingCircleParticle(ClientLevel level, double x, double y, double z, float size, float pitch, float yaw, float roll, SpriteSet sprites) {
-        super(level, x, y, z, size, pitch, yaw, roll);
-        this.lifetime = 2000;
+    private final float originalSize;
+    public HexingCircleParticle(ClientLevel level, double x, double y, double z, float radius, float pitch, float yaw, float roll, SpriteSet sprites) {
+        super(level, x, y, z, radius, pitch, yaw, roll);
+        this.lifetime = Wrath.DURATION;
         this.sprites = sprites;
         setParticleSpeed(0, 0, 0);
         setAlpha(1);
+        this.originalSize = quadSize;
+        this.quadSize = this.oQuadSize = 0;
+    }
+
+    @Override
+    public float getQuadSize(float scaleFactor) {
+        return Mth.lerp(scaleFactor, oQuadSize, quadSize);
     }
 
     @Override
@@ -33,6 +43,12 @@ public class HexingCircleParticle extends FlatParticle {
 
         float progress = (float) this.age / (float) this.lifetime;
         float startFadeProgress = 0.8F;
+        float growEndProgress = 0.05F;
+        if (progress < growEndProgress) {
+            float windowProgress = (progress * (1 / growEndProgress));
+            windowProgress = Easing.EASE_OUT_EXPO.ease(windowProgress);
+            this.quadSize = originalSize * windowProgress;
+        }
 
         if (progress > startFadeProgress) {
             float windowProgress = (progress - startFadeProgress) / (1.0F - startFadeProgress);
@@ -68,6 +84,7 @@ public class HexingCircleParticle extends FlatParticle {
     }
 
 
+
     @Override
     public @NotNull ParticleRenderType getRenderType() {
         return GLRenderTypes.PARTICLE_SHEET_TRANSLUCENT_NO_FOG;
@@ -82,7 +99,7 @@ public class HexingCircleParticle extends FlatParticle {
         }
 
         public @Nullable Particle createParticle(FlatParticleOption data, @NotNull ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            return new HexingCircleParticle(level, x, y, z, data.size(), data.rotX(), data.rotY(), data.rotZ(), sprites);
+            return new HexingCircleParticle(level, x, y, z, data.radius(), data.rotX(), data.rotY(), data.rotZ(), sprites);
         }
     }
 }

@@ -19,7 +19,7 @@ public class ItemStackMixin {
 
         if (stack.is(BrutalityTags.Items.RAGE_ITEMS)) {
             Component originalName = cir.getReturnValue();
-            MutableComponent styledName = originalName.copy().withStyle(Styles.RAGE_STYLE);
+            MutableComponent styledName = originalName.copy().withStyle(Styles.Special.RAGE);
             cir.setReturnValue(styledName);
         }
     }

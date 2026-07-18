@@ -53,6 +53,18 @@ public class LivingEvents {
 
 
     @SubscribeEvent
+public static void onLivingKnockback(LivingKnockBackEvent event) {
+        LivingEntity victim = event.getEntity();
+        LivingEntity attacker = victim.getLastHurtByMob();
+
+        if (attacker != null) {
+            BrutalityCurioItem.Hooks.applyOnWearerKnockback(attacker, victim, event);
+        }
+        BrutalityCurioItem.Hooks.applyOnWearerKnockedBack(victim, attacker, event);
+    }
+
+
+    @SubscribeEvent
     public static void onLivingFall(LivingFallEvent event) {
         BrutalityCurioItem.Hooks.applyOnWearerFall(event);
     }

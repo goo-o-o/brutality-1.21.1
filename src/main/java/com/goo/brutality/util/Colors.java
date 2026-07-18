@@ -6,6 +6,18 @@ public class Colors {
     public static int BLACK = new Color(0, 0, 0).getRGB();
     public static int RED = new Color(255, 0, 0).getRGB();
 
+    // godly
+    public static Integer[] GODLY = new Integer[]{
+            new Color(255, 90, 90).getRGB(),
+            new Color(255, 180, 90).getRGB(),
+            new Color(255, 255, 90).getRGB(),
+            new Color(120, 255, 120).getRGB(),
+            new Color(120, 255, 255).getRGB(),
+            new Color(120, 120, 255).getRGB(),
+            new Color(150, 100, 255).getRGB(),
+            new Color(255, 100, 255).getRGB()
+    };
+
     // dimlite
     public static int ELECTRIC_BLUE = new Color(129, 255, 248).getRGB();
     public static int AVERAGE_CYAN = new Color(41, 223, 235).getRGB();

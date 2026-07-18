@@ -17,6 +17,9 @@ import java.util.Set;
 @EventBusSubscriber(modid = Brutality.MOD_ID)
 public class AttributeEvents {
 
+
+
+
     @SubscribeEvent
     public static void addAttributes(EntityAttributeModificationEvent event) {
         Set<Holder<Attribute>> playerAttributes = Set.of(

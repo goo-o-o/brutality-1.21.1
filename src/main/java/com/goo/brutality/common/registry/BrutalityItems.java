@@ -6,15 +6,18 @@ import com.goo.brutality.common.explosion.BloodExplosionDamageCalculator;
 import com.goo.brutality.common.items.BrutalityCurioItem;
 import com.goo.brutality.common.items.BrutalityRageCurioItem;
 import com.goo.brutality.common.items.curio.belt.BloodboilBomb;
+import com.goo.brutality.common.items.curio.belt.GammaSerum;
 import com.goo.brutality.common.items.curio.belt.SurtrsHorn;
 import com.goo.brutality.common.items.curio.charm.*;
 import com.goo.brutality.common.items.curio.feet.FlippersOfIcarus;
 import com.goo.brutality.common.items.curio.hand.BloodPulseKnuckles;
+import com.goo.brutality.common.items.curio.hand.OmegaGauntlet;
 import com.goo.brutality.common.items.curio.head.SwallowedPenny;
 import com.goo.brutality.common.items.curio.heart.HeartOfTheHoarder;
 import com.goo.brutality.common.items.curio.necklace.DemonBeads;
 import com.goo.brutality.common.items.curio.necklace.ToxicosisPendant;
 import com.goo.brutality.common.items.curio.ring.OmnichromeRing;
+import com.goo.brutality.common.items.curio.ring.RingOfDespair;
 import com.goo.brutality.common.items.curio.ring.RingOfRings;
 import com.goo.brutality.common.items.light_greatsword.BladeOfTheRuinedKing;
 import com.goo.brutality.common.items.light_greatsword.PlinkoBlade;
@@ -25,10 +28,9 @@ import com.goo.brutality.util.SideHelper;
 import com.goo.brutality.util.Styles;
 import com.goo.goo_lib.common.attribute.AttributeContainer;
 import com.goo.goo_lib.common.registry.GLAttributes;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -44,8 +46,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.List;
 
 import static com.goo.brutality.util.TooltipUtil.*;
-import static net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL;
-import static net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE;
+import static net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.*;
 
 public class BrutalityItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Brutality.MOD_ID);
@@ -171,8 +172,89 @@ public class BrutalityItems {
             private static void init() {
             }
 
+            public static final Holder<Item> OMEGA_GAUNTLET = ITEMS.register("omega_gauntlet",
+                    () -> new OmegaGauntlet(new Item.Properties()
+                            .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                    ItemDescriptions.builder("omega_gauntlet")
+                                            .add(DescriptionType.ON_HIT, 1,
+                                                    () -> List.of(
+                                                            attribute(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO),
+                                                            percentage(1000),
+                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE)
+                                                    ))
+                                            .build()
+                            )).withAttributes(
+                            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 1.5, ADD_VALUE),
+                            new AttributeContainer(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, 0.05, ADD_VALUE)
+                    )
+            );
+
+
+            public static final Holder<Item> GAMMA_SERUM = ITEMS.register("gamma_serum",
+                    () -> new GammaSerum(new Item.Properties()
+                            .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                    ItemDescriptions.builder("gamma_serum")
+                                            .add(DescriptionType.PASSIVE, 1,
+                                                    () -> List.of(
+                                                            attribute(Attributes.SCALE, 0.5, ADD_MULTIPLIED_TOTAL),
+                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE)
+                                                    ))
+                                            .build()
+                            ))
+            );
+
+            public static final Holder<Item> STRESS_PILLS = ITEMS.register("stress_pills",
+                    () -> new StressPills(new Item.Properties()
+                            .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                    ItemDescriptions.builder("stress_pills")
+                                            .add(DescriptionType.ACTIVE, 1, 40, SideHelper.shieldFromServer(() -> BrutalityKeyMappings.ACTIVE_ABILITY::get),
+                                                    () -> List.of(
+                                                            RAGE, percentage(50), attribute(BrutalityAttributes.MAX_RAGE)
+                                                    ))
+                                            .build()
+                            ))
+            );
+            public static final Holder<Item> SEROTONIN_PILLS = ITEMS.register("serotonin_pills",
+                    () -> new SerotoninPills(new Item.Properties()
+                            .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                    ItemDescriptions.builder("serotonin_pills")
+                                            .add(DescriptionType.ACTIVE, 3, 40, SideHelper.shieldFromServer(() -> BrutalityKeyMappings.ACTIVE_ABILITY::get),
+                                                    () -> List.of(
+                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE),
+                                                            RAGE,
+                                                            effectWithStyle(BrutalityEffects.TRANQUILITY, 5, Styles.Special.VOIDTOUCHED)
+                                                    ))
+                                            .build()
+                            ))
+            );
+
+            public static final Holder<Item> ENDER_DRAGON_STEM_CELLS = ITEMS.register("ender_dragon_stem_cells",
+                    () -> new BrutalityRageCurioItem(new Item.Properties()).withAttributes(
+                            new AttributeContainer(BrutalityAttributes.MAX_RAGE, 75, ADD_VALUE),
+                            new AttributeContainer(BrutalityAttributes.ENRAGED_DURATION, 0.25, ADD_MULTIPLIED_TOTAL),
+                            new AttributeContainer(Attributes.SCALE, 0.5, ADD_MULTIPLIED_TOTAL)
+                    ));
+
             public static final Holder<Item> WRATH = ITEMS.register("wrath",
-                    () -> new Wrath(new Item.Properties()).withAttributes(
+                    () -> new Wrath(new Item.Properties()
+                            .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                    ItemDescriptions.builder("wrath")
+                                            .add(DescriptionType.PASSIVE, 1, () ->
+                                                    List.of(
+                                                            Component.translatable("tooltip." + Brutality.MOD_ID + ".hexing_circle").withStyle(Styles.Special.RAGE),
+                                                            attribute(BrutalityAttributes.MAX_RAGE),
+                                                            attribute(BrutalityAttributes.ENRAGED_LEVEL)
+                                                    )
+                                            )
+                                            .add(DescriptionType.UPON_TRIGGERING_RAGE, 1, () ->
+                                                    List.of(
+                                                            Component.translatable("tooltip." + Brutality.MOD_ID + ".hexing_circle").withStyle(Styles.Special.RAGE),
+                                                            DAMAGE,
+                                                            ENTITIES
+                                                    )
+                                            )
+                                            .build()
+                            )).withAttributes(
                             new AttributeContainer(BrutalityAttributes.MAX_RAGE, 50, ADD_VALUE),
                             new AttributeContainer(BrutalityAttributes.ENRAGED_DURATION, 0.1, ADD_MULTIPLIED_TOTAL),
                             new AttributeContainer(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, 0.1, ADD_MULTIPLIED_TOTAL)
@@ -194,7 +276,7 @@ public class BrutalityItems {
                                                             WEARER,
                                                             FATAL,
                                                             DAMAGE,
-                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.RAGE_STYLE),
+                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE),
                                                             RAGE
                                                     )
                                             )
@@ -239,6 +321,23 @@ public class BrutalityItems {
                     )
             );
 
+
+            public static final Holder<Item> RAGE_STONE = ITEMS.register("rage_stone",
+                    () -> new BrutalityRageCurioItem(new Item.Properties())
+                            .withAttributes(
+                                    new AttributeContainer(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, 0.5, ADD_MULTIPLIED_TOTAL),
+                                    new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.3, ADD_MULTIPLIED_TOTAL)
+                            )
+            );
+
+            public static final Holder<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
+                    () -> new BrutalityRageCurioItem(new Item.Properties())
+                            .withAttributes(
+                                    new AttributeContainer(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, -0.5, ADD_MULTIPLIED_BASE),
+                                    new AttributeContainer(BrutalityAttributes.DAMAGE_TAKEN, -0.25, ADD_VALUE)
+                            )
+            );
+
             public static final Holder<Item> BLOODBOIL_BOMB = ITEMS.register("bloodboil_bomb",
                     () -> new BloodboilBomb(new Item.Properties()
                             .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
@@ -246,13 +345,15 @@ public class BrutalityItems {
                                             .add(DescriptionType.PASSIVE, 2,
                                                     () -> List.of(
                                                             BloodExplosionDamageCalculator.BLOOD_EXPLOSION,
-                                                            RAGE,
-                                                            BloodExplosionDamageCalculator.BLOOD_EXPLOSION,
                                                             attribute(BrutalityAttributes.ENRAGED_LEVEL),
                                                             attribute(BrutalityAttributes.MAX_RAGE),
                                                             BloodExplosionDamageCalculator.BLOOD_EXPLOSION,
                                                             percentage(10),
                                                             DAMAGE
+                                                    ))
+                                            .add(DescriptionType.UPON_TRIGGERING_RAGE, 1,
+                                                    () -> List.of(
+                                                            BloodExplosionDamageCalculator.BLOOD_EXPLOSION
                                                     ))
                                             .build()
                             ))
@@ -268,7 +369,7 @@ public class BrutalityItems {
                                             .add(DescriptionType.ON_HIT, 2,
                                                     () -> List.of(
                                                             BloodExplosionDamageCalculator.BLOOD_EXPLOSION,
-                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.RAGE_STYLE),
+                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE),
                                                             BloodExplosionDamageCalculator.BLOOD_EXPLOSION,
                                                             percentage(10),
                                                             DAMAGE
@@ -289,12 +390,12 @@ public class BrutalityItems {
                                             .add(DescriptionType.LORE, 1)
                                             .add(DescriptionType.PASSIVE, 1,
                                                     () -> List.of(
-                                                            WEARER, DAMAGE, effectWithStyle(BrutalityEffects.ENRAGED, Styles.RAGE_STYLE)
+                                                            WEARER, DAMAGE, effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE)
                                                     ))
                                             .build()
                             )).withAttributes(
-                            new AttributeContainer(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, 2, ADD_MULTIPLIED_TOTAL),
-                            new AttributeContainer(BrutalityAttributes.ENRAGED_DURATION, 2, ADD_MULTIPLIED_TOTAL)
+                            new AttributeContainer(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO, 0.35, ADD_MULTIPLIED_TOTAL),
+                            new AttributeContainer(BrutalityAttributes.ENRAGED_DURATION, 0.15, ADD_MULTIPLIED_TOTAL)
                     )
             );
 
@@ -320,7 +421,7 @@ public class BrutalityItems {
                                                     () -> List.of(
                                                             WEARER,
                                                             ENTITIES,
-                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.RAGE_STYLE)
+                                                            effectWithStyle(BrutalityEffects.ENRAGED, Styles.Special.RAGE)
                                                     ))
                                             .build()
                             ))
@@ -330,10 +431,10 @@ public class BrutalityItems {
                     () -> new DemonBeads(new Item.Properties()
                             .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
                                     ItemDescriptions.builder("demon_beads")
-                                            .add(DescriptionType.PASSIVE, 1,
+                                            .add(DescriptionType.UPON_TRIGGERING_RAGE, 1,
                                                     () -> List.of(
-                                                            effectWithStyle(BrutalityEffects.ASURA_FORM, Styles.RAGE_STYLE),
-                                                            RAGE
+                                                            effectWithStyle(BrutalityEffects.ASURA_FORM, Styles.Special.RAGE),
+                                                            attribute(BrutalityAttributes.ENRAGED_DURATION)
                                                     ))
                                             .build()
                             ))
@@ -342,20 +443,33 @@ public class BrutalityItems {
 
         } // ──────────────────────────────────────────────────────────────────────────
 
+        public static final Holder<Item> XRAY_GOGGLES = ITEMS.register("xray_goggles",
+                () -> new BrutalityCurioItem(new Item.Properties().rarity(BrutalityRarities.ENCRYPTED.getValue())
+                        .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                ItemDescriptions.builder("xray_goggles")
+                                        .add(DescriptionType.PASSIVE, 1,
+                                                () -> List.of(
+                                                        WEARER, ENTITIES
+                                                ))
+                                        .build()
+                        ))
+        );
+
+
         public static final Holder<Item> OMNICHROME_RING = ITEMS.register("omnichrome_ring",
-                () -> new OmnichromeRing(new Item.Properties()
+                () -> new OmnichromeRing(new Item.Properties().rarity(BrutalityRarities.GODLY.getValue())
                         .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
                                 ItemDescriptions.builder("omnichrome_ring")
                                         .add(DescriptionType.PASSIVE, 5,
                                                 () -> List.of(
-                                                        effectWithStyle(MobEffects.FIRE_RESISTANCE, Styles.SMOLDERING_STYLE),
-                                                        effectWithStyle(MobEffects.WATER_BREATHING, Styles.WATER_STYLE),
-                                                        effectWithStyle(MobEffects.DOLPHINS_GRACE, Styles.OCEANIC_STYLE),
-                                                        effectWithStyle(MobEffects.SLOW_FALLING, Styles.GRAY_STYLE),
-                                                        effectWithStyle(MobEffects.POISON, Styles.TOXIC_STYLE),
-                                                        WEARER, entityWithStyle(EntityType.PIGLIN, Styles.LEGENDARY_STYLE),
-                                                        WEARER, entityWithStyle(EntityType.ENDERMAN, Styles.ENDER_STYLE),
-                                                        WEARER, blockWithStyle(Blocks.POWDER_SNOW, Styles.GLACIAL_STYLE)
+                                                        effectWithStyle(MobEffects.FIRE_RESISTANCE, Styles.Elements.FIRE),
+                                                        effectWithStyle(MobEffects.WATER_BREATHING, Styles.Elements.WATER),
+                                                        effectWithStyle(MobEffects.DOLPHINS_GRACE, Styles.Elements.WATER),
+                                                        effectWithStyle(MobEffects.SLOW_FALLING, Styles.Elements.WIND),
+                                                        effectWithStyle(MobEffects.POISON, Styles.PotionEffects.POISON),
+                                                        WEARER, entityWithStyle(EntityType.PIGLIN, Styles.Rarity.LEGENDARY),
+                                                        WEARER, entityWithStyle(EntityType.ENDERMAN, Styles.Special.COSMIC),
+                                                        WEARER, blockWithStyle(Blocks.POWDER_SNOW, Styles.Special.GLACIAL)
                                                 ))
                                         .build()
                         ))
@@ -377,10 +491,16 @@ public class BrutalityItems {
         );
 
         public static final Holder<Item> RING_OF_DESPAIR = ITEMS.register("ring_of_despair",
-                () -> new BrutalityCurioItem(new Item.Properties()
+                () -> new RingOfDespair(new Item.Properties()
                         .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
                                 ItemDescriptions.builder("ring_of_despair")
-                                        .add(DescriptionType.ACTIVE, 1, SideHelper.shieldFromServer(() -> BrutalityKeyMappings.ACTIVE_ABILITY::get))
+                                        .add(DescriptionType.LORE, 1)
+                                        .add(DescriptionType.ACTIVE, 1, 40,
+                                                SideHelper.shieldFromServer(() -> BrutalityKeyMappings.ACTIVE_ABILITY::get),
+                                                () -> List.of(
+                                                        effectWithStyle(BrutalityEffects.DESPAIR, 5, Styles.PotionEffects.WITHER),
+                                                        ENTITIES
+                                                ))
                                         .build()
                         ))
         );
@@ -393,10 +513,10 @@ public class BrutalityItems {
                                         .add(DescriptionType.PASSIVE, 2,
                                                 () -> List.of(
                                                         WEARER,
-                                                        blockWithStyle(Blocks.AIR, Style.EMPTY.withColor(ChatFormatting.GRAY)),
-                                                        blockWithStyle(Blocks.WATER, Styles.WATER_STYLE),
+                                                        blockWithStyle(Blocks.AIR, Styles.Elements.WIND),
+                                                        blockWithStyle(Blocks.WATER, Styles.Elements.WATER),
                                                         WEARER,
-                                                        blockWithStyle(Blocks.FIRE, Styles.SMOLDERING_STYLE)
+                                                        blockWithStyle(Blocks.FIRE, Styles.Elements.FIRE)
                                                 ))
                                         .build()
                         ))
@@ -409,9 +529,9 @@ public class BrutalityItems {
                                 ItemDescriptions.builder("poseidons_blessing")
                                         .add(DescriptionType.PASSIVE, 2,
                                                 () -> List.of(
-                                                        blockWithStyle(Blocks.WATER, Styles.WATER_STYLE),
-                                                        effectWithStyle(MobEffects.WATER_BREATHING, Styles.WATER_STYLE),
-                                                        effectWithStyle(MobEffects.CONDUIT_POWER, Styles.WATER_STYLE)))
+                                                        blockWithStyle(Blocks.WATER, Styles.Elements.WATER),
+                                                        effectWithStyle(MobEffects.WATER_BREATHING, Styles.Elements.WATER),
+                                                        effectWithStyle(MobEffects.CONDUIT_POWER, Styles.Special.CORALINE)))
                                         .build()
                         ))
         );
@@ -422,7 +542,7 @@ public class BrutalityItems {
                                 ItemDescriptions.builder("hydrophobic_nanocoating")
                                         .add(DescriptionType.PASSIVE, 1,
                                                 () -> List.of(
-                                                        blockWithStyle(Blocks.WATER, Styles.WATER_STYLE)))
+                                                        blockWithStyle(Blocks.WATER, Styles.Elements.WATER)))
                                         .build()
                         ))
         );
@@ -434,9 +554,9 @@ public class BrutalityItems {
                                         .add(DescriptionType.PASSIVE, 2,
                                                 () -> List.of(
                                                         WEARER,
-                                                        blockWithStyle(Blocks.LAVA, Styles.SMOLDERING_STYLE),
+                                                        blockWithStyle(Blocks.LAVA, Styles.Elements.FIRE),
                                                         WEARER,
-                                                        blockWithStyle(Blocks.FIRE, Styles.SMOLDERING_STYLE)))
+                                                        blockWithStyle(Blocks.FIRE, Styles.Elements.FIRE)))
                                         .build()
                         ))
         );
@@ -447,17 +567,26 @@ public class BrutalityItems {
                                 ItemDescriptions.builder("surtrs_horn")
                                         .add(DescriptionType.PASSIVE, 5,
                                                 () -> List.of(
-                                                        blockWithStyle(Blocks.LAVA, Styles.SMOLDERING_STYLE),
-                                                        effectWithStyle(MobEffects.FIRE_RESISTANCE, Styles.SMOLDERING_STYLE),
+                                                        blockWithStyle(Blocks.LAVA, Styles.Elements.FIRE),
+                                                        effectWithStyle(MobEffects.FIRE_RESISTANCE, Styles.Elements.FIRE),
                                                         WEARER,
-                                                        blockWithStyle(Blocks.FIRE, Styles.SMOLDERING_STYLE),
+                                                        blockWithStyle(Blocks.FIRE, Styles.Elements.FIRE),
                                                         WEARER,
-                                                        blockWithStyle(Blocks.LAVA, Styles.SMOLDERING_STYLE),
+                                                        blockWithStyle(Blocks.LAVA, Styles.Elements.FIRE),
                                                         WEARER,
-                                                        blockWithStyle(Blocks.FIRE, Styles.SMOLDERING_STYLE)
+                                                        blockWithStyle(Blocks.FIRE, Styles.Elements.FIRE)
                                                 ))
                                         .build()
                         ))
+        );
+
+        public static final Holder<Item> PORTABLE_FIRE_EXTINGUISHER = ITEMS.register("portable_fire_extinguisher",
+                () -> new BrutalityCurioItem(new Item.Properties().rarity(BrutalityRarities.SMOLDERING.getValue())
+                        .component(BrutalityDataComponents.ITEM_DESCRIPTIONS,
+                                ItemDescriptions.builder("portable_fire_extinguisher")
+                                        .add(DescriptionType.LORE, 1).build()
+                        ))
+                        .withAttributes(new AttributeContainer(Attributes.BURNING_TIME, -0.5, ADD_MULTIPLIED_TOTAL))
         );
 
 
@@ -503,7 +632,7 @@ public class BrutalityItems {
                                             .add(DescriptionType.PASSIVE, 3,
                                                     () -> List.of(
                                                             BladeOfTheRuinedKing.MIST_WRAITH,
-                                                            effectWithStyle(BrutalityEffects.RUINED, Styles.OCEANIC_STYLE),
+                                                            effectWithStyle(BrutalityEffects.RUINED, Styles.BasicColors.CYAN),
                                                             USER,
                                                             BladeOfTheRuinedKing.MIST_WRAITH,
                                                             BladeOfTheRuinedKing.MIST_WRAITH,
@@ -516,8 +645,8 @@ public class BrutalityItems {
                                                             percentage(10),
                                                             VICTIM,
                                                             CURRENT_HEALTH,
-                                                            effectWithStyle(MobEffects.MOVEMENT_SLOWDOWN, Styles.GRAY_STYLE),
-                                                            effectWithStyle(MobEffects.MOVEMENT_SPEED, Styles.OCEANIC_STYLE)
+                                                            effectWithStyle(MobEffects.MOVEMENT_SLOWDOWN, Styles.BasicColors.LIGHT_GRAY),
+                                                            effectWithStyle(MobEffects.MOVEMENT_SPEED, Styles.PotionEffects.SWIFTNESS)
                                                     )
                                             )
                                             .build()

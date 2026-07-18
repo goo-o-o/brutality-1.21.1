@@ -2,6 +2,7 @@ package com.goo.brutality.common.registry;
 
 
 import com.goo.brutality.common.Brutality;
+import com.goo.brutality.common.entities.CylinderCollider;
 import com.goo.brutality.common.entities.MistWraith;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
@@ -18,5 +19,13 @@ public class BrutalityEntities {
                     .sized(0.25F, 0.25F)
                     .fireImmune()
                     .build("mist_wraith")
+    );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CylinderCollider>> CYLINDER_COLLIDER = ENTITY_TYPES.register("cylinder_collider",
+            () -> EntityType.Builder.<CylinderCollider>of(CylinderCollider::new, MobCategory.MISC)
+                    .sized(0, 0)
+                    .fireImmune()
+                    .noSummon()
+                    .build("cylinder_collider")
     );
 }

@@ -1,6 +1,8 @@
 package com.goo.brutality.util;
 
+import com.goo.brutality.common.registry.BrutalityAttributes;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -12,7 +14,7 @@ public class CurioUtil {
      * Checks if the given living entity is wearing any of the specified curios.
      *
      * @param livingEntity the entity to check for equipped curios
-     * @param curios an array of items representing the curios to check
+     * @param curios       an array of items representing the curios to check
      * @return true if the entity is wearing any of the specified curios, false otherwise
      */
     public static boolean isWearingCurio(LivingEntity livingEntity, Item... curios) {
@@ -46,7 +48,7 @@ public class CurioUtil {
      * Checks if the specified living entity is wearing a curio that matches the given filter.
      *
      * @param livingEntity the living entity whose curio inventory is being checked
-     * @param filter a predicate to test each curio item against, returning true for a match
+     * @param filter       a predicate to test each curio item against, returning true for a match
      * @return true if the living entity is wearing a curio that matches the filter, false otherwise
      */
     public static boolean isWearingCurio(LivingEntity livingEntity, Predicate<ItemStack> filter) {
@@ -54,4 +56,29 @@ public class CurioUtil {
         ).orElse(false);
     }
 
+
+    /**
+     * Automatically validates and applies a cooldown with {@link BrutalityAttributes#COIN_COOLDOWN} calculations
+     *
+     * @param player
+     * @param item
+     * @param cooldownTicks
+     * @param runnable
+     */
+    public static void validateCurioCooldown(Player player, Item item, int cooldownTicks, Runnable runnable) {
+        CuriosApi.getCuriosInventory(player).ifPresent(handler -> {
+            if (handler.isEquipped(item)) {
+                validateCooldown(player, item, (int) (cooldownTicks * player.getAttributeValue(BrutalityAttributes.COIN_COOLDOWN)), runnable);
+            }
+        });
+    }
+
+    public static void validateCooldown(Player player, Item item, int cooldownTicks, Runnable runnable) {
+        if (!player.getCooldowns().isOnCooldown(item)) {
+            runnable.run();
+            if (cooldownTicks > 0) {
+                player.getCooldowns().addCooldown(item, cooldownTicks);
+            }
+        }
+    }
 }

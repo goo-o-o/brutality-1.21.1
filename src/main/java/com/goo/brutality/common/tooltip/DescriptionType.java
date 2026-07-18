@@ -29,12 +29,13 @@ public enum DescriptionType implements StringRepresentable {
     DASH_ABILITY,
     ON_SUCCESSFUL_DODGE,
     MANA_COST,
+    UPON_TRIGGERING_RAGE,
     ON_HEADS,
     ON_TAILS;
 
     private final String serializedName;
 
-    private DescriptionType() {
+    DescriptionType() {
         this.serializedName = this.name().toLowerCase(Locale.ROOT);
     }
 

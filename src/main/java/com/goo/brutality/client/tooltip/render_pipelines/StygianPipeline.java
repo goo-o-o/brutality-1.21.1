@@ -33,7 +33,7 @@ public class StygianPipeline extends TooltipRenderPipeline {
     protected void renderOverlayPass() {
         int iterations = BrutalityClientConfig.CONFIG.STYGIAN_ITERATIONS.getAsInt();
         if (iterations > 0) {
-            ShaderInstance shader = BrutalityRenderTypes.InternalShaders.getRenderTypeStygianShader();
+            ShaderInstance shader = BrutalityRenderTypes.InternalShaders.STYGIAN.getInstance();
             if (shader != null) {
                 shader.safeGetUniform("Iterations").set(iterations);
                 shader.safeGetUniform("Brightness").set(((float) BrutalityClientConfig.CONFIG.STYGIAN_BRIGHTNESS.getAsDouble()));

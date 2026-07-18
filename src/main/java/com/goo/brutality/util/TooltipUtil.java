@@ -4,7 +4,6 @@ package com.goo.brutality.util;
 import com.goo.brutality.common.Brutality;
 import com.goo.goo_lib.client.text.effect.ShakeEffect;
 import com.goo.goo_lib.client.text.effect.base.ConfiguredEffect;
-import com.goo.goo_lib.client.text.effect.config.ShakeConfig;
 import com.goo.goo_lib.common.registry.TextEffects;
 import com.goo.goo_lib.util.StyleEffectUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -24,6 +23,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.NeoForgeConfig;
@@ -39,35 +39,43 @@ import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMA
 
 public class TooltipUtil {
 
-
-    private static final Supplier<ConfiguredEffect<ShakeConfig>> ATTACKER_SHAKE = () -> new ConfiguredEffect<>(
-            TextEffects.SHAKE_TYPE.get(),
-            new ShakeEffect(),
-            new ShakeConfig(0.25F, 1F));
     public static final MutableComponent USER = Component.translatable("tooltip." + Brutality.MOD_ID + ".user").withColor(Colors.SPRING_BUD);
     public static final MutableComponent WEARER = Component.translatable("tooltip." + Brutality.MOD_ID + ".wearer").withColor(Colors.SPRING_BUD);
     public static final MutableComponent ENTITIES = Component.translatable("tooltip." + Brutality.MOD_ID + ".entities").withColor(Colors.SPRING_BUD);
-    public static final MutableComponent ATTACKER = Component.translatable("tooltip." + Brutality.MOD_ID + ".attacker").withStyle(
-            StyleEffectUtil.createStyleWithEffects(Style.EMPTY.withBold(true), List.of(ATTACKER_SHAKE.get(), Styles.RAGE_GRADIENT.get())));
-    public static final MutableComponent VICTIM = Component.translatable("tooltip." + Brutality.MOD_ID + ".victim").withStyle(Styles.GRAY_STYLE);
+    public static final MutableComponent ATTACKER = Component.translatable("tooltip." + Brutality.MOD_ID + ".attacker").withStyle(Styles.Elements.FIRE);
+    public static final MutableComponent VICTIM = Component.translatable("tooltip." + Brutality.MOD_ID + ".victim").withStyle(Styles.BasicColors.LIGHT_GRAY);
+    public static final MutableComponent ON_HIT = Component.translatable("tooltip." + Brutality.MOD_ID + ".on_hit").withStyle(Styles.BasicColors.YELLOW);
     public static final MutableComponent CURRENT_HEALTH = Component.translatable("tooltip." + Brutality.MOD_ID + ".current_health").withStyle(ChatFormatting.RED);
-    public static final MutableComponent BONUS = Component.translatable("tooltip." + Brutality.MOD_ID + ".bonus").withStyle(Styles.LEGENDARY_STYLE.withBold(true));
-    public static final MutableComponent FATAL = Component.translatable("tooltip." + Brutality.MOD_ID + ".fatal").withStyle(Styles.RAGE_STYLE);
+    public static final MutableComponent BONUS = Component.translatable("tooltip." + Brutality.MOD_ID + ".bonus").withStyle(Styles.Rarity.LEGENDARY.withBold(true));
+    public static final MutableComponent FATAL = Component.translatable("tooltip." + Brutality.MOD_ID + ".fatal").withStyle(Styles.Special.RAGE);
     public static final MutableComponent DAMAGE = Component.translatable("tooltip." + Brutality.MOD_ID + ".damage").withColor(Colors.ORANGE);
     public static final MutableComponent HEAL = Component.translatable("tooltip." + Brutality.MOD_ID + ".heal").withColor(Colors.ERIN);
-    public static final MutableComponent RAGE = Component.translatable("tooltip." + Brutality.MOD_ID + ".rage").withStyle(Styles.RAGE_STYLE);
-    public static final MutableComponent DEBUFF = Component.translatable("tooltip." + Brutality.MOD_ID + ".debuff").withStyle(Styles.VITALITY_STYLE);
-    public static final MutableComponent BUFF = Component.translatable("tooltip." + Brutality.MOD_ID + ".buff").withStyle(Styles.TOXIC_STYLE);
+    public static final MutableComponent RAGE = Component.translatable("tooltip." + Brutality.MOD_ID + ".rage").withStyle(Styles.Special.RAGE);
+    public static final MutableComponent DEBUFF = Component.translatable("tooltip." + Brutality.MOD_ID + ".debuff").withStyle(Styles.BasicColors.GRAY);
+    public static final MutableComponent BUFF = Component.translatable("tooltip." + Brutality.MOD_ID + ".buff").withStyle(Styles.BasicColors.PURPLE);
+
+    public static Component item(Holder<Item> item) {
+        return item.value().getDescription();
+    }
+
+    public static MutableComponent itemWithStyle(Holder<Item> item, Style style) {
+        return item(item).copy().withStyle(style);
+    }
 
     public static MutableComponent entityWithStyle(EntityType<?> entityType, Style style) {
         return entityType.getDescription().copy().withStyle(style);
     }
+
     public static MutableComponent blockWithStyle(Block block, Style style) {
         return block.getName().withStyle(style);
     }
 
     public static MutableComponent effectWithStyle(Holder<MobEffect> effect, Style style) {
         return effect.value().getDisplayName().copy().withStyle(style);
+    }
+
+    public static MutableComponent effectWithStyle(Holder<MobEffect> effect, int amplifier, Style style) {
+        return effect.value().getDisplayName().copy().append(" " + convertToRoman(amplifier).toUpperCase(Locale.ROOT)).withStyle(style);
     }
 
     public static MutableComponent attribute(Holder<Attribute> attribute) {
@@ -105,6 +113,8 @@ public class TooltipUtil {
     }
 
     public static MutableComponent percentage(float percent) {
+
+
         // clamp percent between 0 and 100 to prevent color bleeding
         float clamped = Math.clamp(percent, 0, 100);
         int color;
@@ -120,9 +130,18 @@ public class TooltipUtil {
         }
 
         String value = percent % 1 == 0 ? String.valueOf((int) percent) : String.valueOf(percent);
+        Style style;
+        if (percent > 100) {
+            Supplier<ConfiguredEffect<ShakeEffect.Config>> SHAKE_SHR = () -> new ConfiguredEffect<>(
+                    TextEffects.SHAKE_TYPE.get(), new ShakeEffect(), ShakeEffect.Config.builder().speed(percent * 0.01F - 1).intensity(0.5F ).build()
+            );
+            style = StyleEffectUtil.createStyleWithEffects(Style.EMPTY.withBold(true).withColor(color), List.of(SHAKE_SHR.get()));
 
-        // apply the dynamically calculated color directly to this component
-        return Component.literal(value + "%").withStyle(Style.EMPTY.withColor(color).withBold(true));
+        } else {
+            style = Style.EMPTY.withBold(true).withColor(color);
+        }
+
+        return Component.literal(value + "%").withStyle(style);
     }
 
     /**
@@ -170,6 +189,50 @@ public class TooltipUtil {
 
         // Handle case where duration is completely zero (PT0S)
         return joiner.length() > 0 ? joiner.toString() : "0 second";
+    }
+
+    public static String convertToRoman(int number) {
+        if (number <= 0) return String.valueOf(number);
+
+        StringBuilder fullRoman = new StringBuilder();
+        int level = 0;
+
+        // deconstruct the number from right to left (ones, then tens, then hundreds...)
+        while (number > 0) {
+            int digit = number % 10;
+
+            // prepend the new characters to the front of the string
+            fullRoman.insert(0, formatRomanDigit(level, digit));
+
+            number /= 10;
+            level++;
+        }
+
+        return fullRoman.toString();
+    }
+
+    private static final char[][] romanChars = new char[][]{{'i', 'v'}, {'x', 'l'}, {'c', 'd'}, {'m', '?'}};
+
+    private static String formatRomanDigit(int level, int digit) {
+        StringBuilder result = new StringBuilder();
+        if (digit == 9) {
+            result.append(romanChars[level][0]);
+            result.append(romanChars[level + 1][0]);
+            return result.toString();
+        } else if (digit == 4) {
+            result.append(romanChars[level][0]);
+            result.append(romanChars[level][1]);
+            return result.toString();
+        } else {
+            if (digit >= 5) {
+                result.append(romanChars[level][1]);
+                digit -= 5;
+            }
+
+            result.repeat(String.valueOf(romanChars[level][0]), Math.max(0, digit));
+
+            return result.toString();
+        }
     }
 
     /**

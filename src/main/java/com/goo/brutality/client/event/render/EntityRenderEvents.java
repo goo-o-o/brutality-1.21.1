@@ -1,7 +1,8 @@
 package com.goo.brutality.client.event.render;
 
-import com.goo.brutality.client.render.layer.entity.MobEffectLayer;
+import com.goo.brutality.client.render.layer.entity.PotionEffectLayer;
 import com.goo.brutality.client.render.layer.entity.MonocleOfBrutalityLayer;
+import com.goo.brutality.client.render.layer.entity.XRayGogglesLayer;
 import com.goo.brutality.common.Brutality;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -37,6 +38,7 @@ public class EntityRenderEvents {
     private static <T extends LivingEntity, M extends EntityModel<T>> void addRenderLayers(LivingEntityRenderer<?, ?> renderer) {
         LivingEntityRenderer<T, M> castedRenderer = (LivingEntityRenderer<T, M>) renderer;
         castedRenderer.addLayer(new MonocleOfBrutalityLayer<>(castedRenderer));
-        castedRenderer.addLayer(new MobEffectLayer<>(castedRenderer));
+        castedRenderer.addLayer(new XRayGogglesLayer<>(castedRenderer));
+        castedRenderer.addLayer(new PotionEffectLayer<>(castedRenderer));
     }
 }
