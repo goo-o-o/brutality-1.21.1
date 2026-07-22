@@ -1,9 +1,14 @@
 package com.goo.brutality.util;
 
+import net.minecraft.util.FastColor;
+
 import java.awt.*;
 
 public class Colors {
+    public static final int DIVINE_IMMORTALS_RING_RED = FastColor.ARGB32.color(35, 6, 0);
     public static int BLACK = new Color(0, 0, 0).getRGB();
+    public static int WHITE = new Color(255,255,255).getRGB();
+    public static int TRANSPARENT = new Color(0, 0, 0,0).getRGB();
     public static int RED = new Color(255, 0, 0).getRGB();
 
     // godly
@@ -29,6 +34,13 @@ public class Colors {
     public static int DAINTREE = new Color(5, 42, 50).getRGB();
     public static int BUNKER = new Color(13, 18, 23).getRGB();
 
+    // hellspec
+    public static int INFERNO = new Color(255, 78, 53).getRGB();   // #ff4e35
+    public static int BRIGHT_RED = new Color(255, 25, 0).getRGB();    // #ff1900
+    public static int ARABIC_RED = new Color(162, 18, 0).getRGB();    // #a21200
+    public static int BARN_RED = new Color(119, 9, 0).getRGB();     // #770900
+    public static int EXTREME_MAROON = new Color(56, 6, 0).getRGB();      // #380600
+    public static int DIESEL = new Color(17, 1, 0).getRGB();      // #110100
 
     // colors for encrypted
     public static int SPRING_BUD = new Color(169, 255, 0).getRGB();

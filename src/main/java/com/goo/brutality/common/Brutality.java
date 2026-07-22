@@ -1,8 +1,7 @@
 package com.goo.brutality.common;
 
-import com.goo.brutality.client.BrutalityClientConfig;
 import com.goo.brutality.client.registry.BrutalityParticles;
-import com.goo.brutality.common.items.BrutalityCurioItem;
+import com.goo.brutality.common.item.BrutalityCurioItem;
 import com.goo.brutality.common.registry.*;
 import com.goo.goo_lib.common.DynamicAttributeAPI;
 import com.mojang.logging.LogUtils;
@@ -26,6 +25,7 @@ public class Brutality {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Brutality(IEventBus modEventBus, ModContainer modContainer) {
+        BrutalityMenus.MENUS.register(modEventBus);
         BrutalityAttributes.ATTRIBUTES.register(modEventBus);
         BrutalityParticles.PARTICLE_TYPES.register(modEventBus);
         BrutalitySounds.SOUND_EVENTS.register(modEventBus);
@@ -43,7 +43,6 @@ public class Brutality {
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::onCommonSetup);
         modContainer.registerConfig(ModConfig.Type.SERVER, BrutalityServerConfig.SPEC);
-        modContainer.registerConfig(ModConfig.Type.CLIENT, BrutalityClientConfig.SPEC);
     }
 
     public void onCommonSetup(FMLCommonSetupEvent event) {

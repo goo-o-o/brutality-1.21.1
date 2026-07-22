@@ -2,18 +2,16 @@ package com.goo.brutality.common.event;
 
 import com.goo.brutality.common.Brutality;
 import com.goo.brutality.common.BrutalityServerConfig;
-import com.goo.brutality.common.items.BrutalityCurioItem;
-import com.goo.brutality.common.items.curio.charm.GrudgeTotem;
+import com.goo.brutality.common.item.BrutalityCurioItem;
+import com.goo.brutality.common.item.curio.charm.GrudgeTotem;
 import com.goo.brutality.common.rage.RageHandler;
-import com.goo.brutality.common.registry.BrutalityAttachments;
-import com.goo.brutality.common.registry.BrutalityDamageTypes;
-import com.goo.brutality.common.registry.BrutalityEffects;
-import com.goo.brutality.common.registry.BrutalityTags;
+import com.goo.brutality.common.registry.*;
 import com.goo.goo_lib.common.event.custom.FluidCollisionEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -24,6 +22,11 @@ import net.neoforged.neoforge.event.entity.living.*;
  */
 @EventBusSubscriber(modid = Brutality.MOD_ID)
 public class LivingEvents {
+
+    @SubscribeEvent
+    public static void onLivingVisibility(LivingEvent.LivingVisibilityEvent event) {
+        event.modifyVisibility(event.getEntity().getAttributeValue(BrutalityAttributes.VISIBILITY));
+    }
 
     @SubscribeEvent
     public static void onLivingSwapItems(LivingSwapItemsEvent.Hands event) {
@@ -115,6 +118,16 @@ public static void onLivingKnockback(LivingKnockBackEvent event) {
         LivingEntity victim = event.getEntity();
         DamageSource damageSource = event.getSource();
 
+        AttributeInstance damageTakenAttribute = victim.getAttribute(BrutalityAttributes.DAMAGE_TAKEN);
+        if (damageTakenAttribute != null) {
+            damageTakenAttribute.getModifiers().forEach(modifier -> {
+                switch (modifier.operation()) {
+                    case ADD_VALUE -> event.setNewDamage((float) (event.getNewDamage() + modifier.amount()));
+                    case ADD_MULTIPLIED_BASE -> event.setNewDamage((float) (event.getOriginalDamage() * (1 + modifier.amount())));
+                    case ADD_MULTIPLIED_TOTAL -> event.setNewDamage((float) (event.getNewDamage() * (1 + modifier.amount())));
+                }
+            });
+        }
 
         if (damageSource.getEntity() instanceof LivingEntity attacker) {
             if (damageSource.is(DamageTypes.PLAYER_ATTACK) || damageSource.is(DamageTypes.MOB_ATTACK) || damageSource.is(DamageTypes.MOB_ATTACK_NO_AGGRO)) {
@@ -132,5 +145,6 @@ public static void onLivingKnockback(LivingKnockBackEvent event) {
                 event.setNewDamage(0);
             }
         }
+
     }
 }

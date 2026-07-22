@@ -16,6 +16,12 @@ public class BrutalitySounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> ASURA_FORM = SOUND_EVENTS.register(
             "asura_form", () -> SoundEvent.createVariableRangeEvent(Brutality.loc("asura_form"))
     );
+    public static final DeferredHolder<SoundEvent, SoundEvent> PORTAL_OPEN = SOUND_EVENTS.register(
+            "portal_open", () -> SoundEvent.createVariableRangeEvent(Brutality.loc("portal_open"))
+    );
+    public static final DeferredHolder<SoundEvent, SoundEvent> PORTAL_CLOSE = SOUND_EVENTS.register(
+            "portal_close", () -> SoundEvent.createVariableRangeEvent(Brutality.loc("portal_close"))
+    );
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOOD_SPLATTER = SOUND_EVENTS.register(
             "blood_splatter", () -> SoundEvent.createVariableRangeEvent(Brutality.loc("blood_splatter"))
     );

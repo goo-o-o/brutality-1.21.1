@@ -45,6 +45,8 @@ public class ParticleEvents {
 
         event.registerSpriteSet(BrutalityParticles.MATH.get(), sprites ->
                 new CompositeParticle.Provider(sprites, CompositeParticlePresets.POTION_EFFECT_RANDOM_SPRITE));
+        event.registerSpriteSet(BrutalityParticles.DIVISION.get(), sprites ->
+                new CompositeParticle.Provider(sprites, CompositeParticlePresets.POTION_EFFECT_RANDOM_SPRITE));
         event.registerSpriteSet(BrutalityParticles.OMEGA.get(), sprites ->
                 new CompositeParticle.Provider(sprites, (p, level, xs, ys, zs) -> {
                     CompositeParticlePresets.POTION_EFFECT_AGEABLE_SPRITE.configure(p, level, xs, ys, zs);

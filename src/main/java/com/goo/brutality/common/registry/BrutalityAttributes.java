@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.neoforge.common.PercentageAttribute;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class BrutalityAttributes {
@@ -159,17 +160,24 @@ public class BrutalityAttributes {
                     .setSyncable(true));
 
     /**
-     * Percentage reduction in detection radius for hostile mobs.
+     * Entity visibility percentage from hostile mobs.
      */
-    public static final Holder<Attribute> STEALTH = ATTRIBUTES.register("stealth", () ->
-            new PercentageAttribute(prepend("stealth"), 0, 0, 1)
+    public static final Holder<Attribute> VISIBILITY = ATTRIBUTES.register("visibility", () ->
+            new PercentageAttribute(prepend("visibility"), 1, 0, 1)
                     .setSyncable(true));
+
+    /**
+     * Raw multiplier for damage taken. The actual value of the attribute doesn't matter, it only separately calculates the different modifier types. Calculation can be seen in {@link  com.goo.brutality.common.event.LivingEvents#onLivingHurtPre(LivingDamageEvent.Pre)}
+     */
+    public static final Holder<Attribute> DAMAGE_TAKEN = ATTRIBUTES.register("damage_taken", () ->
+            new RangedAttribute(prepend("damage_taken"), 1, 0, 16384F)
+                    .setSyncable(true).setSentiment(Attribute.Sentiment.NEGATIVE));
 
     /**
      * Raw multiplier for damage taken.
      */
-    public static final Holder<Attribute> DAMAGE_TAKEN = ATTRIBUTES.register("damage_taken", () ->
-            new PercentageAttribute(prepend("damage_taken"), 1, 0, 16384F)
+    public static final Holder<Attribute> DESPAIR_EFFECTIVENESS = ATTRIBUTES.register("despair_effectiveness", () ->
+            new PercentageAttribute(prepend("despair_effectiveness"), 1, 0, 16384F)
                     .setSyncable(true).setSentiment(Attribute.Sentiment.NEGATIVE));
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

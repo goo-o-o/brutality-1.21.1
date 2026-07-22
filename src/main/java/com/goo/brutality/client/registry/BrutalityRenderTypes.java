@@ -5,6 +5,8 @@ import com.goo.goo_lib.mixin.CompositeRenderTypeAccessor;
 import com.goo.goo_lib.mixin.CompositeStateAccessor;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
@@ -155,6 +157,24 @@ public class BrutalityRenderTypes {
         );
     }
 
+    public static RenderType getNebulaRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
+        return RenderType.create(Brutality.MOD_ID + ":nebula_" + depthTestStateShard,
+                DefaultVertexFormat.POSITION_TEX_COLOR,
+                VertexFormat.Mode.QUADS,
+                512, false, true,
+                RenderType.CompositeState.builder()
+                        .setShaderState(new RenderStateShard.ShaderStateShard(InternalShaders.NEBULA::getInstance))
+                        .setDepthTestState(depthTestStateShard)
+                        .setTextureState(
+                                RenderStateShard.MultiTextureStateShard.builder()
+                                        .add(Brutality.loc("textures/entity/cthonian_void.png"), false, false)
+                                        .add(Brutality.loc("textures/entity/cthonian_void.png"), false, false)
+                                        .build()
+                        )
+                        .createCompositeState(true)
+        );
+    }
+
     public static RenderType getFireRenderType(RenderStateShard.DepthTestStateShard depthTestStateShard) {
         return RenderType.create(Brutality.MOD_ID + ":fire_" + depthTestStateShard,
                 DefaultVertexFormat.POSITION_TEX_COLOR,
@@ -207,6 +227,13 @@ public class BrutalityRenderTypes {
                 instance.safeGetUniform("GuiScale").set((float) Minecraft.getInstance().getWindow().getGuiScale());
             }
         }),
+        NEBULA(DefaultVertexFormat.POSITION_TEX_COLOR, instance -> {
+            // updates gui scale dynamically on access
+            if (instance != null) {
+                instance.safeGetUniform("GuiScale").set((float) Minecraft.getInstance().getWindow().getGuiScale());
+            }
+        }),
+
         ENCRYPTED(DefaultVertexFormat.POSITION_TEX_COLOR),
         ENCRYPTED_TEXTURE(DefaultVertexFormat.POSITION_TEX_COLOR),
         SMOKE(DefaultVertexFormat.POSITION_TEX_COLOR),
@@ -217,8 +244,11 @@ public class BrutalityRenderTypes {
         BOX_SHADOW(DefaultVertexFormat.POSITION_TEX_COLOR),
         STARS(DefaultVertexFormat.POSITION_TEX_COLOR);
 
+
+        @Getter
         private final VertexFormat format;
         private final Consumer<ShaderInstance> onGetCallback;
+        @Setter
         private ShaderInstance instance;
 
         InternalShaders(VertexFormat format) {
@@ -231,18 +261,11 @@ public class BrutalityRenderTypes {
             this.onGetCallback = onGetCallback;
         }
 
-        public VertexFormat getFormat() {
-            return this.format;
-        }
-
         @Nullable
         public ShaderInstance getInstance() {
             this.onGetCallback.accept(this.instance);
             return this.instance;
         }
 
-        public void setInstance(ShaderInstance instance) {
-            this.instance = instance;
-        }
     }
 }

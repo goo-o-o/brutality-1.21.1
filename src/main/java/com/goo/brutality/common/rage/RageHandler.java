@@ -1,17 +1,21 @@
 package com.goo.brutality.common.rage;
 
 import com.goo.brutality.client.BrutalityClientConfig;
-import com.goo.brutality.client.registry.BrutalityKeyMappings;
+import com.goo.brutality.client.registry.BrutalityKeyNames;
 import com.goo.brutality.common.BrutalityServerConfig;
-import com.goo.brutality.common.items.BrutalityRageCurioItem;
+import com.goo.brutality.common.item.BrutalityRageCurioItem;
 import com.goo.brutality.common.networking.serverbound.TriggerRagePayload;
 import com.goo.brutality.common.registry.*;
+import com.goo.brutality.util.CurioUtil;
+import com.goo.brutality.util.EntityUtil;
 import com.goo.goo_lib.util.Easing;
 import com.goo.goo_lib.util.screenshake.ScreenShakeUtil;
 import com.goo.goo_lib.util.screenshake.ShakeInstance;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Targeting;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -50,6 +54,39 @@ public class RageHandler {
     }
 
     /**
+     * Rage decay mechanic
+     */
+    public static void tickDown(Player player) {
+        if (player.tickCount % 20 == 0 && !player.level().isClientSide()) {
+            if (!CurioUtil.isWearingCurio(player, BrutalityItems.Curio.Rage.HEART_OF_DARKNESS.value())) {
+                int ticksSinceLastHurt = player.tickCount - player.getLastHurtByMobTimestamp();
+                int ticksSinceLastAttack = player.tickCount - player.getLastHurtMobTimestamp();
+
+                boolean isOutOfCombat = (ticksSinceLastHurt < 0 || ticksSinceLastHurt > 100) && (ticksSinceLastAttack < 0 || ticksSinceLastAttack > 100);
+
+                if (isOutOfCombat) {
+                    List<LivingEntity> nearbyMobs = player.level().getNearbyEntities(
+                            LivingEntity.class,
+                            TargetingConditions.forCombat()
+                                    .range(20)
+                                    .selector(e -> !EntityUtil.isAlly(player, e) && (e instanceof Targeting targeting && targeting.getTarget() == player)),
+                            player,
+                            player.getBoundingBox().inflate(20)
+                    );
+                    isOutOfCombat = nearbyMobs.isEmpty();
+                }
+
+                if (isOutOfCombat && player.hasData(BrutalityAttachments.RAGE)) {
+                    float rage = player.getData(BrutalityAttachments.RAGE);
+                    if (rage > 0) {
+                        player.setData(BrutalityAttachments.RAGE, rage - 1);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Processes damage taken by a player and applies rage gain mechanics
      * if the required conditions are met, such as specific equipment or effects.
      */
@@ -67,13 +104,9 @@ public class RageHandler {
             container.multiplyRage((float) player.getAttributeValue(BrutalityAttributes.DAMAGE_TO_RAGE_RATIO));
             container.multiplyRage(BrutalityServerConfig.CONFIG.RAGE_GAIN_MULTIPLIER.get().floatValue());
 
-            boolean wearingAngerManagement = false;
             for (SlotResult rageSlot : rageSlots) {
                 ItemStack stack = rageSlot.stack();
                 BrutalityRageCurioItem rageCurioItem = ((BrutalityRageCurioItem) stack.getItem());
-                if (stack.is(BrutalityItems.Curio.Rage.ANGER_MANAGEMENT.value())) {
-                    wearingAngerManagement = true;
-                }
                 rageCurioItem.onPreGainRage(livingEntity, stack, container);
             }
 
@@ -86,14 +119,13 @@ public class RageHandler {
                 }
             }
 
-            if (!wearingAngerManagement)
-                tryTriggerRage(player, false);
+
         });
     }
 
 
     /**
-     * Called whenever the {@link BrutalityKeyMappings#ACTIVATE_RAGE} keybind is pressed.
+     * Called whenever the {@link BrutalityKeyNames.Mappings#TRIGGER_RAGE} keybind is pressed.
      */
     public static void onPressRageKeymapping() {
         // handle logic on server to prevent cheating
@@ -103,11 +135,13 @@ public class RageHandler {
     /**
      * Tries to trigger Rage after validating certain conditions
      */
-    public static void tryTriggerRage(Player player, boolean hasAngerManagement) {
-        if (getCurrentRagePercentage(player) >= 1 || (hasAngerManagement && player.getData(BrutalityAttachments.RAGE) >= 100)) {
-            actuallyTriggerRage(player);
+    public static void tryTriggerRage(Player player) {
+        if (getCurrentRagePercentage(player) >= 1) {
+            if (CurioUtil.isWearingCurio(player, stack -> stack.is(BrutalityTags.Items.RAGE_ITEMS)))
+                actuallyTriggerRage(player);
         }
     }
+
 
     /**
      * @return The amount of rage actually awarded
@@ -157,6 +191,8 @@ public class RageHandler {
                 ScreenShakeUtil.addShake(ShakeInstance.builder()
                         .identifier("rage")
                         .durationTicks(enragedInstance.getDuration())
+                        .fadeInTicks((int) (enragedInstance.getDuration() * 0.1F))
+                        .fadeOutTicks((int) (enragedInstance.getDuration() * 0.1F))
                         .fadeInCurve(Easing.EASE_IN_SINE)
                         .fadeOutCurve(Easing.EASE_IN_SINE)
                         .speed((float) ((enragedInstance.getAmplifier() + 1) * 0.5F * intensity))

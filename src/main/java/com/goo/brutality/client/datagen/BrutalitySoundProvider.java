@@ -25,6 +25,8 @@ public class BrutalitySoundProvider extends SoundDefinitionsProvider {
     @Override
     public void registerSounds() {
 
+        sound(BrutalitySounds.PORTAL_OPEN);
+        sound(BrutalitySounds.PORTAL_CLOSE);
         sound(BrutalitySounds.ASURA_FORM);
         sound(BrutalitySounds.BLOOD_SPLATTER);
         BrutalitySounds.PUNCH_SOUNDS.forEach(this::sound);

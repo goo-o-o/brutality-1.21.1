@@ -9,6 +9,7 @@ import java.util.Locale;
  * Enum for {@link ItemDescriptions} for convenient and automated descriptions
  */
 public enum DescriptionType implements StringRepresentable {
+    MULTIPLAYER_ONLY,
     ACTIVE,
     PASSIVE,
     FULL_SET_PASSIVE,

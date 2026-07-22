@@ -33,6 +33,7 @@ public class TooltipRenderPipelineRegistry {
 
     static {
         register(stack -> stack.is(BrutalityTags.Items.RAGE_ITEMS), RagePipeline::new);
+        register(stack -> stack.is(BrutalityTags.Items.MATH_ITEMS), MathPipeline::new);
         register(stack -> stack.getRarity() == BrutalityRarities.ENCRYPTED.getValue(), EncryptedPipeline::new);
         register(stack -> stack.getRarity() == BrutalityRarities.CORALINE.getValue(), CoralinePipeline::new);
         register(stack -> stack.getRarity() == BrutalityRarities.SMOLDERING.getValue(), SmolderingPipeline::new);

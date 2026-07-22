@@ -39,6 +39,7 @@ public class BrutalityTags {
         public static final TagKey<Item> ANKLET = ItemTags.create(ResourceLocation.fromNamespaceAndPath(CuriosApi.MODID, "anklet"));
         public static final TagKey<Item> HEART = ItemTags.create(ResourceLocation.fromNamespaceAndPath(CuriosApi.MODID, "heart"));
         public static final TagKey<Item> FEET = ItemTags.create(ResourceLocation.fromNamespaceAndPath(CuriosApi.MODID, "feet"));
+        public static final TagKey<Item> FUNCTION = ItemTags.create(ResourceLocation.fromNamespaceAndPath(CuriosApi.MODID, "function"));
 
         // ─────────────────────────────────────────────────────────────────────────────
 

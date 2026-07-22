@@ -1,5 +1,6 @@
 package com.goo.brutality.common.mob_effect;
 
+import com.goo.brutality.common.registry.BrutalityAttributes;
 import com.goo.brutality.common.registry.BrutalityEffects;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -32,14 +33,17 @@ public class DespairEffect extends MobEffect {
 
     public static void modifyDarkness(LivingEntity entity, CallbackInfoReturnable<Float> cir) {
         if (entity.hasEffect(BrutalityEffects.DESPAIR)) {
+            double effectiveness = entity.getAttributeValue(BrutalityAttributes.DESPAIR_EFFECTIVENESS);
+
             MobEffectInstance effectInstance = entity.getEffect(BrutalityEffects.DESPAIR);
             assert effectInstance != null;
 
             int effectLevel = effectInstance.getAmplifier() + 1;
 
             float originalDarknessFactor = cir.getReturnValue();
+            float finalFactor = (float) (originalDarknessFactor + (effectLevel * 0.1F * effectiveness));
 
-            float modifiedDarkness = Math.min(1.0F, originalDarknessFactor + (effectLevel * 0.1F)); // 20% per level
+            float modifiedDarkness = Math.min(1.0F, finalFactor);
 
             cir.setReturnValue(modifiedDarkness);
         }

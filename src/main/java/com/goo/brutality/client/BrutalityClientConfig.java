@@ -1,6 +1,6 @@
 package com.goo.brutality.client;
 
-import com.goo.brutality.client.gui.RageMeterOverlay;
+import com.goo.brutality.client.render.gui.RageMeterOverlay;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -27,6 +27,9 @@ public class BrutalityClientConfig {
     public final ModConfigSpec.DoubleValue CORALINE_TALL_CHANCE;
     public final ModConfigSpec.DoubleValue CORALINE_BUBBLE_SIZE_MULTIPLIER;
     public final ModConfigSpec.DoubleValue CORALINE_BUBBLE_SPEED_MULTIPLIER;
+
+    public final ModConfigSpec.DoubleValue MATH_BLACKBOARD_OBJECT_AMOUNT_MULTIPLIER;
+
 
     public final ModConfigSpec.IntValue SMOLDERING_EMBER_AMOUNT;
     public final ModConfigSpec.DoubleValue SMOLDERING_SMOKE_INTENSITY;
@@ -58,6 +61,7 @@ public class BrutalityClientConfig {
     public final ModConfigSpec.DoubleValue ENRAGED_SCREEN_SHAKE_INTENSITY;
 
     private BrutalityClientConfig(ModConfigSpec.Builder builder) {
+
         builder.push("rage");
 
         RAGE_METER_POSITION = builder
@@ -68,7 +72,7 @@ public class BrutalityClientConfig {
                 .defineEnum("rage_meter_style", RageMeterOverlay.Style.CLASSIC);
         ENRAGED_SCREEN_SHAKE_INTENSITY = builder
                 .comment("Intensity of Screen Shake when Enraged")
-                .defineInRange("enraged_screen_shake_intensity", 1, 0D, 100D);
+                .defineInRange("enraged_screen_shake_intensity", 0.75, 0D, 100D);
 
         builder.pop();
 
@@ -79,6 +83,14 @@ public class BrutalityClientConfig {
         RENDER_CUSTOM_TOOLTIPS = builder
                 .comment("Should custom tooltips be rendered?")
                 .define("render_custom_tooltips", true);
+
+        builder.push("math");
+
+        MATH_BLACKBOARD_OBJECT_AMOUNT_MULTIPLIER = builder
+                .comment("Multiplier on how many total blackboard objects are generated in total")
+                .defineInRange("blackboard_object_amount_multiplier", 1.0D, 0.0, 100.0D);
+
+        builder.pop();
 
         builder.push("encrypted"); // ─────────────────────────────────────────────────────────────────────────────
 
@@ -99,6 +111,7 @@ public class BrutalityClientConfig {
                 .defineInRange("encrypted_object_padding", 10, 0, 100);
 
         builder.pop();
+
 
         builder.push("coraline"); // ─────────────────────────────────────────────────────────────────────────────
 
@@ -172,7 +185,7 @@ public class BrutalityClientConfig {
 
         STYGIAN_BRIGHTNESS = builder
                 .comment("How bright is the Shader")
-                .defineInRange("stygian_brightness", 5, 0D, 10);
+                .defineInRange("stygian_brightness", 2.5D, 0D, 10);
 
         STYGIAN_SOUL_SPAWN_INTERVAL = builder
                 .comment("Stygian soul particle spawn interval in ms")

@@ -2,8 +2,8 @@ package com.goo.brutality.common.registry;
 
 
 import com.goo.brutality.common.Brutality;
-import com.goo.brutality.common.entities.CylinderCollider;
-import com.goo.brutality.common.entities.MistWraith;
+import com.goo.brutality.common.entity.CylinderCollider;
+import com.goo.brutality.common.entity.MistWraith;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;

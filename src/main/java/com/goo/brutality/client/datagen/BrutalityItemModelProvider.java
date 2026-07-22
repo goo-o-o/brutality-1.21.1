@@ -67,7 +67,14 @@ public class BrutalityItemModelProvider extends ItemModelProvider {
                     }
                 });
 
+        curio(BrutalityItems.Curio.Math.COSINE.value(), 1, false);
+        curio(BrutalityItems.Curio.Math.SINE.value(), 1, false);
+
         curio(BrutalityItems.Curio.Rage.DEMON_BEADS.value(), 1, false);
+        curio(BrutalityItems.Curio.Rage.RAMPAGE_CLOCK.value(), 1, false);
+        curio(BrutalityItems.Curio.BLOOD_STONE.value(), 2, false);
+        curio(BrutalityItems.Curio.Rage.BOILING_BLOOD.value(), 2, false);
+        curio(BrutalityItems.Curio.Rage.HEART_OF_DARKNESS.value(), 2, false);
         curio(BrutalityItems.Curio.Rage.WIRELESS_CONTROLLER.value(), 2, false);
     }
 

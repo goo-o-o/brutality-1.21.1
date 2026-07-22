@@ -35,6 +35,7 @@ public class AttributeEvents {
                 BrutalityAttributes.CELESTIA_SCHOOL_LEVEL, BrutalityAttributes.UMBRANCY_SCHOOL_LEVEL, BrutalityAttributes.EXODIC_SCHOOL_LEVEL,
                 BrutalityAttributes.BRIMWIELDER_SCHOOL_LEVEL, BrutalityAttributes.VOIDWALKER_SCHOOL_LEVEL,
 
+                BrutalityAttributes.DESPAIR_EFFECTIVENESS,
                 BrutalityAttributes.COIN_COOLDOWN
         );
 
@@ -46,7 +47,7 @@ public class AttributeEvents {
 
                 BrutalityAttributes.LETHALITY, BrutalityAttributes.ARMOR_PENETRATION,
 
-                BrutalityAttributes.STEALTH, BrutalityAttributes.DAMAGE_TAKEN,
+                BrutalityAttributes.VISIBILITY, BrutalityAttributes.DAMAGE_TAKEN,
 
                 BrutalityAttributes.GASTRONOMY_DAMAGE_DEALT, BrutalityAttributes.GASTRONOMY_WET_DEBUFF_DAMAGE_TAKEN,
                 BrutalityAttributes.GASTRONOMY_DRY_DEBUFF_DAMAGE_TAKEN, BrutalityAttributes.GASTRONOMY_DEBUFF_LEVEL_MODIFIER,

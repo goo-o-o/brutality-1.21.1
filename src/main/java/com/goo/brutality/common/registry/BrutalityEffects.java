@@ -56,7 +56,7 @@ public class BrutalityEffects {
                     livingEntity.removeEffect(BrutalityEffects.ENRAGED);
                 }
             }.addAttributeModifier(
-                    BrutalityAttributes.STEALTH,
+                    BrutalityAttributes.VISIBILITY,
                     Brutality.loc("effect.tranquility.stealth"),
                     AttributeModifier.Operation.ADD_VALUE,
                     amp -> 0.05 * amp

@@ -22,7 +22,7 @@ public class BrutalityDataComponents {
                     .networkSynchronized(ItemDescriptions.STREAM_CODEC) // Attach server-client sync
                     .build());
 
-    public static final Supplier<DataComponentType<Float>> RAGE =
+    public static final Supplier<DataComponentType<Float>> RAGE = // for grudge totem mainly
             DATA_COMPONENT_TYPES.register("rage", () -> DataComponentType.<Float>builder()
                     .persistent(Codec.FLOAT)
                     .networkSynchronized(ByteBufCodecs.FLOAT)

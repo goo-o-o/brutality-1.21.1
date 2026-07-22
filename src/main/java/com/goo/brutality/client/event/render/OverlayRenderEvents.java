@@ -1,6 +1,7 @@
 package com.goo.brutality.client.event.render;
 
-import com.goo.brutality.client.gui.RageMeterOverlay;
+import com.goo.brutality.client.render.gui.DivineImmortalsRingOverlay;
+import com.goo.brutality.client.render.gui.RageMeterOverlay;
 import com.goo.brutality.common.Brutality;
 import com.goo.brutality.common.registry.BrutalityItems;
 import com.goo.brutality.util.CurioUtil;
@@ -24,5 +25,8 @@ public class OverlayRenderEvents {
     @SubscribeEvent
     public static void registerOverlays(RegisterGuiLayersEvent event) {
         event.registerAboveAll(Brutality.loc("rage_meter"), new RageMeterOverlay());
+        event.registerAboveAll(Brutality.loc("divine_immortals_ring"), new DivineImmortalsRingOverlay());
     }
+
+
 }

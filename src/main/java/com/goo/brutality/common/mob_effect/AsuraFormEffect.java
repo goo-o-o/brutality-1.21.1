@@ -19,7 +19,7 @@ public class AsuraFormEffect extends ExpirableEffect {
                 BrutalityAttributes.DAMAGE_TAKEN,
                 Brutality.loc("effect.asura_form.damage_taken"),
                 2,
-                AttributeModifier.Operation.ADD_VALUE
+                AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
         );
         addAttributeModifier(
                 Attributes.ATTACK_DAMAGE,
@@ -88,7 +88,7 @@ public class AsuraFormEffect extends ExpirableEffect {
                 AttributeModifier.Operation.ADD_VALUE
         );
         addAttributeModifier(
-                BrutalityAttributes.STEALTH,
+                BrutalityAttributes.VISIBILITY,
                 Brutality.loc("effect.asura_form.stealth"),
                 -1,
                 AttributeModifier.Operation.ADD_VALUE

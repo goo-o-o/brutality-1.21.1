@@ -2,12 +2,14 @@ package com.goo.brutality.common.event;
 
 import com.goo.brutality.client.registry.BrutalityParticles;
 import com.goo.brutality.common.Brutality;
+import com.goo.brutality.common.rage.RageHandler;
 import com.goo.brutality.common.registry.BrutalityEffects;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 /**
  * Encompasses all Tick Events that are ran on both sides
@@ -49,5 +51,12 @@ public class CommonTickEvents {
                 );
             }
         }
+
+
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(PlayerTickEvent.Post event) {
+        RageHandler.tickDown(event.getEntity());
     }
 }

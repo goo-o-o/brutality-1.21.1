@@ -2,7 +2,8 @@ package com.goo.brutality.client.datagen;
 
 
 import com.goo.brutality.common.Brutality;
-import com.goo.brutality.common.items.BrutalityRageCurioItem;
+import com.goo.brutality.common.item.BrutalityFunctionCurioItem;
+import com.goo.brutality.common.item.BrutalityRageCurioItem;
 import com.goo.brutality.common.registry.BrutalityItems;
 import com.goo.brutality.common.registry.BrutalityTags;
 import net.minecraft.core.HolderLookup;
@@ -29,9 +30,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         addCurioTags();
         addAugmentTags();
-        addMathTags();
         addMagicTags();
-        addRageTags();
         addGastronomistTags();
 
 //        this.tag(ItemTags.CANDLES).add(BrutalityBlocks.MANA_CANDLE.asItem());
@@ -39,6 +38,24 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
         tag(BrutalityTags.Items.TWO_HANDED)
                 .add(BrutalityItems.Weapon.LightGreatsword.PLINKO_BLADE.value())
                 .add(BrutalityItems.Weapon.LightGreatsword.BLADE_OF_THE_RUINED_KING.value());
+
+
+
+        IntrinsicTagAppender<Item> rage = tag(BrutalityTags.Items.RAGE_ITEMS);
+        IntrinsicTagAppender<Item> function = tag(BrutalityTags.Items.FUNCTION);
+
+        for (ResourceLocation key : BuiltInRegistries.ITEM.keySet()) {
+            if (key.getNamespace().equals(Brutality.MOD_ID)) {
+                Item item = BuiltInRegistries.ITEM.get(key);
+                if (item instanceof BrutalityRageCurioItem) {
+                    rage.add(item);
+                } else if (item instanceof BrutalityFunctionCurioItem) {
+                    function.add(item);
+                }
+            }
+        }
+
+        this.tag(BrutalityTags.Items.MATH_ITEMS).addTag(BrutalityTags.Items.FUNCTION).add(BrutalityItems.Curio.Math.SCIENTIFIC_CALCULATOR.value());
     }
 
     private void addAnkletTags() {
@@ -129,21 +146,25 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
 //                BrutalityItems.INERTIA_BOOSTER,
 //                BrutalityItems.PETROLEUM_JELLY,
 //                BrutalityItems.ZEPHYR_IN_A_BOTTLE,
-//                BrutalityItems.BLOOD_STONE,
+                BrutalityItems.Curio.HALF_EMPTY_GLASS.value(),
+                BrutalityItems.Curio.HALF_FULL_GLASS.value(),
+                BrutalityItems.Curio.BLOOD_STONE.value(),
+                BrutalityItems.Curio.FIERY_FLUID.value(),
+                BrutalityItems.Curio.MOLTEN_MACRONUTRIENTS.value(),
                 BrutalityItems.Curio.Rage.RAGE_STONE.value(),
 //                BrutalityItems.RAGE_BAIT,
-//                BrutalityItems.PAIN_CATALYST,
+                BrutalityItems.Curio.Rage.PAIN_ENZYME.value(),
                 BrutalityItems.Curio.Rage.GRUDGE_TOTEM.value(),
-//                BrutalityItems.RAMPAGE_CLOCK,
-//                BrutalityItems.SPITE_SHARD,
+                BrutalityItems.Curio.Rage.SPITE_SHARD.value(),
                 BrutalityItems.Curio.Rage.MECHANICAL_AORTA.value(),
 //                BrutalityItems.HATE_SIGIL,
-//                BrutalityItems.FURY_BATTERY,
+                BrutalityItems.Curio.Rage.FURY_BATTERY.value(),
+                BrutalityItems.Curio.Rage.BOILING_BLOOD.value(),
+                BrutalityItems.Curio.Rage.INFERNAL_BLOOD.value(),
                 BrutalityItems.Curio.Rage.WRATH.value(),
                 BrutalityItems.Curio.Rage.STRESS_PILLS.value(),
                 BrutalityItems.Curio.Rage.SEROTONIN_PILLS.value(),
                 BrutalityItems.Curio.Rage.ENDER_DRAGON_STEM_CELLS.value(),
-//                BrutalityItems.BOILING_BLOOD,
                 BrutalityItems.Curio.Rage.PACK_OF_CIGARETTES.value(),
                 BrutalityItems.Curio.Coin.MIRRORED_MINT.value(),
                 BrutalityItems.Curio.Coin.REVERSE_COIN.value(),
@@ -245,6 +266,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
 //                BrutalityItems.SCIENTIFIC_CALCULATOR,
 //                BrutalityItems.BRUTESKIN_BELT,
 //                BrutalityItems.MINIATURE_ANCHOR,
+                BrutalityItems.Curio.Rage.RAMPAGE_CLOCK.value(),
                 BrutalityItems.Curio.Coin.OVERDRAW_POUCH.value(),
                 BrutalityItems.Curio.Coin.THE_GLUTTONS_PURSE.value(),
                 BrutalityItems.Curio.SURTRS_HORN.value(),
@@ -260,6 +282,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
     private void addHandTags() {
         this.tag(CuriosTags.HANDS).add(
 //                BrutalityGastronomyItems.GOLDEN_DELIGHT,
+                BrutalityItems.Curio.Math.SCIENTIFIC_CALCULATOR.value(),
                 BrutalityItems.Curio.Coin.HAND_OF_MIDAS.value(),
                 BrutalityItems.Curio.Coin.GLOVE_OF_GREED.value(),
 //                BrutalityItems.NANOMACHINES,
@@ -299,6 +322,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
         this.tag(CuriosTags.HEAD).add(
 //                BrutalityItems.MAGICIANS_TOP_HAT,
 //                BrutalityItems.HEAD_CUSHION,
+                BrutalityItems.Curio.BLOOD_PACT.value(),
                 BrutalityItems.Curio.XRAY_GOGGLES.value(),
                 BrutalityItems.Curio.Coin.SWALLOWED_PENNY.value(),
                 BrutalityItems.Curio.LAVA_LENSES.value(),
@@ -336,7 +360,8 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
 //                BrutalityItems.OVERCLOCKED_CORE,
 //                BrutalityItems.DRAGONHEART,
 //                BrutalityItems.UVOGRE_HEART,
-                BrutalityItems.Curio.Coin.HEART_OF_THE_HOARDER.value()
+                BrutalityItems.Curio.Coin.HEART_OF_THE_HOARDER.value(),
+                BrutalityItems.Curio.Rage.HEART_OF_DARKNESS.value()
 //                BrutalityItems.ZOMBIE_HEART,
 //                BrutalityItems.FROZEN_HEART,
 //                BrutalityItems.SECOND_HEART,
@@ -362,7 +387,9 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
 //                BrutalityItems.BLACK_MATTER_NECKLACE,
 //                BrutalityItems.FUZZY_DICE,
 //                BrutalityGastronomyItems.CARAMEL_CRUNCH_MEDALLION,
+                BrutalityItems.Curio.ANTI_CHEAT.value(),
                 BrutalityItems.Curio.Rage.TOXICOSIS_PENDANT.value(),
+                BrutalityItems.Curio.Rage.HATE_SIGIL.value(),
                 BrutalityItems.Curio.Rage.DEMON_BEADS.value()
         );
     }
@@ -370,6 +397,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
     private void addRingTags() {
         this.tag(CuriosTags.RING).add(
                 BrutalityItems.Curio.Rage.FURY_BAND.value(),
+                BrutalityItems.Curio.DIVINE_IMMORTALS_RING.value(),
 //                BrutalityItems.MICROBLADE_BAND,
 //                BrutalityItems.RING_OF_MANA,
 //                BrutalityItems.RING_OF_MANA_PLUS,
@@ -405,18 +433,6 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
         );
     }
 
-    private void addRageTags() {
-        IntrinsicTagAppender<Item> tagBuilder = tag(BrutalityTags.Items.RAGE_ITEMS);
-
-        for (ResourceLocation key : BuiltInRegistries.ITEM.keySet()) {
-            if (key.getNamespace().equals(Brutality.MOD_ID)) {
-                Item item = BuiltInRegistries.ITEM.get(key);
-                if (item instanceof BrutalityRageCurioItem) {
-                    tagBuilder.add(item);
-                }
-            }
-        }
-    }
 
     private void addGastronomistTags() {
         this.tag(BrutalityTags.Items.GASTRONOMIST_ITEMS);
@@ -490,21 +506,7 @@ public class BrutalityItemTagProvider extends ItemTagsProvider {
         addFeetTags();
     }
 
-    private void addMathTags() {
-        this.tag(BrutalityTags.Items.MATH_ITEMS);
-//                .add(
-//                BrutalityItems.PI,
-//                BrutalityItems.EULERS_NUMBER,
-//                BrutalityItems.ADDITION_CHARM,
-//                BrutalityItems.SUBTRACTION,
-//                BrutalityItems.FRACTION,
-//                BrutalityItems.CEIL,
-//                BrutalityItems.FLOOR,
-//                BrutalityItems.DIVISION,
-//                BrutalityItems.SUM,
-//                BrutalityItems.SINE,
-//                BrutalityItems.COSINE);
-    }
+
 
     private void addAugmentTags() {
         this.tag(BrutalityTags.Items.AUGMENTS).addTag(BrutalityTags.Items.MAGIC_AUGMENTS).addTag(BrutalityTags.Items.AUGMENTATION_DEVICE).addTag(BrutalityTags.Items.SEALS);

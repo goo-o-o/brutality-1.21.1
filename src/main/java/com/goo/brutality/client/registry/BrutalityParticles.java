@@ -65,6 +65,9 @@ public class BrutalityParticles {
     public static final Supplier<SimpleParticleType> MATH = PARTICLE_TYPES.register(
             "math", () -> new SimpleParticleType(false)
     );
+    public static final Supplier<SimpleParticleType> DIVISION = PARTICLE_TYPES.register(
+            "division", () -> new SimpleParticleType(false)
+    );
     public static final Supplier<SimpleParticleType> OMEGA = PARTICLE_TYPES.register(
             "omega", () -> new SimpleParticleType(false)
     );

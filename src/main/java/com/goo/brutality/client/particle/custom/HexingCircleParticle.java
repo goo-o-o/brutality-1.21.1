@@ -1,6 +1,6 @@
 package com.goo.brutality.client.particle.custom;
 
-import com.goo.brutality.common.items.curio.charm.Wrath;
+import com.goo.brutality.common.item.curio.charm.Wrath;
 import com.goo.brutality.util.ParticleUtil;
 import com.goo.goo_lib.client.particle.FlatParticle;
 import com.goo.goo_lib.client.particle.FlatParticleOption;

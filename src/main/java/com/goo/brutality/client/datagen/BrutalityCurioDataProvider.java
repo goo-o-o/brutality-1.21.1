@@ -34,11 +34,17 @@ public class BrutalityCurioDataProvider extends CuriosDataProvider {
                 .icon(Brutality.loc("slot/empty_feet_slot"))
                 .order(510);
 
+        createSlot(BrutalityTags.Items.FUNCTION.location().getPath())
+                .size(0)
+                .icon(Brutality.loc("slot/empty_function_slot"))
+                .order(510);
+
         createEntities("player")
                 .addPlayer()
                 .addSlots(
                         BrutalityTags.Items.HEART.location().getPath(),
                         BrutalityTags.Items.ANKLET.location().getPath(),
+                        BrutalityTags.Items.FUNCTION.location().getPath(),
                         BrutalityTags.Items.FEET.location().getPath()
                 );
     }

@@ -6,11 +6,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.Targeting;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.UUID;
 
 public class EntityUtil {
@@ -102,5 +104,17 @@ public class EntityUtil {
 
         // Combine the block's base Y coordinate with its precise collision surface offset
         return mutableBlockPos.getY() + maxHeight;
+    }
+
+
+    public static List<LivingEntity> getFoes(LivingEntity entity, float radius) {
+        return entity.level().getNearbyEntities(
+                LivingEntity.class,
+                TargetingConditions.forCombat()
+                        .range(radius)
+                        .selector(e -> !EntityUtil.isAlly(entity, e)),
+                entity,
+                entity.getBoundingBox().inflate(radius)
+        );
     }
 }

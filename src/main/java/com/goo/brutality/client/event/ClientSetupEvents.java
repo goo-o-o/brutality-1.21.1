@@ -1,7 +1,10 @@
 package com.goo.brutality.client.event;
 
+import com.goo.brutality.client.registry.BrutalityKeyNames;
+import com.goo.brutality.client.render.gui.screen.DivineImmortalsRingScreen;
 import com.goo.brutality.common.Brutality;
 import com.goo.brutality.common.registry.BrutalityItems;
+import com.goo.brutality.common.registry.BrutalityMenus;
 import com.goo.brutality.util.Colors;
 import com.goo.goo_lib.client.render.OutlineColorRegistry;
 import com.goo.goo_lib.client.render.model.InflatedBakedModel;
@@ -17,11 +20,24 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = Brutality.MOD_ID, value = Dist.CLIENT)
 public class ClientSetupEvents {
 
+    @SubscribeEvent
+    public static void registerBindings(RegisterKeyMappingsEvent event) {
+        event.register(BrutalityKeyNames.Mappings.TRIGGER_RAGE.get());
+        event.register(BrutalityKeyNames.Mappings.OPEN_DIVINE_IMMORTALS_RING.get());
+        event.register(BrutalityKeyNames.Mappings.ACTIVE_ABILITY.get());
+    }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(BrutalityMenus.DIVINE_IMMORTALS_RING_MENU.get(), DivineImmortalsRingScreen::new);
+    }
     @SubscribeEvent
     public static void onModelBaking(ModelEvent.ModifyBakingResult event) {
 

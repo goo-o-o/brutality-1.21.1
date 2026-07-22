@@ -39,13 +39,17 @@ import static net.neoforged.neoforge.common.extensions.IAttributeExtension.FORMA
 
 public class TooltipUtil {
 
+    public static final MutableComponent ITEMS = Component.translatable("stat.itemsButton").withStyle(Styles.BasicColors.LIGHT_BLUE);
     public static final MutableComponent USER = Component.translatable("tooltip." + Brutality.MOD_ID + ".user").withColor(Colors.SPRING_BUD);
     public static final MutableComponent WEARER = Component.translatable("tooltip." + Brutality.MOD_ID + ".wearer").withColor(Colors.SPRING_BUD);
     public static final MutableComponent ENTITIES = Component.translatable("tooltip." + Brutality.MOD_ID + ".entities").withColor(Colors.SPRING_BUD);
+    public static final MutableComponent FOES = Component.translatable("tooltip." + Brutality.MOD_ID + ".foes").withColor(Colors.DEEP_CARMINE_PINK);
+    public static final MutableComponent FOE = Component.translatable("tooltip." + Brutality.MOD_ID + ".foe").withColor(Colors.DEEP_CARMINE_PINK);
     public static final MutableComponent ATTACKER = Component.translatable("tooltip." + Brutality.MOD_ID + ".attacker").withStyle(Styles.Elements.FIRE);
     public static final MutableComponent VICTIM = Component.translatable("tooltip." + Brutality.MOD_ID + ".victim").withStyle(Styles.BasicColors.LIGHT_GRAY);
     public static final MutableComponent ON_HIT = Component.translatable("tooltip." + Brutality.MOD_ID + ".on_hit").withStyle(Styles.BasicColors.YELLOW);
     public static final MutableComponent CURRENT_HEALTH = Component.translatable("tooltip." + Brutality.MOD_ID + ".current_health").withStyle(ChatFormatting.RED);
+    public static final MutableComponent HEALTH = Component.translatable("tooltip." + Brutality.MOD_ID + ".health").withStyle(ChatFormatting.RED);
     public static final MutableComponent BONUS = Component.translatable("tooltip." + Brutality.MOD_ID + ".bonus").withStyle(Styles.Rarity.LEGENDARY.withBold(true));
     public static final MutableComponent FATAL = Component.translatable("tooltip." + Brutality.MOD_ID + ".fatal").withStyle(Styles.Special.RAGE);
     public static final MutableComponent DAMAGE = Component.translatable("tooltip." + Brutality.MOD_ID + ".damage").withColor(Colors.ORANGE);
@@ -133,7 +137,7 @@ public class TooltipUtil {
         Style style;
         if (percent > 100) {
             Supplier<ConfiguredEffect<ShakeEffect.Config>> SHAKE_SHR = () -> new ConfiguredEffect<>(
-                    TextEffects.SHAKE_TYPE.get(), new ShakeEffect(), ShakeEffect.Config.builder().speed(percent * 0.01F - 1).intensity(0.5F ).build()
+                    TextEffects.SHAKE_TYPE.get(), new ShakeEffect(), ShakeEffect.Config.builder().speed(percent * 0.01F - 1).intensity(0.5F).build()
             );
             style = StyleEffectUtil.createStyleWithEffects(Style.EMPTY.withBold(true).withColor(color), List.of(SHAKE_SHR.get()));
 
