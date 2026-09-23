@@ -14,6 +14,11 @@ tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
+tasks.named('processResources', ProcessResources) {
+    // Retain manually defined assets/resources over generated ones
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
 version = mod_version
 group = mod_group_id
 
@@ -27,7 +32,28 @@ sourceSets.main.resources {
 }
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    maven { url "https://maven.shedaniel.me/" }
+    maven {
+        name = "RedlanceMinecraft"
+        url = "https://repo.redlance.org/public"
+    }
+    maven {
+        url "https://cursemaven.com"
+    }
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroup("software.bernie.geckolib")
+        }
+    }
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    mavenCentral()
+    maven { url 'https://api.modrinth.com/maven' }
+
 }
 
 base {
@@ -35,7 +61,13 @@ base {
 }
 
 // Mojang ships Java 21 to end users in 1.21.1, so mods should target Java 21.
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+//java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+// for hotswap
+java.toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+    // Optional: Specify JetBrains if you want Gradle to strictly hunt for the JBR vendor
+    vendor = JvmVendorSpec.matching("JetBrains")
+}
 
 neoForge {
     // Specify the version of NeoForge to use.
@@ -54,9 +86,16 @@ neoForge {
     runs {
         client {
             client()
-
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+
+            programArguments.addAll '--username', 'Dev1'
+        }
+
+        client2 {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+
+            programArguments.addAll '--username', 'Dev2'
         }
 
         server {
@@ -118,27 +157,31 @@ configurations {
 }
 
 dependencies {
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
+    compileOnly 'org.projectlombok:lombok:1.18.46'
+    annotationProcessor 'org.projectlombok:lombok:1.18.46'
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+    // depedencies
+    implementation 'maven.modrinth:better-combat:2.4.0+1.21.1-neoforge'
+    api "me.shedaniel.cloth:cloth-config-neoforge:15.0.130"
+//    implementation "com.zigythebird.playeranim:PlayerAnimationLibNeo:$pal_version"
+    implementation "maven.modrinth:gedNE4y2:HJZB6bmA"
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    // Compile against only the API artifact
+    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    // Use the full Curios API jar at runtime
+    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
+    // test mods
+    implementation "curse.maven:just-enough-resources-jer-240630:6506298"
+    implementation "curse.maven:jei-238222:8407142"
+    implementation "curse.maven:just-enough-effect-descriptions-jeed-532286:7346553"
+    implementation "curse.maven:sodium-394468:8382328"
+    implementation "curse.maven:mmmmmmmmmmmm-225738:7943676"
+    implementation "curse.maven:selene-499980:8156754"
+//    implementation "curse.maven:hicudan-1479686:7865828"
+    implementation "curse.maven:citadel-331936:8458935"
 
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
-
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    implementation files("libs/goo_lib-0.1.5.jar")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -188,5 +231,16 @@ idea {
     module {
         downloadSources = true
         downloadJavadoc = true
+    }
+}
+
+configurations.configureEach {
+    resolutionStrategy {
+        // Force the project to use the versions NeoForge/Minecraft strictly expects
+        force 'com.google.code.gson:gson:2.10.1'
+        force 'org.slf4j:slf4j-api:2.0.9'
+        force 'it.unimi.dsi:fastutil:8.5.12'
+        force 'io.netty:netty-buffer:4.1.97.Final'
+        force 'io.netty:netty-common:4.1.97.Final'
     }
 }

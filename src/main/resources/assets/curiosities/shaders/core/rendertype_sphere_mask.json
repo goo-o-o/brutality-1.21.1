@@ -1,0 +1,18 @@
+{
+  "blend": {
+    "func": "separate",
+    "srcrgb": "srcalpha",
+    "dstrgb": "one_minus_srcalpha",
+    "srcalpha": "one",
+    "dstalpha": "zero"
+  },
+  "vertex": "curiosities:rendertype_sphere_mask",
+  "fragment": "curiosities:rendertype_sphere_mask",
+  "attributes": [ "Position", "Color", "Normal" ],
+  "samplers": [],
+  "uniforms": [
+    { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1] },
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1] },
+    { "name": "NormalMat", "type": "matrix3x3", "count": 9, "values": [1,0,0, 0,1,0, 0,0,1] }
+  ]
+}

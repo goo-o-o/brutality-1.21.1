@@ -1,0 +1,11 @@
+{
+  "type": "curiosities:add_item",
+  "chance": 0.5,
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/igloo_chest"
+    }
+  ],
+  "item": "curiosities:cloak_of_true_ice"
+}

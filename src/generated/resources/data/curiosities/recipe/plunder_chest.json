@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "pattern": [
+    " G ",
+    "HCH",
+    " M "
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:plunder_chest"
+  }
+}

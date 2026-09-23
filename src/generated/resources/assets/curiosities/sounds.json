@@ -1,0 +1,98 @@
+{
+  "boing": {
+    "sounds": [
+      "curiosities:boing_1",
+      "curiosities:boing_2",
+      "curiosities:boing_3",
+      "curiosities:boing_4"
+    ],
+    "subtitle": "subtitles.curiosities.boing"
+  },
+  "double_jump": {
+    "sounds": [
+      "curiosities:double_jump"
+    ],
+    "subtitle": "subtitles.curiosities.double_jump"
+  },
+  "emergency_meeting": {
+    "sounds": [
+      "curiosities:emergency_meeting"
+    ],
+    "subtitle": "subtitles.curiosities.emergency_meeting"
+  },
+  "goopy_slime": {
+    "sounds": [
+      "curiosities:goopy_slime_1",
+      "curiosities:goopy_slime_2",
+      "curiosities:goopy_slime_3"
+    ],
+    "subtitle": "subtitles.curiosities.goopy_slime"
+  },
+  "ground_smash": {
+    "sounds": [
+      "curiosities:ground_smash_1",
+      "curiosities:ground_smash_2"
+    ],
+    "subtitle": "subtitles.curiosities.ground_smash"
+  },
+  "ground_smash_loud": {
+    "sounds": [
+      "curiosities:ground_smash_loud"
+    ],
+    "subtitle": "subtitles.curiosities.ground_smash_loud"
+  },
+  "heavy_stomp": {
+    "sounds": [
+      "curiosities:heavy_stomp"
+    ],
+    "subtitle": "subtitles.curiosities.heavy_stomp"
+  },
+  "ice_freeze": {
+    "sounds": [
+      "curiosities:ice_freeze_1",
+      "curiosities:ice_freeze_2",
+      "curiosities:ice_freeze_3"
+    ],
+    "subtitle": "subtitles.curiosities.ice_freeze"
+  },
+  "light_switch": {
+    "sounds": [
+      "curiosities:light_switch"
+    ],
+    "subtitle": "subtitles.curiosities.light_switch"
+  },
+  "omega_gauntlet_impact": {
+    "sounds": [
+      "curiosities:cartoon_punch_1",
+      "curiosities:cartoon_punch_2",
+      "curiosities:cartoon_punch_3",
+      "curiosities:bonk"
+    ],
+    "subtitle": "subtitles.curiosities.omega_gauntlet_impact"
+  },
+  "pop": {
+    "sounds": [
+      "curiosities:pop_1",
+      "curiosities:pop_2"
+    ],
+    "subtitle": "subtitles.curiosities.pop"
+  },
+  "time_resume": {
+    "sounds": [
+      "curiosities:time_resume"
+    ],
+    "subtitle": "subtitles.curiosities.time_resume"
+  },
+  "time_stop": {
+    "sounds": [
+      "curiosities:time_stop"
+    ],
+    "subtitle": "subtitles.curiosities.time_stop"
+  },
+  "treasure_chest_lock": {
+    "sounds": [
+      "curiosities:treasure_chest_lock"
+    ],
+    "subtitle": "subtitles.curiosities.treasure_chest_lock"
+  }
+}

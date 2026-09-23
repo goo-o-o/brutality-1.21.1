@@ -1,0 +1,36 @@
+{
+  "targets": [
+    "sphere_mask",
+    "swap",
+    "final"
+  ],
+  "passes": [
+    {
+      "name": "curiosities:time_stop",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "auxtargets": [
+        {
+          "name": "SphereMask",
+          "id": "sphere_mask"
+        }
+      ],
+      "samplers": [
+        {
+          "name": "DiffuseSampler"
+        },
+        {
+          "name": "SphereMask"
+        }
+      ],
+      "uniforms": [
+        { "name": "OutSize", "type": "float", "count": 2, "values": [ 1.0, 1.0 ] }
+      ]
+    },
+    {
+      "name": "minecraft:blit",
+      "intarget": "swap",
+      "outtarget": "final"
+    }
+  ]
+}

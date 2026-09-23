@@ -1,0 +1,37 @@
+{
+  "required": true,
+  "priority": 1001,
+  "plugin": "com.goo.curiosities.compat.CuriositiesMixinPlugin",
+  "package": "com.goo.curiosities.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixinextras": {
+    "minVersion": "0.5.3"
+  },
+  "mixins": [
+    "BlockMixin",
+    "EntityMixin",
+    "ItemStackMixin",
+    "LevelMixin",
+    "LivingEntityMixin",
+    "MobEffectInstanceMixin",
+    "PlayerMixin",
+    "TickRateManagerMixin",
+    "VillagerMixin"
+  ],
+  "client": [
+    "AbstractClientPlayerMixin",
+    "ClientLevelMixin",
+    "EntityRendererMixin",
+    "GameRendererMixin",
+    "KeyboardHandlerMixin",
+    "LevelRendererMixin",
+    "LivingEntityRendererMixin",
+    "LocalPlayerMixin",
+    "MouseHandlerMixin",
+    "ParticleEngineMixin",
+    "TextureStateAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

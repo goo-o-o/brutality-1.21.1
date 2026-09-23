@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_bars"
+    },
+    "E": {
+      "item": "minecraft:iron_block"
+    },
+    "G": {
+      "item": "minecraft:magma_block"
+    }
+  },
+  "pattern": [
+    " A ",
+    " E ",
+    " G "
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:micro_thrusters"
+  }
+}

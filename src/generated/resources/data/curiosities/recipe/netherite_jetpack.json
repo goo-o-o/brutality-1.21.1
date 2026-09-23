@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "E": {
+      "item": "minecraft:chain"
+    },
+    "G": {
+      "item": "minecraft:magma_block"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "A A",
+    "NEN",
+    "G G"
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:netherite_jetpack"
+  }
+}

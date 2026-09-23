@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:leather_boots"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    " WW",
+    "WBF",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:boots_of_swiftness"
+  }
+}

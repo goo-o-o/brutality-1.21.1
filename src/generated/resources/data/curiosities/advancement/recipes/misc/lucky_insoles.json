@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "curiosities:lucky_insoles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "minecraft:rabbit_foot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:rabbit_foot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "minecraft:rabbit_foot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "curiosities:lucky_insoles"
+    ]
+  }
+}

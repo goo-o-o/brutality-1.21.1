@@ -1,0 +1,19 @@
+{
+  "entries": [
+    "curiosities:curiosities_omnidirectional_movement_gear_from_chests_end_city_treasure",
+    "curiosities:curiosities_abyssal_necklace_from_chests_shipwreck_treasure",
+    "curiosities:curiosities_amphibian_boots_from_gameplay_fishing_treasure",
+    "curiosities:curiosities_phantom_finger_from_chests_simple_dungeon",
+    "curiosities:curiosities_crown_of_tyranny_from_chests_trial_chambers_reward_ominous_rare",
+    "curiosities:curiosities_bead_of_life_from_chests_jungle_temple",
+    "curiosities:curiosities_big_steppa_from_gameplay_piglin_bartering",
+    "curiosities:curiosities_blaze_anklet_from_chests_nether_bridge",
+    "curiosities:curiosities_blizzard_in_a_bottle_from_chests_igloo_chest",
+    "curiosities:curiosities_climbing_claws_from_chests_jungle_temple",
+    "curiosities:curiosities_cloak_of_true_ice_from_chests_igloo_chest",
+    "curiosities:curiosities_cobalt_shield_from_chests_ancient_city",
+    "curiosities:curiosities_gladiators_anklet_from_chests_woodland_mansion",
+    "curiosities:curiosities_brain_rot_from_entities_zombie"
+  ],
+  "replace": false
+}

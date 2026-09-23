@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "curiosities:micro_thrusters"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "minecraft:elytra": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:elytra"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "minecraft:elytra"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "curiosities:micro_thrusters"
+    ]
+  }
+}

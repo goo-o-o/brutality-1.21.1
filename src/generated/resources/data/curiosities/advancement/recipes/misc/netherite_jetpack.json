@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "curiosities:netherite_jetpack"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "minecraft:elytra": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:elytra"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "minecraft:elytra"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "curiosities:netherite_jetpack"
+    ]
+  }
+}

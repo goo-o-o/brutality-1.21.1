@@ -1,0 +1,545 @@
+{
+  "curios.identifier.anklet": "Anklet",
+  "curios.identifier.heart": "Heart",
+  "curios.modifiers.heart": "When implanted as heart:",
+  "curios.identifier.feet": "Feet",
+  "curios.modifiers.feet": "When on feet:",
+  "curios.modifiers.anklet": "When on ankle:",
+
+  "itemGroup.curiosities.equipment": "Curiosities",
+
+  "tooltip.curiosities.user": "User",
+  "tooltip.curiosities.wearer": "Wearer",
+  "tooltip.curiosities.entities": "Entities",
+  "tooltip.curiosities.foes": "Foes",
+  "tooltip.curiosities.foe": "Foe",
+  "tooltip.curiosities.attacker": "Attacker",
+  "tooltip.curiosities.ignite": "Ignite",
+  "tooltip.curiosities.on_hit": "On-Hit",
+  "tooltip.curiosities.debuff": "Debuff",
+  "tooltip.curiosities.buff": "Buff",
+  "tooltip.curiosities.bonus": "BONUS",
+  "tooltip.curiosities.fatal": "FATAL",
+  "tooltip.curiosities.damage": "Damage",
+  "tooltip.curiosities.current_health": "Current Health",
+  "tooltip.curiosities.missing_health": "Missing Health",
+  "tooltip.curiosities.health": "Health",
+  "tooltip.curiosities.heal": "Heal",
+  "tooltip.curiosities.victim": "Victim",
+  "tooltip.curiosities.rage": "Rage",
+  "tooltip.curiosities.cooldown": " §3-%s §3cooldown",
+  "key.curiosities.current_keybind": " §8(Current Keybind: %s§8)",
+
+
+  "description.curiosities.type.multiplayer_only": "§dMultiplayer Only",
+  "description.curiosities.type.active": "§6Active Ability:",
+  "description.curiosities.type.passive": "§6Passive Effect:",
+  "description.curiosities.type.on_hit": "§6On Hit:",
+  "description.curiosities.type.on_true_melee_hit": "§6On True Melee Hit:",
+  "description.curiosities.type.on_swing": "§6On Swing:",
+  "description.curiosities.type.on_right_click": "§6On Right Click:",
+  "description.curiosities.type.on_left_clicking_entity": "§6On Left Clicking Entity:",
+  "description.curiosities.type.on_shift_right_click": "§6On Shift Right Click:",
+  "description.curiosities.type.on_hold_right_click": "§6On Holding Right Click:",
+  "description.curiosities.type.on_release_right_click": "§6On Release Right Click:",
+  "description.curiosities.type.on_kill": "§6On Kill:",
+  "description.curiosities.type.on_shoot": "§6On Shoot:",
+  "description.curiosities.type.on_successful_dodge": "§6On Successful Dodge:",
+
+
+  "item.curiosities.surtrs_horn": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Surtr's Horn",
+  "item.curiosities.surtrs_horn.passive.1": "§e -Grants uninhibited §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava§e movement",
+  "item.curiosities.surtrs_horn.passive.2": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance",
+  "item.curiosities.surtrs_horn.passive.3": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ'ꜱ§e attacks set victims on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e for 10 seconds",
+  "item.curiosities.surtrs_horn.passive.4": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can see extremely cleary under §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava",
+  "item.curiosities.surtrs_horn.passive.5": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ'ꜱ§e §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e overlay is lowered",
+
+  "item.curiosities.lava_lenses": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava Lenses",
+  "item.curiosities.lava_lenses.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can see clearer under §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava",
+  "item.curiosities.lava_lenses.passive.2": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ'ꜱ§e §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e overlay is lowered",
+
+  "item.curiosities.waxy_cuticle": "Waxy Cuticle",
+  "item.curiosities.waxy_cuticle.passive.1": "§e -Grants uninhibited <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water§e movement",
+
+  "item.curiosities.nano_machines": "§l<color_gradient colors=[\"#343435\", \"#50545C\", \"#0C81D3\", \"#343435\", \"#1E1D1F\", \"#776B64\", \"#ABA4A9\",\"#FFFFFF\"]>Nano Machines",
+  "item.curiosities.nano_machines.lore.1": "§9Nano Machines, son!",
+  "item.curiosities.nano_machines.active.1": "§e -Grants §l<color_gradient colors=[\"#343435\", \"#50545C\", \"#0C81D3\", \"#343435\", \"#1E1D1F\", \"#776B64\", \"#ABA4A9\",\"#FFFFFF\"]>Impervious§e for 3 seconds",
+
+  "item.curiosities.the_world": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>The World",
+  "item.curiosities.the_world.lore.1": "§9<jitter>ZA WARUDO",
+  "item.curiosities.the_world.active.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can perform a localized <jitter>Time Stop",
+
+  "item.curiosities.escape_key": "Escape Key",
+  "item.curiosities.escape_key.passive.1": "§e -Grants <smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Swiftness 2§e and <color_gradient colors=[\"#FFFFFF\",\"#646464\"] wave_speed=2.5 spread=300.0 | fade>Invisibility§e when below <percent val=25> <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Health",
+
+  "item.curiosities.emergency_meeting": "Emergency Meeting",
+  "item.curiosities.emergency_meeting.active.1": "§e -Inflicts §l<color_gradient colors=[\"#575769\",\"#3F3F4D\",\"#282833\"]>Slowness§e to nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e for 10 seconds§7§l [<= 7.5m]",
+
+  "item.curiosities.light_switch": "Light Switch",
+  "item.curiosities.light_switch.lore.1": "§9Who turned off the lights?",
+  "item.curiosities.light_switch.active.1": "§e -Inflicts §l§8Darkness§e to nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e for 8 seconds§7§l [<= 7.5m]",
+
+  "item.curiosities.poseidons_blessing": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Poseidon's Blessing",
+  "item.curiosities.poseidons_blessing.passive.1": "§e -Grants uninhibited <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water§e movement",
+  "item.curiosities.poseidons_blessing.passive.2": "§e -Grants <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water Breathing§e and <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Conduit Power",
+
+  "item.curiosities.flippers_of_icarus": "§l<bloom | color_gradient colors=[\"#FFFFAF\",\"#AFEBF0\"]>Flippers of Icarus",
+  "item.curiosities.flippers_of_icarus.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can swim in <color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Air§e as if in <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water",
+  "item.curiosities.flippers_of_icarus.passive.2": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e will be set on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e if they are too high and exposed to sunlight",
+
+  "item.curiosities.omnichrome_ring": "§l<bloom | color_gradient colors=[\"#FF5A5A\",\"#FFB45A\",\"#FFFF5A\",\"#78FF78\",\"#78FFFF\",\"#7878FF\",\"#9664FF\",\"#FF64FF\"] spread=180 wave_speed=0.77 | smooth_wave speed=2 amplitude=1.5 frequency=0.25>Omnichrome Ring",
+  "item.curiosities.omnichrome_ring.passive.1": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance§e, <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water Breathing§e, <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Dolphin's Grace§e and <color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Slow Falling",
+  "item.curiosities.omnichrome_ring.passive.2": "§e -Grants <color_gradient colors=[\"#4BB432\",\"#8CF03C\"] wave_speed=0.4 spread=200 | acid wobble=0.000001 color_mix=0.0>Poison§3 Immunity",
+  "item.curiosities.omnichrome_ring.passive.3": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is not targeted by <color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Piglins",
+  "item.curiosities.omnichrome_ring.passive.4": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀꜱ§e can make eye contact with <color_gradient colors=[\"#E472F8\", \"#B034CC\", \"#701F8E\", \"#461862\", \"#261038\", \"#160D21\", \"#0B0812\"] | bloom | jitter>Endermen",
+  "item.curiosities.omnichrome_ring.passive.5": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀꜱ§e can walk on §l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Powdered Snow",
+
+  "item.curiosities.perfect_cell": "Perfect Cell",
+  "item.curiosities.perfect_cell.lore.1": "§9The epitome of human biology",
+  "item.curiosities.perfect_cell.passive.1": "§e -Grants <color_gradient colors=[\"#4BB432\",\"#8CF03C\"] wave_speed=0.4 spread=200 | acid wobble=0.000001 color_mix=0.0>Poison§e and <color_gradient colors=[\"#3C3741\",\"#19141E\"] wave_speed=0.65 spread=120>Wither§3 Immunity",
+
+  "item.curiosities.ender_dragon_stem_cells": "<color_gradient colors=[\"#E472F8\", \"#B034CC\", \"#701F8E\", \"#461862\", \"#261038\", \"#160D21\", \"#0B0812\"] | bloom | jitter>Ender Dragon Stem Cells",
+
+  "item.curiosities.portable_fire_extinguisher": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Portable Fire Extinguisher",
+  "item.curiosities.portable_fire_extinguisher.lore.1": "§9Pull. Aim. Squeeze. Sweep.",
+
+  "item.curiosities.lucky_bookmark": "<color_gradient colors=[\"#43CA46\",\"#2B9030\",\"#1B641F\"] spread=180 wave_speed=0.77 | pendulum frequency=0.5 angle=20.0>Lucky Bookmark",
+
+  "item.curiosities.xray_goggles": "§l<jitter intensity=1.5 speed=1 | color_gradient colors=[\"#A9FF00\",\"#043E0C\",\"#00EA2A\",\"#08210D\"] spread=150 wave_speed=0.5>X-Ray Goggles",
+  "item.curiosities.xray_goggles.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀꜱ§e can see nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e within 10 blocks through walls using a green overlay",
+
+  "item.curiosities.mining_goggles": "Mining Goggles",
+  "item.curiosities.mining_goggles.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can see Overworld Ores within 5 blocks through walls",
+
+  "item.curiosities.molten_miners_goggles": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Molten Miners Goggles",
+  "item.curiosities.molten_miners_goggles.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can see all Ores within 10 blocks through walls",
+
+  "item.curiosities.omniscient_glasses": "<color_gradient colors=[\"#ffffff\", \"#e7e0ff\", \"#bac9FF\", \"#bac4c4\",\"#c191ae\",\"#bac9FF\",\"#ffffff\"] | bloom>Omniscient Glasses",
+  "item.curiosities.omniscient_glasses.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can see all Ores within 15 blocks through walls",
+  "item.curiosities.omniscient_glasses.passive.2": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can see nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e within 15 blocks through walls",
+
+  "item.curiosities.scouts_badge": "Scouts Badge",
+  "item.curiosities.scouts_badge.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e moves through <color_gradient colors=[\"#FFFFFF\",\"#646464\"] wave_speed=2.5 spread=300.0 | fade>Cobwebs§e and <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Sweet Berry Bushes§e twice as fast",
+
+  "item.curiosities.globetrotters_badge": "Globetrotters Badge",
+  "item.curiosities.globetrotters_badge.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is unaffected by <color_gradient colors=[\"#FFFFFF\",\"#646464\"] wave_speed=2.5 spread=300.0 | fade>Cobwebs§e, <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Sweet Berry Bushes§e and similar blocks",
+
+  "item.curiosities.omega_gauntlet": "Omega Gauntlet",
+  "item.curiosities.omega_gauntlet.on_hit.1": "§e -<percent val=15> chance to deal <percent val=500> Knockback",
+
+  "item.curiosities.anti_cheat": "Anti Cheat",
+  "item.curiosities.anti_cheat.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is invisible to §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e that are in Third Person",
+
+  "item.curiosities.lucky_insoles": "<color_gradient colors=[\"#43CA46\",\"#2B9030\",\"#1B641F\"] spread=180 wave_speed=0.77 | pendulum frequency=0.5 angle=20.0>Lucky Insoles",
+  "item.curiosities.lucky_insoles.passive.1": "§e -Grants§9 +10% Movement Speed§e and§9 +1 Safe Fall Distance§e for each level of <color_gradient colors=[\"#43CA46\",\"#2B9030\",\"#1B641F\"] spread=180 wave_speed=0.77 | pendulum frequency=0.5 angle=20.0>Luck§e",
+
+  "item.curiosities.abyssal_necklace": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Abyssal Necklace",
+  "item.curiosities.abyssal_necklace.passive.1": "§e -Grants up to§9 +50% Attack Damage§e and§9 +50% Swim Speed§e if the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is in <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water§e and how far below sea level the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is",
+
+  "item.curiosities.desynchronizer": "§l<glitch | jitter intensity=1.5 speed=1 | color_gradient colors=[\"#A9FF00\",\"#043E0C\",\"#00EA2A\",\"#08210D\"] spread=150 wave_speed=0.5>Desynchronizer",
+  "item.curiosities.desynchronizer.active.1": "§e -Inflicts <glitch>Glitched§e for 5 seconds to nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e including the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§7§l [<= 7.5m]",
+
+  "item.curiosities.resplendent_feather": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Resplendent Feather",
+  "item.curiosities.resplendent_feather.lore.1": "§9No matter how dark, it always seems to retain its §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>glimmer",
+  "item.curiosities.resplendent_feather.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e §l<color_gradient colors=[\"#A9FF00\"]>Heals§e for half a heart every time they are hurt by §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire",
+  "item.curiosities.resplendent_feather.passive.2": "§e -Grants <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration§e when on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire",
+
+  "item.curiosities.roadrunners_ring": "Roadrunners Ring",
+  "item.curiosities.roadrunners_ring.lore.1": "§9Meep meep!",
+  "item.curiosities.roadrunners_ring.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e takes <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e scaling with <color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Velocity§e whenever they run into a wall",
+
+  "item.curiosities.second_heart": "Second Heart",
+  "item.curiosities.glass_heart": "<bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Glass Heart",
+
+  "item.curiosities.miracle_cure": "Miracle Cure",
+  "item.curiosities.miracle_cure.active.1": "§e -Cleanses all §l<color_gradient colors=[\"#2e325c\",\"#524c32\"]>ᴅᴇʙᴜꜰꜰꜱ",
+
+  "item.curiosities.heart_of_gold": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Heart of Gold",
+  "item.curiosities.heart_of_gold.passive.1": "§e -<percent val=25> of <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e taken to the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ'ꜱ§e hearts is reapplied as <color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Absorption",
+  "item.curiosities.heart_of_gold.passive.2": "§e -Grants %s§e equivalent to %s",
+
+  "item.curiosities.ogres_heart": "Ogres Heart",
+  "item.curiosities.ogres_heart.passive.1": "§e -Grants <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration 3§e when below <percent val=25> <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Health",
+
+  "item.curiosities.frozen_heart": "§l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Frozen Heart",
+  "item.curiosities.frozen_heart.passive.1": "§e -Inflicts §l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Frozen§e for 1 second every 1.5 seconds§7§l [<= 3m]",
+
+  "item.curiosities.dragon_heart": "<color_gradient colors=[\"#E472F8\", \"#B034CC\", \"#701F8E\", \"#461862\", \"#261038\", \"#160D21\", \"#0B0812\"] | bloom | jitter>Dragon Heart",
+  "item.curiosities.dragon_heart.lore.1": "§9The heart of an <color_gradient colors=[\"#E472F8\", \"#B034CC\", \"#701F8E\", \"#461862\", \"#261038\", \"#160D21\", \"#0B0812\"] | bloom | jitter>Apex Predator",
+  "item.curiosities.dragon_heart.passive.1": "§e -Grants <smooth_wave amplitude=0.75 | color_gradient colors=[\"#9e1c48\",\"#ff0008\"]>Strength 2§e and §l<color_gradient colors=[\"#828A9B\",\"#5C6478\",\"#3F485F\"]>Resistance",
+
+  "item.curiosities.dueling_glove": "Dueling Glove",
+  "item.curiosities.dueling_glove.passive.1": "§e -<percent val=150> <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e to the nearest §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇ",
+  "item.curiosities.dueling_glove.passive.2": "§e -<percent val=150> <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e from other §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ",
+
+  "item.curiosities.movement_gods_tracers": "§l<color_gradient colors=[\"#cbff49\",\"#76ea48\",\"#00ad70\",\"#e9b115\",\"#fad64a\",\"#ff4e35\",\"#ff1900\",\"#a21200\",\"#020079\",\"#0006b1\",\"#0021f3\"] spread=150 | turbulence amplitude=0.6 | bloom>Movement God's Tracers",
+  "item.curiosities.movement_gods_tracers.lore.1": "§9ADMIN HE'S DOING IT <turbulence>SIDEWAYS",
+  "item.curiosities.movement_gods_tracers.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can Sprint in any direction",
+  "item.curiosities.movement_gods_tracers.passive.2": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can Sprint while using Items",
+  "item.curiosities.movement_gods_tracers.passive.3": "§e -Nullifies movement slowdown while using Items",
+  "item.curiosities.movement_gods_tracers.passive.4": "§e -Grants§9 +∞ Air Acceleration",
+
+  "item.curiosities.inner_tube": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Inner Tube",
+  "item.curiosities.inner_tube.passive.1": "§e -Accelerate upwards infinitely when inside <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water",
+  "item.curiosities.inner_tube.passive.2": "§e -§7Sneak§e to slow down",
+
+  "item.curiosities.water_walkers": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water Walkers",
+  "item.curiosities.water_walkers.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can walk on <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water",
+
+  "item.curiosities.lava_walkers": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava Walkers",
+  "item.curiosities.lava_walkers.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can walk on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava",
+
+  "item.curiosities.amphibian_boots": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Amphibian Boots",
+  "item.curiosities.amphibian_boots.passive.1": "§e -Grants§9 +50% Attack Speed§e while under <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water",
+  "item.curiosities.amphibian_boots.info": "Traded exclusively by Journeyman Armorer villagers in Swamp biomes, also obtainable from Fishing.",
+
+  "item.curiosities.salamanders_striders": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Salamander's Striders",
+  "item.curiosities.salamanders_striders.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can swim in §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava",
+  "item.curiosities.salamanders_striders.passive.2": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance§e while in §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Lava",
+
+  "item.curiosities.construction_boots": "Construction Boots",
+  "item.curiosities.construction_boots.passive.1": "§e -Nullifies the§9 Movement Speed§e and§9 Jump Strength§e penalty of certain blocks such as <color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Gold§e and <color_gradient colors=[\"#99FFFD\",\"#4EE7ED\",\"#29B6D3\",\"#1980A1\",\"#135370\",\"#0E344D\",\"#081B2E\"] | acid color_mix=0.0 amplitude=0.5 wobble=0.0>Soul Sand",
+
+  "item.curiosities.micro_thrusters": "Micro Thrusters",
+  "item.curiosities.micro_thrusters.passive.1": "§e -Grants§9 +∞ Air Acceleration",
+
+  "item.curiosities.omnidirectional_movement_gear": "§l<jitter intensity=1.5 speed=1 | color_gradient colors=[\"#A9FF00\",\"#043E0C\",\"#00EA2A\",\"#08210D\"] spread=250 wave_speed=1.5>Omnidirectional Movement Gear",
+  "item.curiosities.omnidirectional_movement_gear.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can Sprint in any direction",
+
+  "item.curiosities.vector_stabilizer": "Vector Stabilizer",
+  "item.curiosities.vector_stabilizer.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e can Sprint while using Items",
+
+  "item.curiosities.kinetic_compensator": "Kinetic Compensator",
+  "item.curiosities.kinetic_compensator.passive.1": "§e -Nullifies movement slowdown while using Items",
+
+  "item.curiosities.slipstream_tracers": "<acid amplitude=0.5 wobble=0.0000001 color_mix=0.0 | color_gradient colors=[\"#868194\",\"#5e5971\"]>Slipstream Tracers",
+  "item.curiosities.slipstream_tracers.passive.1": "§e -Grants§9 +10% Movement Speed§e per second when Sprinting",
+
+  "item.curiosities.plated_steelcaps": "Plated Steelcaps",
+  "item.curiosities.plated_steelcaps.passive.1": "§e -Grants§9 +50% Knockback Resistance§e and§9 +4 Armor§e when Sprinting",
+
+  "item.curiosities.miniature_anchor": "Miniature Anchor",
+  "item.curiosities.miniature_anchor.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is unable to swim and will sink",
+  "item.curiosities.miniature_anchor.passive.2": "§e -Grants §l<color_gradient colors=[\"#828A9B\",\"#5C6478\",\"#3F485F\"]>Resistance 3§e while under <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Underwater",
+
+  "item.curiosities.flame_walkers": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Flame Walker",
+  "item.curiosities.flame_walkers.passive.1": "§e -Grants§9 +35% Movement Speed§e when on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e or on a §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Hot§e block like §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Magma",
+  "item.curiosities.flame_walkers.passive.2": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance",
+
+  "item.curiosities.flame_threaders": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Flame Threaders",
+  "item.curiosities.flame_threaders.passive.1": "§e -Grants§9 +35% Movement Speed§e when on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e or on a §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Hot§e block like §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Magma",
+  "item.curiosities.flame_threaders.passive.2": "§e -Footsteps unleash a Wave of §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e that ignite nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§7§l [<= 2m]",
+  "item.curiosities.flame_threaders.passive.3": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance",
+
+  "item.curiosities.flame_stompers": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Flame Stompers",
+  "item.curiosities.flame_stompers.passive.1": "§e -Grants§9 +35% Movement Speed§e when on §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e or on a §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Hot§e block like §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Magma",
+  "item.curiosities.flame_stompers.passive.2": "§e -Footsteps unleash a Wave of §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e that ignite nearby §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§7§l [<= 4m]",
+  "item.curiosities.flame_stompers.passive.3": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance",
+  "item.curiosities.flame_stompers.passive.4": "§e -Unleashes a Wave of §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire§e when landing, scaling with height",
+
+  "item.curiosities.seismic_stompers": "<pendulum frequency=0.5 angle=20.0| color_gradient colors=[\"#ee2d53\", \"#6184d7\"]>Seismic Stompers",
+  "item.curiosities.seismic_stompers.passive.1": "§e -Unleashes a <pendulum frequency=0.5 angle=20.0| color_gradient colors=[\"#ee2d53\", \"#6184d7\"]>Seismic Wave§e when landing, scaling with height",
+
+  "item.curiosities.boots_of_swiftness": "<smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Boots of Swiftness",
+  "item.curiosities.boots_of_swiftness.passive.1": "§e -Grants §l<color_gradient colors=[\"#575769\",\"#3F3F4D\",\"#282833\"]>Slowness§3 Immunity",
+
+  "item.curiosities.high_heals": "<bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>High Heals",
+  "item.curiosities.high_heals.passive.1": "§e -Grants <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration§e when Sprinting",
+
+  "item.curiosities.ice_skates": "§l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Ice Skates",
+  "item.curiosities.ice_skates.passive.1": "§e -Grants§c -95% Friction Modifier§e when on §l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Ice",
+
+  "item.curiosities.netherite_jetpack": "Netherite Jetpack",
+  "item.curiosities.netherite_jetpack.passive.1": "§e -Propels the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e forward while Flying with an <color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Elytra",
+
+  "item.curiosities.way_of_the_wind": "<color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Way of the Wind",
+  "item.curiosities.way_of_the_wind.passive.1": "§e -Grants <color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Wind Charge§3 Immunity",
+
+  "item.curiosities.portable_trampoline": "Portable Trampoline",
+  "item.curiosities.portable_trampoline.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e bounces",
+
+  "item.curiosities.censorship_cloak": "<color_gradient colors=[\"#FFFFFF\",\"#646464\"] wave_speed=2.5 spread=300.0 | fade>Censorship Cloak",
+  "item.curiosities.censorship_cloak.passive.1": "§e -Grants <color_gradient colors=[\"#FFFFFF\",\"#646464\"] wave_speed=2.5 spread=300.0 | fade>Censored",
+
+  "item.curiosities.cloak_of_true_ice": "§l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Cloak of True Ice",
+  "item.curiosities.cloak_of_true_ice.passive.1": "§e -Grants §l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Frozen§e and §l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Freezing§3 Immunity",
+
+  "item.curiosities.cloak_of_invisibility": "Cloak of Invisibility",
+  "item.curiosities.cloak_of_invisibility.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is completely <color_gradient colors=[\"#FFFFFF\",\"#646464\"] wave_speed=2.5 spread=300.0 | fade>Invisible§e when out of <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Combat",
+
+  "item.curiosities.suspicious_looking_rock": "Suspicious Looking Rock",
+  "item.curiosities.suspicious_looking_rock.lore.1": "§9Hopefully equipping too many of these won't backfire or anything",
+
+  "item.curiosities.plunder_chest": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Plunder Chest",
+  "item.curiosities.plunder_chest.passive.1": "§e -§l<color_gradient colors=[\"#A9FF00\"]>ʙᴜꜰꜰꜱ§e stolen cannot have infinite duration",
+  "item.curiosities.plunder_chest.on_true_melee_hit.1": "§e -Steals a random §l<color_gradient colors=[\"#A9FF00\"]>ʙᴜꜰꜰ§e from the hit §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇ",
+
+  "item.curiosities.brain_rot": "<color_gradient colors=[\"#4BB432\",\"#8CF03C\"] wave_speed=0.4 spread=200 | acid wobble=0.00001 color_mix=0.25>Brain Rot",
+  "item.curiosities.brain_rot.on_true_melee_hit.1": "§e -Inflicts <color_gradient colors=[\"#4BB432\",\"#8CF03C\"] wave_speed=0.4 spread=200 | acid wobble=0.00001 color_mix=0.25>Nausea§e for 4 seconds",
+
+  "item.curiosities.crown_of_tyranny": "<color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Crown of Tyranny",
+  "item.curiosities.crown_of_tyranny.passive.1": "§e -Deal an additional <percent val=75> <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e to §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e based on <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Missing Health§e",
+
+  "item.curiosities.basketball_anklet": "Basketball Anklet",
+
+  "item.curiosities.big_steppa": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Big Steppa",
+  "item.curiosities.big_steppa.lore.1": "§9Underground methods",
+
+  "item.curiosities.gladiators_anklet": "Gladiator's Anklet",
+  "item.curiosities.gladiators_anklet.on_successful_dodge.1": "§e -Grants <smooth_wave amplitude=0.75 | color_gradient colors=[\"#9e1c48\",\"#ff0008\"]>Strength I§e for 2 seconds",
+
+  "item.curiosities.empty_anklet": "Empty Anklet",
+
+  "item.curiosities.ironclad_anklet": "Ironclad Anklet",
+  "item.curiosities.ironclad_anklet.on_successful_dodge.1": "§e -Grants §l<color_gradient colors=[\"#828A9B\",\"#5C6478\",\"#3F485F\"]>Resistance 3§e for 2 seconds",
+
+  "item.curiosities.fiery_anklet": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fiery Anklet",
+  "item.curiosities.fiery_anklet.on_successful_dodge.1": "§e -§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Ignites§e the §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ᴀᴛᴛᴀᴄᴋᴇʀ§e for 3 seconds",
+
+  "item.curiosities.ankle_monitor": "Ankle Monitor",
+  "item.curiosities.ankle_monitor.passive.1": "§e -Grants §l<color_gradient colors=[\"#575769\",\"#3F3F4D\",\"#282833\"]>Slowness 3§e and §l<color_gradient colors=[\"#575769\",\"#3F3F4D\",\"#0c051c\"] | outline color=\"#000000\">Mining Fatigue 2§e if more than 300 blocks away from the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ'ꜱ§e Spawnpoint",
+  "item.curiosities.ankle_monitor.info": "Obtained from starting a Raid",
+
+  "item.curiosities.blaze_anklet": "§l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Blaze Anklet",
+  "item.curiosities.blaze_anklet.on_successful_dodge.1": "§e -Grants §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Fire Resistance§e for 5 seconds",
+
+  "item.curiosities.guardian_anklet": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Guardian Anklet",
+  "item.curiosities.guardian_anklet.on_successful_dodge.1": "§e -Grants <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Water Breathing§e for 5 seconds",
+
+  "item.curiosities.ender_anklet": "<color_gradient colors=[\"#E472F8\", \"#B034CC\", \"#701F8E\", \"#461862\", \"#261038\", \"#160D21\", \"#0B0812\"] | bloom | jitter>Ender Anklet",
+  "item.curiosities.ender_anklet.on_successful_dodge.1": "§e -Teleports the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e randomly within 16 blocks",
+
+  "item.curiosities.redstone_anklet": "<color_gradient colors=[\"#0c051c\", \"#AA0F01\", \"#720000\", \"#5C0700\"]>Redstone Anklet",
+
+
+  "item.curiosities.cross_necklace": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Cross Necklace",
+  "item.curiosities.panic_necklace": "<bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Panic Necklace",
+  "item.curiosities.panic_necklace.passive.1": "§e -Grants <smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Swiftness 5§e for 2 seconds when struck",
+  "item.curiosities.crossed_heart_necklace": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Crossed Heart Necklace",
+  "item.curiosities.crossed_heart_necklace.passive.1": "§e -Grants <smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Swiftness 5§e for 2 seconds when struck",
+
+  "item.curiosities.pristine_napkin": "Pristine Napkin",
+  "item.curiosities.pristine_napkin.passive.1": "§e -All foods provide <percent val=50> more nutrition and saturation",
+
+  "item.curiosities.golden_fork": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Golden Fork",
+  "item.curiosities.golden_fork.passive.1": "§e -<percent val=25> chance to not consume food when eating",
+
+  "item.curiosities.empty_plate": "Empty Plate",
+  "item.curiosities.empty_plate.passive.1": "§e -Food eating time is reduced by <percent val=50>",
+
+  "item.curiosities.gourmands_dining_set": "Gourmand's Dining Set",
+  "item.curiosities.gourmands_dining_set.passive.1": "§e -<percent val=50> chance to not consume food when eating",
+  "item.curiosities.gourmands_dining_set.passive.2": "§e -All foods provide <percent val=50> more nutrition and saturation",
+  "item.curiosities.gourmands_dining_set.passive.3": "§e -Food eating time is reduced by <percent val=75>",
+
+  "item.curiosities.iron_gut": "Iron Gut",
+  "item.curiosities.iron_gut.passive.1": "§e -Poisonous effects from§c Harmful§e foods are stripped",
+  "item.curiosities.iron_gut.passive.2": "§e -§cHarmful§e or Raw foods provide <percent val=100> more nutrition and saturation",
+
+  "item.curiosities.cold_pillow": "§l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Cold Pillow",
+  "item.curiosities.cold_pillow.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e only needs to sleep §l<percent val=20> as long",
+  "item.curiosities.cold_pillow.passive.2": "§e -<color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Phantoms§es no longer spawn",
+  "item.curiosities.cold_pillow.passive.3": "§e -Grants <smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Swiftness§e and <smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Jump Boost§e when the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e wakes up",
+
+  "item.curiosities.phantom_finger": "Phantom Finger",
+
+  "item.curiosities.inertia_booster": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Inertia Booster",
+
+  "item.curiosities.elbow_grease": "Elbow Grease",
+
+  "item.curiosities.earthen_blessing": "Earthen Blessing",
+
+  "item.curiosities.petroleum_jelly": "Petroleum Jelly",
+
+  "item.curiosities.zephyr_in_a_bottle": "<smooth_wave amplitude=1.5 speed=5.0 frequency=0.25 | color_gradient colors=[\"#64D2FF\",\"#DCF5FF\"] wave_speed=2.5 spread=100.0>Zephyr in a Bottle",
+
+  "item.curiosities.ring_of_rings": "Ring of Rings",
+  "item.curiosities.ring_of_rings.lore.1": "§9How do you even wear this?",
+  "item.curiosities.ring_of_rings.passive.1": "§e -Grants§9 +1 Attack Damage§e and§9 +1 Armor§e per Ring worn",
+
+  "item.curiosities.redacting_tape": "§l§8Redacting Tape",
+  "item.curiosities.redacting_tape.passive.1": "§e -Grants §l§8Redacted",
+
+  "item.curiosities.incognito_pendant": "§l§7Incognito Pendant",
+  "item.curiosities.incognito_pendant.passive.1": "§e -Grants §l§7Incognito",
+
+  "item.curiosities.vendetta_mask": "§l§7Vendetta Mask",
+  "item.curiosities.vendetta_mask.passive.1": "§e -Grants §l§7Incognito§e and §l§8Redacted",
+
+  "item.curiosities.ninja_heart": "Ninja Heart",
+
+  "item.curiosities.vindicator_steroids": "Vindicator Steroids",
+  "item.curiosities.vindicator_steroids.active.1": "§e -Grants <smooth_wave amplitude=0.75 | color_gradient colors=[\"#9e1c48\",\"#ff0008\"]>Strength§e and <jitter | outline color=\"#752802\" | color_gradient wave_speed=5.0 colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\"]>Haste§e for 10 seconds",
+
+  "item.curiosities.warmogs_heart": "§l<color_gradient colors=[\"#A9FF00\"]>Warmog's Heart",
+  "item.curiosities.warmogs_heart.passive.1": "§e -Grants <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration 3§e when not taking <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e for more than 5 seconds",
+
+  "item.curiosities.espresso": "<jitter intensity=0.75 | color_gradient colors=[\"#C9A96C\",\"#B28A57\",\"#8B6240\"] wave_speed=2.5 spread=100.0>Espresso",
+  "item.curiosities.espresso.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is unable to sleep",
+  "item.curiosities.espresso.active.1": "§e -Grants <jitter intensity=0.75 | color_gradient colors=[\"#C9A96C\",\"#B28A57\",\"#8B6240\"] wave_speed=2.5 spread=100.0>Caffeinated§e for 2 minutes",
+
+  "item.curiosities.villager_dictionary": "<color_gradient colors=[\"#00FE3D\", \"#00D768\", \"#008E45\", \"#005828\"]>Villager Dictionary",
+  "item.curiosities.villager_dictionary.lore.1": "§9Hmmmmmppphh",
+  "item.curiosities.villager_dictionary.passive.1": "§e -Grants <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration§e and §l<color_gradient colors=[\"#828A9B\",\"#5C6478\",\"#3F485F\"]>Resistance§e when in a Village",
+  "item.curiosities.villager_dictionary.passive.2": "§e -Iron Golems become passive to the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ",
+  "item.curiosities.villager_dictionary.passive.3": "§e -Villages are more tolerant to being Attacked",
+
+  "item.curiosities.broken_clock": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Broken Clock",
+  "item.curiosities.broken_clock.passive.1": "§e -§l<color_gradient colors=[\"#A9FF00\"]>ʙᴜꜰꜰꜱ§e tick down <percent val=25> slower while §l<color_gradient colors=[\"#2e325c\",\"#524c32\"]>ᴅᴇʙᴜꜰꜰꜱ§e tick down <percent val=25> faster",
+
+  "item.curiosities.regal_emerald": "<color_gradient colors=[\"#00FE3D\", \"#00D768\", \"#008E45\", \"#005828\"]>Regal Emerald",
+  "item.curiosities.regal_emerald.passive.1": "§e -Nearby Villagers fervently follow the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ",
+
+  "item.curiosities.inoculum": "Inoculum",
+  "item.curiosities.inoculum.passive.1": "§e -<percent val=15> chance to§3 Nullify§e a §l<color_gradient colors=[\"#2e325c\",\"#524c32\"]>ᴅᴇʙᴜꜰꜰ",
+
+  "item.curiosities.the_vaccine": "The Vaccine",
+  "item.curiosities.the_vaccine.passive.1": "§e -<percent val=30> chance to§3 Nullify§e a §l<color_gradient colors=[\"#2e325c\",\"#524c32\"]>ᴅᴇʙᴜꜰꜰ",
+
+  "item.curiosities.dosette_box": "Dosette Box",
+  "item.curiosities.dosette_box.passive.1": "§e -§l<color_gradient colors=[\"#A9FF00\"]>ʙᴜꜰꜰꜱ§e are <percent val=25> longer when applied, and §l<color_gradient colors=[\"#2e325c\",\"#524c32\"]>ᴅᴇʙᴜꜰꜰꜱ§e are <percent val=25> shorter when applied",
+
+  "item.curiosities.honey_comb": "<color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Honey Comb",
+  "item.curiosities.honey_comb.passive.1": "§e -Taking <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage summons 3 <color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Bees§e that target the §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ᴀᴛᴛᴀᴄᴋᴇʀ§e, lasting for 5 seconds each",
+  "item.curiosities.honey_comb.passive.2": "§e -This only works if there was an §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ᴀᴛᴛᴀᴄᴋᴇʀ§e",
+
+  "item.curiosities.royal_jelly": "<color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Royal Jelly",
+  "item.curiosities.royal_jelly.passive.1": "§e -Taking <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e unleashes 3-5 <color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Honey Globules§e that Grants the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration 2",
+  "item.curiosities.royal_jelly.passive.2": "§e -<color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Honey Globules§e have no cooldown",
+  "item.curiosities.royal_jelly.passive.3": "§e -Taking <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e summons 5 <color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Bees§e that target the §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ᴀᴛᴛᴀᴄᴋᴇʀ§e, lasting for 10 seconds each",
+  "item.curiosities.royal_jelly.passive.4": "§e -This only works if there was an §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ᴀᴛᴛᴀᴄᴋᴇʀ§e",
+
+
+  "item.curiosities.nectar_gland": "<color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Nectar Gland",
+  "item.curiosities.nectar_gland.passive.1": "§e -Taking <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage§e unleashes 2-3 <color_gradient colors=[\"#fbf471\", \"#fade29\", \"#fabf29\", \"#ea8e16\",\"#fabf29\",\"#fade29\",\"#fbf471\"] | drip color=\"#fade29\">Honey Globules§e that Grants the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration 2",
+
+  "item.curiosities.jury_nullifier": "Jury Nullifier",
+
+  "item.curiosities.doctors_prescription": "Doctor's Prescription",
+  "item.curiosities.doctors_prescription.passive.1": "§e -§l<color_gradient colors=[\"#A9FF00\"]>ʙᴜꜰꜰꜱ§e gain an additional level when applied",
+
+  "item.curiosities.soldiers_syringe": "Soldier's Syringe",
+  "item.curiosities.soldiers_syringe.on_true_melee_hit.1": "§e -Grants a stack of <jitter | outline color=\"#752802\" | color_gradient wave_speed=5.0 colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\"]>Haste§e that lasts for 2 seconds with a maximum of 10 stacks",
+
+  "item.curiosities.old_guillotine": "Old Guillotine",
+  "item.curiosities.old_guillotine.on_true_melee_hit.1": "§e -Execute §l<turbulence | color_gradient colors=[\"#FF4E35\"]>ꜰᴏᴇꜱ§e below 5 <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Health",
+
+  "item.curiosities.head_cushion": "Head Cushion",
+  "item.curiosities.head_cushion.passive.1": "§e -Negates Elytra kinetic <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\">Damage",
+
+  "item.curiosities.pincushion": "Pincushion",
+  "item.curiosities.pincushion.passive.1": "§e -Grants§9 +1 Attack Damage§e for each Arrow stuck in the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ",
+
+  "item.curiosities.eye_of_the_dragon": "<color_gradient colors=[\"#E472F8\", \"#B034CC\", \"#701F8E\", \"#461862\", \"#261038\", \"#160D21\", \"#0B0812\"] | bloom | jitter>Eye of the Dragon",
+
+  "item.curiosities.bead_of_life": "Bead of Life",
+  "item.curiosities.bead_of_life.passive.1": "§e -Grants <bloom | smooth_wave amplitude=0.75 | color_gradient colors=[\"#FF0000\",\"#D30C58\"]>Regeneration 3§e for 2 seconds when struck",
+
+  "item.curiosities.honey_boots": "Honey Boots",
+  "item.curiosities.honey_boots.passive.1": "§e -Grants§9 +∞ Knockback Resistance§e when the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ§e is on the ground",
+
+  "item.curiosities.suspiciously_large_handle": "Suspiciously Large Handle",
+  "item.curiosities.suspiciously_large_handle.passive.1": "§e -The §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀꜱ§9 Attack Speed§e is capped to 0.65",
+  "item.curiosities.suspiciously_large_handle.passive.2": "§e -Melee weapons deal additional <color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=[\"#FF0000\"]>Damage§e equivalent to <percent val=750>§e Attack Speed§e lost",
+  "item.curiosities.extendo_grip": "Extendo Grip",
+  "item.curiosities.block_layer": "Block Layer",
+  "item.curiosities.portable_concrete_mixer": "Portable Concrete Mixer",
+  "item.curiosities.portable_concrete_mixer.passive.1": "§e -<color_gradient colors=[\"#ffffff\",\"#e4e4e4\",\"#ea7e35\",\"#f2b233\",\"#c0b410\",\"#5ea818\",\"#47e2b2\",\"#38b2a8\",\"#2c61a2\",\"#7b2cb2\",\"#b247a2\",\"#f27fa2\",\"#474747\",\"#8e8e8e\",\"#905e43\",\"#181518\"] spread=200 wave_speed=0.5>Concrete Powder§e is automatically turned into <color_gradient colors=[\"#ffffff\",\"#e4e4e4\",\"#ea7e35\",\"#f2b233\",\"#c0b410\",\"#5ea818\",\"#47e2b2\",\"#38b2a8\",\"#2c61a2\",\"#7b2cb2\",\"#b247a2\",\"#f27fa2\",\"#474747\",\"#8e8e8e\",\"#905e43\",\"#181518\"] spread=200 wave_speed=0.5>Concrete§e when placed",
+  "item.curiosities.safety_harness": "Safety Harness",
+  "item.curiosities.toolbelt": "Toolbelt",
+  "item.curiosities.architect_gizmo_pack": "Architect Gizmo Pack",
+  "item.curiosities.magnet": "Magnet",
+  "item.curiosities.magnet.passive.1": "§e -Pulls in nearby Drops§7§l [<= 5m]",
+  "item.curiosities.electromagnet": "Electromagnet",
+  "item.curiosities.electromagnet.passive.1": "§e -Pulls in nearby Drops§7§l [<= 7.5m]",
+  "item.curiosities.hand_of_creation": "Hand of §l<bloom | color_gradient colors=[\"#FF5A5A\",\"#FFB45A\",\"#FFFF5A\",\"#78FF78\",\"#78FFFF\",\"#7878FF\",\"#9664FF\",\"#FF64FF\"] spread=180 wave_speed=0.77 | smooth_wave speed=2 amplitude=1.5 frequency=0.25>Creation",
+  "item.curiosities.hand_of_creation.passive.1": "§e -Block Drops automatically teleport into the §l<color_gradient colors=[\"#A9FF00\"]>ᴡᴇᴀʀᴇʀ'ꜱ§e inventory",
+  "item.curiosities.hand_of_creation.passive.2": "§e -<color_gradient colors=[\"#ffffff\",\"#e4e4e4\",\"#ea7e35\",\"#f2b233\",\"#c0b410\",\"#5ea818\",\"#47e2b2\",\"#38b2a8\",\"#2c61a2\",\"#7b2cb2\",\"#b247a2\",\"#f27fa2\",\"#474747\",\"#8e8e8e\",\"#905e43\",\"#181518\"] spread=200 wave_speed=0.5>Concrete Powder§e is automatically turned into <color_gradient colors=[\"#ffffff\",\"#e4e4e4\",\"#ea7e35\",\"#f2b233\",\"#c0b410\",\"#5ea818\",\"#47e2b2\",\"#38b2a8\",\"#2c61a2\",\"#7b2cb2\",\"#b247a2\",\"#f27fa2\",\"#474747\",\"#8e8e8e\",\"#905e43\",\"#181518\"] spread=200 wave_speed=0.5>Concrete§e when placed",
+
+  "item.curiosities.swiss_army_knife": "Swiss Army Knife",
+  "item.curiosities.swiss_army_knife.passive.1": "§e -Tools can break blocks of unsupported types at <percent val=50> efficiency",
+
+  "item.curiosities.ancient_chisel": "Ancient Chisel",
+  "item.curiosities.bedrock_necklace": "Bedrock Necklace",
+  "item.curiosities.bedrock_necklace.passive.1": "§e -Grants§9 +35% Block Break Speed§e while underground",
+  "item.curiosities.lumberjacks_shirt": "Lumberjacks Shirt",
+  "item.curiosities.lumberjacks_shirt.passive.1": "§e -Grants§9 +50% Block Break Speed§e while holding an Axe",
+  "item.curiosities.digging_claws": "Digging Claws",
+  "item.curiosities.digging_claws.passive.1": "§e -Grants§9 +50% Block Break Speed§e while holding a Pickaxe",
+  "item.curiosities.comically_large_shovel_head": "Comically Large Shovel Head",
+  "item.curiosities.comically_large_shovel_head.passive.1": "§e -Grants§9 +50% Block Break Speed§e while holding a Shovel",
+  "item.curiosities.gyroscope": "Gyroscope",
+  "item.curiosities.gyroscope.passive.1": "§e -Negates the midair§9 Block Break Speed§e penalty",
+  "item.curiosities.hand_of_destruction": "Hand of §l<color_gradient colors=[\"#FF0000\",\"#D30C58\"] | drip color=\"#FF0000\" | bloom | jitter>Destruction",
+  "item.curiosities.hand_of_destruction.passive.1": "§e -Negates the midair§9 Block Break Speed§e penalty",
+  "item.curiosities.hand_of_destruction.passive.2": "§e -Tools can break blocks of unsupported types at <percent val=100> efficiency",
+  "item.curiosities.hand_of_destruction.passive.3": "§e -Grants§9 +75% Block Break Speed§e, increased to <percent val=125> while underground",
+  "item.curiosities.hand_of_destruction.passive.4": "§e -Grants§9 +1% Block Break Speed§e for each consecutive block broken in a short period",
+
+  "item.curiosities.shoe_spikes": "Shoe Spikes",
+  "item.curiosities.climbing_claws": "Climbing Claws",
+  "item.curiosities.tiger_climbing_gear": "Tiger Climbing Gear",
+
+  "item.curiosities.cloud_in_a_bottle": "<color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Cloud in a Bottle",
+  "item.curiosities.cloud_in_a_bottle.info": "Right click a bottle above y-200",
+  "item.curiosities.cloud_in_a_bottle.passive.1": "§e -Grants a <color_gradient colors=[\"#ebefff\",\"#bdc9ff\"] | turbulence>Cloud-type§e extra jump",
+  "item.curiosities.tsunami_in_a_bottle": "<color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Tsunami in a Bottle",
+  "item.curiosities.tsunami_in_a_bottle.passive.1": "§e -Grants a <color_gradient colors=[\"#00A0E0\",\"#0063B5\",\"#002A54\"] wave_speed=0.15 spread=200 | acid amplitude=0.5 wobble=0.0000001 color_mix=0.0>Tsunami-type§e extra Jump",
+
+  "item.curiosities.blizzard_in_a_bottle": "§l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Blizzard in a Bottle",
+  "item.curiosities.blizzard_in_a_bottle.passive.1": "§e -Grants a §l<jitter intensity=1.5 speed=1.5 | color_gradient colors=[\"#96DCF5\",\"#FFFFFF\"] spread=180 wave_speed=0.77>Blizzard-type§e extra Jump",
+  "item.curiosities.blizzard_in_a_bottle.info": "Traded exclusively by Expert Armorer villagers in Snow biomes, also obtainable from Igloos.",
+  "item.curiosities.sandstorm_in_a_bottle": "<color_gradient colors=[\"#f4d090\",\"#e29352\",\"#a85a2a\"] | turbulence frequency=2>Sandstorm in a Bottle",
+  "item.curiosities.sandstorm_in_a_bottle.passive.1": "§e -Grants a <color_gradient colors=[\"#f4d090\",\"#e29352\",\"#a85a2a\"] | turbulence frequency=2>Sandstorm-type§e extra Jump",
+
+  "item.curiosities.shiny_red_balloon": "Shiny Red Balloon",
+  "item.curiosities.shiny_red_balloon.passive.1": "§e -Extra Jump curios are <percent val=100> more effective",
+
+  "item.curiosities.obsidian_skull": "Obsidian Skull",
+  "item.curiosities.obsidian_skull.passive.1": "§e -Grants§9 Immunity§e to §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Hot§e blocks like §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Magma",
+
+  "item.curiosities.obsidian_shield": "Obsidian Shield",
+  "item.curiosities.obsidian_shield.passive.1": "§e -Grants§9 Immunity§e to §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Hot§e blocks like §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Magma",
+
+  "item.curiosities.lucky_horseshoe": "<color_gradient colors=[\"#FDF55F\", \"#FAD64A\", \"#E9B115\", \"#DC9613\", \"#B26411\", \"#95480A\", \"#752802\"]>Lucky Horseshoe",
+  "item.curiosities.cobalt_shield": "Cobalt Shield",
+
+  "item.curiosities.obsidian_horseshoe": "Obsidian Horseshoe",
+  "item.curiosities.obsidian_horseshoe.passive.1": "§e -Grants§9 Immunity§e to §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Hot§e blocks like §l<bloom | color_gradient colors=[\"#FFED2B\",\"#FF7C00\",\"#E03B00\"] | fire>Magma",
+
+
+
+
+  "entity.curiosities.time_stop_field": "Time Stop Field",
+  "entity.curiosities.honey_globule": "Honey Globule",
+
+
+  "effect.curiosities.caffeinated": "Caffeinated",
+  "effect.curiosities.caffeinated.description": "You are unable to sleep!",
+  "effect.curiosities.frozen": "Frozen",
+  "effect.curiosities.redacted": "§0§lRedacted",
+  "effect.curiosities.redacted.description": "Your nametag is hidden and your name is removed from chat",
+  "effect.curiosities.incognito": "§0§lIncognito",
+  "effect.curiosities.incognito.description": "Your skin is removed",
+  "effect.curiosities.censored": "Censored",
+  "effect.curiosities.censored.description": "You are pixelated, purely visual",
+  "effect.curiosities.impervious": "Impervious",
+  "effect.curiosities.impervious.description": "You are impervious to all Damage except Magic Damage",
+
+  "subtitles.curiosities.goopy_slime": "Goopy Slime",
+  "subtitles.curiosities.time_stop": "Time Stop",
+  "subtitles.curiosities.time_resume": "Time Resumes",
+  "subtitles.curiosities.heavy_stomp": "Heavy Stomp",
+  "subtitles.curiosities.ice_freeze": "Ice Freeze",
+  "subtitles.curiosities.ground_smash": "Ground Smash",
+  "subtitles.curiosities.ground_smash_loud": "Ground Smash",
+  "subtitles.curiosities.emergency_meeting": "Emergency Meeting",
+  "subtitles.curiosities.light_switch": "Light Switch",
+  "subtitles.curiosities.double_jump": "Double Jump",
+  "subtitles.curiosities.omega_gauntlet_impact": "Omega Gauntlet Impact",
+
+
+  "key.categories.curiosities": "Curiosities",
+  "key.curiosities.active_ability": "Active Ability"
+
+}

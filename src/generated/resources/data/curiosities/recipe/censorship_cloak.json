@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gray_wool"
+    },
+    "L": {
+      "item": "minecraft:light_gray_wool"
+    }
+  },
+  "pattern": [
+    "GLG",
+    "LGL",
+    "GLG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:censorship_cloak"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:lime_wool"
+    },
+    "R": {
+      "item": "minecraft:rabbit_foot"
+    }
+  },
+  "pattern": [
+    " R ",
+    "L L",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:lucky_insoles"
+  }
+}

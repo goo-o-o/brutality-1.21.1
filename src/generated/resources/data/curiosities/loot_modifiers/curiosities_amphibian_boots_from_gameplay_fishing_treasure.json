@@ -1,0 +1,11 @@
+{
+  "type": "curiosities:add_item",
+  "chance": 0.05,
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/fishing/treasure"
+    }
+  ],
+  "item": "curiosities:amphibian_boots"
+}

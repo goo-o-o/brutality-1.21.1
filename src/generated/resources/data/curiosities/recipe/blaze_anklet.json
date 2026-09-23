@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "curiosities:empty_anklet"
+    },
+    "P": {
+      "item": "minecraft:blaze_powder"
+    },
+    "R": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "PRP",
+    "PEP",
+    "PRP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:blaze_anklet"
+  }
+}

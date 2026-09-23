@@ -1,0 +1,11 @@
+{
+  "type": "curiosities:add_item",
+  "chance": 0.02,
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/zombie"
+    }
+  ],
+  "item": "curiosities:brain_rot"
+}

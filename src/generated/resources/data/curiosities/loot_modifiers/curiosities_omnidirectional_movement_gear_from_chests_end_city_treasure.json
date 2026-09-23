@@ -1,0 +1,11 @@
+{
+  "type": "curiosities:add_item",
+  "chance": 0.25,
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/end_city_treasure"
+    }
+  ],
+  "item": "curiosities:omnidirectional_movement_gear"
+}

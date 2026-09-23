@@ -84,8 +84,7 @@ ordering = "NONE"
 side = "BOTH"
 
 # Here's another dependency
-[[dependencies.${ mod_id }]] #optional
-
+[[dependencies.${mod_id}]] #optional
 modId = "minecraft"
 type = "required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
@@ -93,12 +92,32 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.${ mod_id }]] #optional
-
+[[dependencies.${mod_id}]] #optional
 modId = "goo_lib"
 type = "required"
-versionRange = "[0.0.9,)"
+versionRange = "[0.1.0,)"
 ordering = "AFTER" # forces it to load before brutality
+side = "BOTH"
+
+[[dependencies.${mod_id}]] #optional
+modId = "curios"
+type = "required"
+versionRange = "[0.0.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]] #optional
+modId = "playeranimator"
+type = "required"
+versionRange = "[0.0.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]] #optional
+modId = "geckolib"
+type = "required"
+versionRange = "[0.0.0,)"
+ordering = "NONE"
 side = "BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "curiosities:boots_of_swiftness"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "minecraft:white_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:white_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "minecraft:white_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "curiosities:boots_of_swiftness"
+    ]
+  }
+}

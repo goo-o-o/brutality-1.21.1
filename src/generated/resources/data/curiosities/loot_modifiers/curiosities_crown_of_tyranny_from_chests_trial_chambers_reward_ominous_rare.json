@@ -1,0 +1,11 @@
+{
+  "type": "curiosities:add_item",
+  "chance": 0.075,
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/trial_chambers/reward_ominous_rare"
+    }
+  ],
+  "item": "curiosities:crown_of_tyranny"
+}

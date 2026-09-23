@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:black_concrete"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "minecraft:shield"
+    }
+  },
+  "pattern": [
+    "R R",
+    "BSB",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "curiosities:anti_cheat"
+  }
+}
