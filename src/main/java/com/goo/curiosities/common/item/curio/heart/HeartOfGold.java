@@ -2,8 +2,6 @@ package com.goo.curiosities.common.item.curio.heart;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.goo_lib.util.DelayedTaskScheduler;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -51,7 +49,7 @@ public class HeartOfGold extends CuriositiesCurioItem {
         if (entity != null) {
 
             if (entity.level().isClientSide()) {
-                Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
                 map.put(Attributes.MAX_ABSORPTION, new AttributeModifier(id, entity.getMaxHealth(), AttributeModifier.Operation.ADD_VALUE));
                 return map;
             }

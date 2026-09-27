@@ -41,6 +41,9 @@ public class CuriositiesParticles {
     public static final DeferredHolder<ParticleType<?>, ParticleType<FlatParticleOption>> MOLTEN_FOOTPRINT = PARTICLE_TYPES.register(
             "molten_footprint", () -> new FlatParticleType(true)
     );
+    public static final DeferredHolder<ParticleType<?>, ParticleType<FlatParticleOption>> EMBER = PARTICLE_TYPES.register(
+            "ember", () -> new FlatParticleType(true)
+    );
 
     public static final DeferredHolder<ParticleType<?>, ParticleType<WaveParticleOption>> SEISMIC_SHOCKWAVE =
             PARTICLE_TYPES.register("seismic_shockwave", () -> new WaveParticleType(false));
@@ -48,6 +51,6 @@ public class CuriositiesParticles {
     public static final DeferredHolder<ParticleType<?>, ParticleType<WaveParticleOption>> FIRE_WAVE =
             PARTICLE_TYPES.register("fire_wave", () -> new WaveParticleType(false));
 
-
+    
 
 }

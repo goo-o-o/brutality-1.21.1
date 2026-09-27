@@ -7,7 +7,6 @@ import com.goo.curiosities.common.Curiosities;
 import com.goo.curiosities.common.registry.CuriositiesEffects;
 import com.goo.curiosities.common.registry.CuriositiesItems;
 import com.goo.curiosities.mixin.TextureStateAccessor;
-import com.goo.curiosities.util.CombatTracker;
 import com.goo.goo_lib.client.registry.GLRenderTypes;
 import com.goo.goo_lib.client.render.PostEffectRegistry;
 import com.goo.goo_lib.client.render.pipeline.ShaderPipeline;
@@ -24,6 +23,7 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.inventory.InventoryMenu;
@@ -143,7 +143,7 @@ public class EntityRenderEvents {
         Minecraft minecraft = Minecraft.getInstance();
         CuriosApi.getCuriosInventory(event.getEntity()).ifPresent(handler -> {
             if (handler.isEquipped(CuriositiesItems.CLOAK_OF_INVISIBILITY.value())) {
-                if (!CombatTracker.isInCombat(event.getEntity(), 100)) {
+                if (event.getEntity().hasEffect(MobEffects.INVISIBILITY)) {
                     event.setCanceled(true);
                 }
             } else if (handler.isEquipped(CuriositiesItems.ANTI_CHEAT.value())) {

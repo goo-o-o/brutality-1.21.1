@@ -1,7 +1,7 @@
 package com.goo.curiosities.common.item.curio.necklace;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
-import com.google.common.collect.LinkedHashMultimap;
+import com.goo.curiosities.common.item.curio.hand.HandOfDestruction;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -24,7 +24,7 @@ public class BedrockNecklace extends CuriositiesCurioItem {
         LivingEntity entity = slotContext.entity();
         if (entity != null && entity.level().isClientSide()) {
             if (HandOfDestruction.canActivate(slotContext.entity())) {
-                Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
                 map.put(Attributes.BLOCK_BREAK_SPEED, new AttributeModifier(id, 0.35F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
                 return map;
             }

@@ -2,7 +2,6 @@ package com.goo.curiosities.common.item.curio.feet;
 
 import com.goo.curiosities.client.registry.CuriositiesParticles;
 import com.goo.curiosities.common.ClientProxy;
-import com.goo.curiosities.common.item.FootstepCurioItem;
 import com.goo.curiosities.common.registry.CuriositiesSounds;
 import com.goo.curiosities.util.EntityUtil;
 import com.goo.goo_lib.client.particle.WaveParticleOption;
@@ -34,10 +33,7 @@ public class FlameStompers extends FlameThreaders {
         return 4;
     }
 
-    @Override
-    public void onFootstep(LivingEntity livingEntity, Vec3 position, FootstepCurioItem curioItem, boolean left, boolean hasValidSurface, int amount, float partialTick) {
-        super.onFootstep(livingEntity, position, curioItem, left, hasValidSurface, amount, partialTick);
-    }
+
 
     @Override
     public void onWearerFall(LivingFallEvent event, ItemStack curio) {

@@ -42,7 +42,9 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
 
         tag(ItemTags.DURABILITY_ENCHANTABLE).add(CuriositiesItems.NETHERITE_JETPACK.value());
         tag(CuriositiesTags.Items.RAINBOW_TOOLTIP).add(
-                CuriositiesItems.OMNICHROME_RING.value()
+                CuriositiesItems.OMNICHROME_RING.value(),
+                CuriositiesItems.SUPREME_MASTER_ANGLERS_BACKPACK_OF_PEERLESS_FISHING.value(),
+                CuriositiesItems.MOVEMENT_GODS_TRACERS.value()
         );
         tag(CuriositiesTags.Items.MATRIX_TOOLTIP).add(
                 CuriositiesItems.OMNIDIRECTIONAL_MOVEMENT_GEAR.value(),
@@ -51,6 +53,10 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
                 CuriositiesItems.CORRUPTED_DIAMOND.value()
         );
         tag(CuriositiesTags.Items.FIRE_TOOLTIP).add(
+                CuriositiesItems.MOLTEN_QUIVER.value(),
+                CuriositiesItems.QUIVER_OF_THE_FIRST_FLAME.value(),
+                CuriositiesItems.INFERNAL_FISHING_LINE.value(),
+                CuriositiesItems.LAVAPROOF_FISHING_HOOK.value(),
                 CuriositiesItems.PORTABLE_FIRE_EXTINGUISHER.value(),
                 CuriositiesItems.BLAZE_ANKLET.value(),
                 CuriositiesItems.SURTRS_HORN.value(),
@@ -72,6 +78,7 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
                 CuriositiesItems.INNER_TUBE.value()
         );
         tag(CuriositiesTags.Items.SNOW_TOOLTIP).add(
+                CuriositiesItems.FRIGID_FISHING_LINE.value(),
                 CuriositiesItems.CLOAK_OF_TRUE_ICE.value(),
                 CuriositiesItems.FROZEN_HEART.value(),
                 CuriositiesItems.COLD_PILLOW.value(),
@@ -93,22 +100,44 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
                 CuriositiesItems.LUMBERJACKS_SHIRT.value(),
                 CuriositiesItems.SAFETY_HARNESS.value(),
                 CuriositiesItems.NANO_MACHINES.value(),
-                CuriositiesItems.IRON_GUT.value()
-        );
-    }
-
-    private void addBackTags() {
-        this.tag(CuriosTags.BACK).add(
-                CuriositiesItems.NETHERITE_JETPACK.value(),
-                CuriositiesItems.ARCHITECT_GIZMO_PACK.value(),
-                CuriositiesItems.PORTABLE_CONCRETE_MIXER.value(),
+                CuriositiesItems.IRON_GUT.value(),
                 CuriositiesItems.CLOAK_OF_INVISIBILITY.value(),
                 CuriositiesItems.CENSORSHIP_CLOAK.value()
         );
     }
 
+    private void addBackTags() {
+        this.tag(CuriosTags.BACK).add(
+                CuriositiesItems.MAGIC_QUIVER.value(),
+                CuriositiesItems.TOXIC_QUIVER.value(),
+                CuriositiesItems.QUIVER_OF_TEN_THOUSAND_POISONS.value(),
+                CuriositiesItems.QUIVER_OF_DECAY.value(),
+                CuriositiesItems.QUIVER_OF_THE_BLACK_DEATH.value(),
+                CuriositiesItems.QUIVER_OF_FAMINE.value(),
+                CuriositiesItems.QUIVER_OF_STARVATION.value(),
+                CuriositiesItems.STALKERS_QUIVER.value(),
+                CuriositiesItems.BEDROCK_QUIVER.value(),
+                CuriositiesItems.SCOUTS_QUIVER.value(),
+                CuriositiesItems.QUIVER_OF_ABSURDITY.value(),
+                CuriositiesItems.INVERSION_QUIVER.value(),
+                CuriositiesItems.MOLTEN_QUIVER.value(),
+                CuriositiesItems.QUIVER_OF_THE_FIRST_FLAME.value(),
+                CuriositiesItems.SUPREME_MASTER_ANGLERS_BACKPACK_OF_PEERLESS_FISHING.value(),
+                CuriositiesItems.NETHERITE_JETPACK.value(),
+                CuriositiesItems.ARCHITECT_GIZMO_PACK.value(),
+                CuriositiesItems.PORTABLE_CONCRETE_MIXER.value()
+
+        );
+    }
+
     private void addCharmTags() {
         this.tag(CuriosTags.CHARM).add(
+                CuriositiesItems.APPRENTICES_FISHING_BOBBER.value(),
+                CuriositiesItems.JOURNEYMANS_FISHING_BOBBER.value(),
+                CuriositiesItems.EXPERTS_FISHING_BOBBER.value(),
+                CuriositiesItems.MASTERS_FISHING_BOBBER.value(),
+                CuriositiesItems.ECHOING_FISHING_HOOK.value(),
+                CuriositiesItems.LAVAPROOF_FISHING_HOOK.value(),
                 CuriositiesItems.COMICALLY_LARGE_SHOVEL_HEAD.value(),
                 CuriositiesItems.ROYAL_JELLY.value(),
                 CuriositiesItems.CORRUPTED_DIAMOND.value(),
@@ -158,6 +187,13 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
 
     private void addBeltTags() {
         this.tag(CuriosTags.BELT).add(
+                CuriositiesItems.INFERNAL_FISHING_LINE.value(),
+                CuriositiesItems.FRIGID_FISHING_LINE.value(),
+                CuriositiesItems.SANGUINE_FISHING_LINE.value(),
+                CuriositiesItems.FROSTFIRE_FISHING_LINE.value(),
+                CuriositiesItems.HIGH_TEST_FISHING_LINE.value(),
+                CuriositiesItems.REINFORCED_ROD_BLANK.value(),
+                CuriositiesItems.REDSTONE_POWERED_FISHING_REEL.value(),
                 CuriositiesItems.MAGNET.value(),
                 CuriositiesItems.ELECTROMAGNET.value(),
                 CuriositiesItems.TIGER_CLIMBING_GEAR.value(),

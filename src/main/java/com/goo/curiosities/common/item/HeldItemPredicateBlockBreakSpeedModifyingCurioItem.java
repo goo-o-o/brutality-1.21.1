@@ -1,6 +1,5 @@
 package com.goo.curiosities.common.item;
 
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +26,7 @@ public class HeldItemPredicateBlockBreakSpeedModifyingCurioItem extends Curiosit
         LivingEntity entity = slotContext.entity();
         if (entity != null && entity.level().isClientSide()) {
             if (entity.getMainHandItem().is(tagKey)) {
-                Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
                 map.put(Attributes.BLOCK_BREAK_SPEED, new AttributeModifier(id, 0.5F, AttributeModifier.Operation.ADD_VALUE));
                 return map;
             }

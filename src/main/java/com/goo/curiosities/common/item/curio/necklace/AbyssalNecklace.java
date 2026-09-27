@@ -1,8 +1,6 @@
 package com.goo.curiosities.common.item.curio.necklace;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -48,7 +46,7 @@ public class AbyssalNecklace extends CuriositiesCurioItem {
             if (entity.level().isClientSide()) {
                 double bonus = getPercentageBonus(entity);
                 if (bonus > 0) {
-                    Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                    Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
                     map.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(id, 0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
                     map.put(NeoForgeMod.SWIM_SPEED, new AttributeModifier(id, 0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
                     return map;

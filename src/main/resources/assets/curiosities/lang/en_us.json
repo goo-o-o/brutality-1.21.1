@@ -514,6 +514,8 @@
   "entity.curiosities.honey_globule": "Honey Globule",
 
 
+  "effect.curiosities.glitched": "Glitched",
+  "effect.curiosities.glitched.description": "You have a 50% chance to not take Damage, you also have a 50% chance to not deal Damage",
   "effect.curiosities.caffeinated": "Caffeinated",
   "effect.curiosities.caffeinated.description": "You are unable to sleep!",
   "effect.curiosities.frozen": "Frozen",

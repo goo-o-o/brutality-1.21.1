@@ -1,4 +1,4 @@
-package com.goo.curiosities.common.item.curio.back;
+package com.goo.curiosities.common.item.curio.body;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.curiosities.common.registry.CuriositiesEffects;

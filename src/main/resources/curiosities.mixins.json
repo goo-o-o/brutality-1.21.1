@@ -8,8 +8,10 @@
     "minVersion": "0.5.3"
   },
   "mixins": [
+    "ArrowItemMixin",
     "BlockMixin",
     "EntityMixin",
+    "FishingHookMixin",
     "ItemStackMixin",
     "LevelMixin",
     "LivingEntityMixin",
@@ -22,6 +24,7 @@
     "AbstractClientPlayerMixin",
     "ClientLevelMixin",
     "EntityRendererMixin",
+    "FishingHookRendererMixin",
     "GameRendererMixin",
     "KeyboardHandlerMixin",
     "LevelRendererMixin",

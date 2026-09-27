@@ -2,8 +2,6 @@ package com.goo.curiosities.common.item.curio.feet;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.curiosities.common.registry.CuriositiesAttachments;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -33,7 +31,7 @@ public class SlipstreamTracers extends CuriositiesCurioItem {
         if (entity != null && entity.level().isClientSide()) {
             float bonus = getBonus(entity);
             if (bonus > 0) {
-                Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
 
                 map.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(id, bonus, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 

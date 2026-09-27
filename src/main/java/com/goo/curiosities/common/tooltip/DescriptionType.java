@@ -12,28 +12,13 @@ public enum DescriptionType implements StringRepresentable {
     MULTIPLAYER_ONLY,
     ACTIVE,
     PASSIVE,
-    FULL_SET_PASSIVE,
-    FULL_SET_ACTIVE,
     ON_HIT,
+    ON_ARROW_HIT,
     ON_TRUE_MELEE_HIT,
-    WHEN_THROWN,
-    WHEN_SWIRLING,
-    ON_SWING,
-    ON_LEFT_CLICKING_ENTITY,
-    ON_RIGHT_CLICK,
-    ON_RELEASE_RIGHT_CLICK,
-    ON_SHIFT_RIGHT_CLICK,
-    ON_HOLD_RIGHT_CLICK,
     LORE,
     ON_KILL,
-    ON_SHOOT,
-    CHARM,
-    DASH_ABILITY,
-    ON_SUCCESSFUL_DODGE,
-    MANA_COST,
-    UPON_TRIGGERING_RAGE,
-    ON_HEADS,
-    ON_TAILS;
+    ON_SWING,
+    ON_SUCCESSFUL_DODGE;
 
     private final String serializedName;
 

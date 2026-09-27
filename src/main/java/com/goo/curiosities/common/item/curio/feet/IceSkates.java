@@ -2,8 +2,6 @@ package com.goo.curiosities.common.item.curio.feet;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.goo_lib.common.registry.GLAttributes;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -37,7 +35,7 @@ public class IceSkates extends CuriositiesCurioItem {
 
             if (entity.level().isClientSide()) {
                 if (entity.getBlockStateOn().is(BlockTags.ICE)) {
-                    Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                    Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
                     map.put(GLAttributes.FRICTION_MODIFIER, new AttributeModifier(id, -0.95, AttributeModifier.Operation.ADD_VALUE));
                     return map;
                 }

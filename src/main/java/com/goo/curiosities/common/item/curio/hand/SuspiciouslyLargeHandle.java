@@ -2,8 +2,6 @@ package com.goo.curiosities.common.item.curio.hand;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.curiosities.common.registry.CuriositiesItems;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -56,7 +54,7 @@ public class SuspiciouslyLargeHandle extends CuriositiesCurioItem {
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
         LivingEntity entity = slotContext.entity();
         if (entity != null && entity.level().isClientSide()) {
-            Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+            Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
             AttributeInstance currentAttackSpeed = entity.getAttribute(Attributes.ATTACK_SPEED);
             if (currentAttackSpeed != null) {
                 float speedToModify = (float) (BASE_ATTACK_SPEED - currentAttackSpeed.getValue());

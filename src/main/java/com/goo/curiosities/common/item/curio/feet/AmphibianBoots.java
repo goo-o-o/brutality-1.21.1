@@ -1,8 +1,6 @@
 package com.goo.curiosities.common.item.curio.feet;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -32,7 +30,7 @@ public class AmphibianBoots extends CuriositiesCurioItem {
     @Override
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
         LivingEntity entity = slotContext.entity();
-        Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+        Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
         if (entity != null) {
             map.put(NeoForgeMod.SWIM_SPEED, new AttributeModifier(id, 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 

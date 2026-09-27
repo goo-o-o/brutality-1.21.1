@@ -1,5 +1,12 @@
 {
   "values": [
+    "curiosities:infernal_fishing_line",
+    "curiosities:frigid_fishing_line",
+    "curiosities:sanguine_fishing_line",
+    "curiosities:frostfire_fishing_line",
+    "curiosities:high_test_fishing_line",
+    "curiosities:reinforced_rod_blank",
+    "curiosities:redstone_powered_fishing_reel",
     "curiosities:magnet",
     "curiosities:electromagnet",
     "curiosities:tiger_climbing_gear",

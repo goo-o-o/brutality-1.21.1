@@ -1,19 +1,15 @@
 package com.goo.curiosities.common.item.curio.feet;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
 public class LuckyInsoles extends CuriositiesCurioItem {
@@ -45,7 +41,7 @@ public class LuckyInsoles extends CuriositiesCurioItem {
 
                 float luck = player.getLuck();
                 if (luck > 0) {
-                    Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                    Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
                     map.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(id, luck * 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
                     map.put(Attributes.SAFE_FALL_DISTANCE, new AttributeModifier(id, luck, AttributeModifier.Operation.ADD_VALUE));
                     return map;

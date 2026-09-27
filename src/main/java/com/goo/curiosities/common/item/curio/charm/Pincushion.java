@@ -1,8 +1,6 @@
 package com.goo.curiosities.common.item.curio.charm;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -24,7 +22,7 @@ public class Pincushion extends CuriositiesCurioItem {
         LivingEntity entity = slotContext.entity();
         if (entity != null && entity.level().isClientSide()) {
 
-            Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+            Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
             int arrowsStuck = entity.getArrowCount();
             if (arrowsStuck > 0) {
 

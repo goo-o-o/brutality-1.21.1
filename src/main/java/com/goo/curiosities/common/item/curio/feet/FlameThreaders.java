@@ -7,6 +7,7 @@ import com.goo.goo_lib.client.particle.WaveParticleOption;
 import com.goo.goo_lib.util.Easing;
 import com.goo.goo_lib.util.phys.ShockwaveUtils;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 
@@ -41,7 +42,10 @@ public class FlameThreaders extends FlameWalkers {
             if (livingEntity.level().isClientSide()) {
                 livingEntity.level().addParticle(
                         particleOption,
-                        position.x(), position.y(), position.z(),
+                        position.x(),
+                        // prevent z fighting
+                        position.y() + Mth.nextFloat(livingEntity.getRandom(), 0.000000000000000000000000000000000000000000001F, 0.01F),
+                        position.z(),
                         0.0D, 0.0D, 0.0D
                 );
             } else {

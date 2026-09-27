@@ -1,5 +1,11 @@
 {
   "values": [
+    "curiosities:apprentices_fishing_bobber",
+    "curiosities:journeymans_fishing_bobber",
+    "curiosities:experts_fishing_bobber",
+    "curiosities:masters_fishing_bobber",
+    "curiosities:echoing_fishing_hook",
+    "curiosities:lavaproof_fishing_hook",
     "curiosities:comically_large_shovel_head",
     "curiosities:royal_jelly",
     "curiosities:corrupted_diamond",

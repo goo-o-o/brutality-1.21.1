@@ -1,9 +1,20 @@
 {
   "values": [
+    "curiosities:magic_quiver",
+    "curiosities:toxic_quiver",
+    "curiosities:quiver_of_ten_thousand_poisons",
+    "curiosities:quiver_of_decay",
+    "curiosities:quiver_of_the_black_death",
+    "curiosities:quiver_of_famine",
+    "curiosities:quiver_of_starvation",
+    "curiosities:stalkers_quiver",
+    "curiosities:bedrock_quiver",
+    "curiosities:scouts_quiver",
+    "curiosities:quiver_of_absurdity",
+    "curiosities:inversion_quiver",
+    "curiosities:supreme_master_anglers_backpack_of_peerless_fishing",
     "curiosities:netherite_jetpack",
     "curiosities:architect_gizmo_pack",
-    "curiosities:portable_concrete_mixer",
-    "curiosities:cloak_of_invisibility",
-    "curiosities:censorship_cloak"
+    "curiosities:portable_concrete_mixer"
   ]
 }

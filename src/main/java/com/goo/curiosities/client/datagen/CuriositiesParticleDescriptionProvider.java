@@ -23,6 +23,7 @@ public class CuriositiesParticleDescriptionProvider extends ParticleDescriptionP
     @Override
     protected void addDescriptions() {
         sprite(CuriositiesParticles.MOLTEN_FOOTPRINT.get(), Curiosities.loc("generic_dot"));
+        sprite(CuriositiesParticles.EMBER.get(), Curiosities.loc("generic_dot"));
         sprite(CuriositiesParticles.OMEGA.get(), Curiosities.loc("omega"));
         sprite(CuriositiesParticles.SEISMIC_SHOCKWAVE.get(), Curiosities.loc("seismic_shockwave"));
         sprite(CuriositiesParticles.FIRE_WAVE.get(), Curiosities.loc("generic_wave"));

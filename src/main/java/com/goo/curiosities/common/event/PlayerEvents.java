@@ -3,6 +3,7 @@ package com.goo.curiosities.common.event;
 import com.goo.curiosities.common.Curiosities;
 import com.goo.curiosities.common.ServerDoubleJumpHandler;
 import com.goo.curiosities.common.attachments.MomentumComboData;
+import com.goo.curiosities.common.item.AdditionalFishingLootCurio;
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.curiosities.common.item.curio.back.NetheriteJetpack;
 import com.goo.curiosities.common.registry.CuriositiesEffects;
@@ -20,6 +21,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
@@ -32,13 +34,32 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.*;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
 /**
- * Player-specific events, {@link net.neoforged.neoforge.event.tick.PlayerTickEvent}should be handled in {@link  CommonTickEvents}
+ * Player-specific events, {@link PlayerTickEvent}should be handled in {@link  CommonTickEvents}
  */
 @EventBusSubscriber(modid = Curiosities.MOD_ID)
 public class PlayerEvents {
+    @SubscribeEvent
+    public static void onItemFished(ItemFishedEvent event) {
+        Player player = event.getEntity();
+        ItemStack rodStack = player.getMainHandItem().is(Items.FISHING_ROD) ? player.getMainHandItem() : player.getOffhandItem();
+        FishingHook hook = event.getHookEntity();
+        if (player instanceof ServerPlayer) {
+            CuriosApi.getCuriosInventory(event.getEntity()).ifPresent(handler -> {
+                handler.findCurios(stack -> stack.getItem() instanceof AdditionalFishingLootCurio).forEach(slotResult -> {
+                    ((AdditionalFishingLootCurio) slotResult.stack().getItem()).spawnAdditionalLoot(player, hook, rodStack);
+                });
+                if (handler.isEquipped(CuriositiesItems.SUPREME_MASTER_ANGLERS_BACKPACK_OF_PEERLESS_FISHING.value()) || handler.isEquipped(CuriositiesItems.REINFORCED_ROD_BLANK.value())) {
+                    event.damageRodBy(0);
+                }
+
+            });
+        }
+    }
+
     @SubscribeEvent
     public static void onGetPlayerBreakSpeed(PlayerEvent.BreakSpeed event) {
         Player player = event.getEntity();

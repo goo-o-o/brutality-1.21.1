@@ -2,10 +2,7 @@ package com.goo.curiosities.common.event;
 
 import com.goo.curiosities.common.Curiosities;
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
-import com.goo.curiosities.common.registry.CuriositiesEffects;
 import com.goo.curiosities.common.registry.CuriositiesItems;
-import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,16 +19,7 @@ public class MobEffectEvents {
     public static void onEffectAdded(MobEffectEvent.Added event) {
         LivingEntity entity = event.getEntity();
         CuriositiesCurioItem.Hooks.applyOnWearerMobEffectAdded(entity, event);
-        MobEffectInstance instance = event.getEffectInstance();
 
-        if (instance.is(CuriositiesEffects.GLITCHED)) {
-            if (entity.level() instanceof ServerLevel serverLevel) {
-                serverLevel.getChunkSource().broadcastAndSend(
-                        entity,
-                        new ClientboundUpdateMobEffectPacket(entity.getId(), instance, true)
-                );
-            }
-        }
     }
 
     @SubscribeEvent

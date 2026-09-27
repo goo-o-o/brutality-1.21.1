@@ -61,6 +61,7 @@ public class CuriositiesItemModelProvider extends ItemModelProvider {
         curio(CuriositiesItems.RESPLENDENT_FEATHER.value(), 2, false, 1);
         curio(CuriositiesItems.NANO_MACHINES.value(), 2, false, 2);
         curio(CuriositiesItems.PLATED_STEELCAPS.value(), 2);
+        curio(CuriositiesItems.SUPREME_MASTER_ANGLERS_BACKPACK_OF_PEERLESS_FISHING.value(), 2);
         curio(CuriositiesItems.MOVEMENT_GODS_TRACERS.value(), 1, false, 2);
         curio(CuriositiesItems.BROKEN_CLOCK.value(), 1, true, 1);
         curio(CuriositiesItems.FIERY_ANKLET.value(), 1, false, 1);

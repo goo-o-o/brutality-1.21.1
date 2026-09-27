@@ -24,7 +24,6 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 public class EntityUtil {
-
     /**
      * @return The most optimal and accurate damage source depending if the entity was a player or mob
      */
@@ -142,4 +141,13 @@ public class EntityUtil {
     public static List<Entity> getEntitiesInSphere(Level level, Vec3 origin, float radius) {
         return level.getEntities((Entity) (null), new AABB(origin, origin).inflate(radius), e -> e.distanceToSqr(origin) <= (radius * radius));
     }
+
+    public static List<LivingEntity> getNearbyEnemies(LivingEntity livingEntity, Vec3 pos, float range) {
+        return livingEntity.level().getNearbyEntities(
+                LivingEntity.class,
+                TargetingConditions.forCombat().selector(e -> !EntityUtil.isAlly(livingEntity, e)),
+                livingEntity,
+                new AABB(pos, pos).inflate(range));
+    }
+
 }

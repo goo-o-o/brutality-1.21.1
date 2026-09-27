@@ -4,7 +4,6 @@ import com.goo.curiosities.client.registry.CuriositiesParticles;
 import com.goo.curiosities.common.item.FootstepCurioItem;
 import com.goo.goo_lib.client.particle.FlatParticleOption;
 import com.goo.goo_lib.common.mob_effect.passive.PassiveMobEffect;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -63,7 +62,7 @@ public class FlameWalkers extends FootstepCurioItem {
         LivingEntity entity = slotContext.entity();
         if (entity != null && entity.level().isClientSide()) {
             if (shouldActivate(entity)) {
-                Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+                Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
 
                 map.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(id, speedBonus, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
@@ -102,7 +101,7 @@ public class FlameWalkers extends FootstepCurioItem {
 
             livingEntity.level().addParticle(
                     particleOption,
-                    position.x(), position.y(), position.z(),
+                    position.x(), position.y() + 0.02, position.z(),
                     0.0D, 0.0D, 0.0D
             );
         }

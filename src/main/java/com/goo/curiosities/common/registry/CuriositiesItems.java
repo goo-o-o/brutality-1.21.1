@@ -4,13 +4,10 @@ import com.goo.curiosities.client.registry.CuriositiesKeymappings;
 import com.goo.curiosities.common.Curiosities;
 import com.goo.curiosities.common.item.*;
 import com.goo.curiosities.common.item.curio.anklet.*;
-import com.goo.curiosities.common.item.curio.back.CensorshipCloak;
-import com.goo.curiosities.common.item.curio.back.CloakOfTrueIce;
-import com.goo.curiosities.common.item.curio.back.NetheriteJetpack;
-import com.goo.curiosities.common.item.curio.belt.InnerTube;
-import com.goo.curiosities.common.item.curio.belt.MiniatureAnchor;
-import com.goo.curiosities.common.item.curio.belt.OldGuillotine;
-import com.goo.curiosities.common.item.curio.belt.SurtrsHorn;
+import com.goo.curiosities.common.item.curio.back.*;
+import com.goo.curiosities.common.item.curio.belt.*;
+import com.goo.curiosities.common.item.curio.body.CensorshipCloak;
+import com.goo.curiosities.common.item.curio.body.CloakOfInvisibility;
 import com.goo.curiosities.common.item.curio.body.IronGut;
 import com.goo.curiosities.common.item.curio.body.NanoMachines;
 import com.goo.curiosities.common.item.curio.bracelet.PerfectCell;
@@ -524,6 +521,310 @@ public class CuriositiesItems {
                                     .cooldown(2.5F)
                                     .pop().build())));
 
+    public static final Holder<Item> NECTAR_GLAND = ITEMS.register("nectar_gland",
+            () -> new NectarGland(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("nectar_gland")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .cooldown(2)
+                                    .pop().build())));
+
+
+    public static final Holder<Item> APPRENTICES_FISHING_BOBBER = ITEMS.register("apprentices_fishing_bobber",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("apprentices_fishing_bobber")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.FISHING_BOBBER_COUNT, 1, ADD_VALUE)
+                    ));
+    public static final Holder<Item> JOURNEYMANS_FISHING_BOBBER = ITEMS.register("journeymans_fishing_bobber",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("journeymans_fishing_bobber")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.FISHING_BOBBER_COUNT, 2, ADD_VALUE)
+                    ));
+    public static final Holder<Item> EXPERTS_FISHING_BOBBER = ITEMS.register("experts_fishing_bobber",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("experts_fishing_bobber")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.FISHING_BOBBER_COUNT, 3, ADD_VALUE)
+                    ));
+    public static final Holder<Item> MASTERS_FISHING_BOBBER = ITEMS.register("masters_fishing_bobber",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("masters_fishing_bobber")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.FISHING_BOBBER_COUNT, 4, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> HIGH_TEST_FISHING_LINE = ITEMS.register("high_test_fishing_line",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("high_test_fishing_line")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(new AttributeContainer(GLAttributes.FISHING_LUCK, 1, ADD_VALUE)));
+
+    public static final Holder<Item> FRIGID_FISHING_LINE = ITEMS.register("frigid_fishing_line",
+            () -> new FrigidFishingLine(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("frigid_fishing_line")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(2)
+                                    .pop().build())));
+
+    public static final Holder<Item> INFERNAL_FISHING_LINE = ITEMS.register("infernal_fishing_line",
+            () -> new InfernalFishingLine(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("infernal_fishing_line")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(2)
+                                    .pop().build())));
+
+    public static final Holder<Item> FROSTFIRE_FISHING_LINE = ITEMS.register("frostfire_fishing_line",
+            () -> new FrostfireFishingLine(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("frostfire_fishing_line")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(new AttributeContainer(GLAttributes.FISHING_LUCK, 4, ADD_VALUE)));
+
+    public static final Holder<Item> SANGUINE_FISHING_LINE = ITEMS.register("sanguine_fishing_line",
+            () -> new SanguineFishingLine(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("sanguine_fishing_line")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build())));
+
+    public static final Holder<Item> ECHOING_FISHING_HOOK = ITEMS.register("echoing_fishing_hook",
+            () -> new EchoingFishingHook(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("echoing_fishing_hook")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build())));
+
+    public static final Holder<Item> LAVAPROOF_FISHING_HOOK = ITEMS.register("lavaproof_fishing_hook",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("lavaproof_fishing_hook")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build())));
+
+    public static final Holder<Item> REINFORCED_ROD_BLANK = ITEMS.register("reinforced_rod_blank",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("reinforced_rod_blank")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build())));
+
+    public static final Holder<Item> REDSTONE_POWERED_FISHING_REEL = ITEMS.register("redstone_powered_fishing_reel",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("redstone_powered_fishing_reel")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build())));
+
+    public static final Holder<Item> SUPREME_MASTER_ANGLERS_BACKPACK_OF_PEERLESS_FISHING = ITEMS.register("supreme_master_anglers_backpack_of_peerless_fishing",
+            () -> new SupremeMasterAnglersBagOfPeerlessFishing(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("supreme_master_anglers_backpack_of_peerless_fishing")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(8)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.FISHING_BOBBER_COUNT, 4, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.FISHING_LUCK, 5, ADD_VALUE)
+                    ));
+
+
+    public static final Holder<Item> MAGIC_QUIVER = ITEMS.register("magic_quiver",
+            () -> new CuriositiesCurioItem(new Item.Properties())
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> QUIVER_OF_STARVATION = ITEMS.register("quiver_of_starvation",
+            () -> new QuiverOfStarvation(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_starvation")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+    public static final Holder<Item> QUIVER_OF_FAMINE = ITEMS.register("quiver_of_famine",
+            () -> new QuiverOfFamine(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_famine")
+                                    .add(DescriptionType.LORE)
+                                    .lines(1)
+                                    .pop()
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(2)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> STALKERS_QUIVER = ITEMS.register("stalkers_quiver",
+            () -> new StalkersQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("stalkers_quiver")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.STEALTH, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+    public static final Holder<Item> BEDROCK_QUIVER = ITEMS.register("bedrock_quiver",
+            () -> new CuriositiesCurioItem(new Item.Properties())
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.DRAW_SPEED, -0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_GRAVITY, 1, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_KNOCKBACK, 1, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 1.25, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> SCOUTS_QUIVER = ITEMS.register("scouts_quiver",
+            () -> new ScoutsQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("scouts_quiver")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.15, ADD_MULTIPLIED_TOTAL),
+                            new AttributeContainer(GLAttributes.DRAW_SPEED, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.75, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, -0.25, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> QUIVER_OF_ABSURDITY = ITEMS.register("quiver_of_absurdity",
+            () -> new CuriositiesCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_absurdity")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> INVERSION_QUIVER = ITEMS.register("inversion_quiver",
+            () -> new CuriositiesCurioItem(new Item.Properties())
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, -0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_GRAVITY, -2, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 3, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> MOLTEN_QUIVER = ITEMS.register("molten_quiver",
+            () -> new MoltenQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("molten_quiver")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop()
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()), 10, 2)
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> QUIVER_OF_THE_FIRST_FLAME = ITEMS.register("quiver_of_the_first_flame",
+            () -> new MoltenQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_the_first_flame")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop()
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()), 20, 3)
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> TOXIC_QUIVER = ITEMS.register("toxic_quiver",
+            () -> new ToxicQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("toxic_quiver")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> QUIVER_OF_TEN_THOUSAND_POISONS = ITEMS.register("quiver_of_ten_thousand_poisons",
+            () -> new QuiverOfTenThousandPoisons(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_ten_thousand_poisons")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(2)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> QUIVER_OF_DECAY = ITEMS.register("quiver_of_decay",
+            () -> new QuiverOfDecay(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_decay")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> QUIVER_OF_THE_BLACK_DEATH = ITEMS.register("quiver_of_the_black_death",
+            () -> new QuiverOfTheBlackDeath(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("quiver_of_the_black_death")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(2)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
     public static final Holder<Item> EXTENDO_GRIP = ITEMS.register("extendo_grip",
             () -> new CuriositiesCurioItem(new Item.Properties())
                     .withAttributes(new AttributeContainer(Attributes.BLOCK_INTERACTION_RANGE, 1, ADD_VALUE)));
@@ -638,14 +939,6 @@ public class CuriositiesItems {
                     )
     );
 
-    public static final Holder<Item> NECTAR_GLAND = ITEMS.register("nectar_gland",
-            () -> new NectarGland(new Item.Properties()
-                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
-                            ItemDescriptions.forItem("nectar_gland")
-                                    .add(DescriptionType.PASSIVE)
-                                    .lines(1)
-                                    .cooldown(2)
-                                    .pop().build())));
 
     public static final Holder<Item> MAGNET = ITEMS.register("magnet",
             () -> new MagnetCurioItem(new Item.Properties()
@@ -765,11 +1058,11 @@ public class CuriositiesItems {
                     ));
 
     public static final Holder<Item> CLOAK_OF_INVISIBILITY = ITEMS.register("cloak_of_invisibility",
-            () -> new CuriositiesCurioItem(new Item.Properties()
+            () -> new CloakOfInvisibility(new Item.Properties()
                     .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
                             ItemDescriptions.forItem("cloak_of_invisibility")
                                     .add(DescriptionType.PASSIVE)
-                                    .lines(1)
+                                    .lines(2)
                                     .pop().build()))
                     .withAttributes(new AttributeContainer(GLAttributes.STEALTH, 1, ADD_VALUE)));
 

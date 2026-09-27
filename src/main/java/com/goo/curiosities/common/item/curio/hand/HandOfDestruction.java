@@ -1,8 +1,7 @@
-package com.goo.curiosities.common.item.curio.necklace;
+package com.goo.curiosities.common.item.curio.hand;
 
 import com.goo.curiosities.common.item.CuriositiesCurioItem;
 import com.goo.curiosities.common.registry.CuriositiesAttachments;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -30,7 +29,7 @@ public class HandOfDestruction extends CuriositiesCurioItem {
             double modifierValue = combo * 0.01;
             double amount = canActivate(slotContext.entity()) ? 1.25F : 0.75F;
             amount += modifierValue;
-            Multimap<Holder<Attribute>, AttributeModifier> map = LinkedHashMultimap.create();
+            Multimap<Holder<Attribute>, AttributeModifier> map = super.getAttributeModifiers(slotContext, id, stack);
             map.put(Attributes.BLOCK_BREAK_SPEED, new AttributeModifier(id, amount, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
             return map;
         }
