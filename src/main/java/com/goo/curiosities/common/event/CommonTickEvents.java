@@ -2,6 +2,7 @@ package com.goo.curiosities.common.event;
 
 import com.goo.curiosities.client.registry.CuriositiesParticles;
 import com.goo.curiosities.common.Curiosities;
+import com.goo.curiosities.common.item.curio.charm.MagneticArrowhead;
 import com.goo.curiosities.common.item.curio.feet.FlameWalkers;
 import com.goo.curiosities.util.CurioUtil;
 import com.goo.curiosities.util.FootstepTracker;
@@ -10,6 +11,7 @@ import com.goo.goo_lib.client.particle.FlatParticleOption;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
@@ -26,6 +28,9 @@ public class CommonTickEvents {
         Entity entity = event.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
             onLivingTick(livingEntity);
+        } else {
+            if (entity instanceof Projectile projectile)
+                MagneticArrowhead.home(projectile);
         }
     }
 

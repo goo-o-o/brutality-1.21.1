@@ -17,6 +17,7 @@
     "LivingEntityMixin",
     "MobEffectInstanceMixin",
     "PlayerMixin",
+    "ProjectileWeaponItemMixin",
     "TickRateManagerMixin",
     "VillagerMixin"
   ],

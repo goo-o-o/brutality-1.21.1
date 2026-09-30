@@ -14,6 +14,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.*;
@@ -32,6 +33,16 @@ public class LivingEvents {
             event.setCanceled(true);
         } else if (CurioUtil.isWearingCurio(event.getEntity(), CuriositiesItems.LAVA_WALKERS.value()) && event.fluidState().is(FluidTags.LAVA)) {
             event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingGetProjectile(LivingGetProjectileEvent event) {
+        if (CurioUtil.isWearingCurio(event.getEntity(), CuriositiesItems.INFINIQUIVER.value())) {
+            // if wearing infiniquiver and is empty itemstack, return a suitable arrow
+            if (event.getProjectileItemStack().isEmpty()) {
+                event.setProjectileItemStack(Items.ARROW.getDefaultInstance());
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 package com.goo.curiosities.common.item.curio.back;
 
-import com.goo.curiosities.common.item.CuriositiesCurioItem;
+import com.goo.curiosities.common.item.QuiverCurioItem;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
-public class QuiverOfStarvation extends CuriositiesCurioItem {
+public class QuiverOfStarvation extends QuiverCurioItem {
     public QuiverOfStarvation(Properties properties) {
         super(properties);
     }

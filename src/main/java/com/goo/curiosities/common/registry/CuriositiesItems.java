@@ -660,7 +660,7 @@ public class CuriositiesItems {
 
 
     public static final Holder<Item> MAGIC_QUIVER = ITEMS.register("magic_quiver",
-            () -> new CuriositiesCurioItem(new Item.Properties())
+            () -> new QuiverCurioItem(new Item.Properties())
                     .withAttributes(
                             new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
                             new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
@@ -705,7 +705,7 @@ public class CuriositiesItems {
                             new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
                     ));
     public static final Holder<Item> BEDROCK_QUIVER = ITEMS.register("bedrock_quiver",
-            () -> new CuriositiesCurioItem(new Item.Properties())
+            () -> new QuiverCurioItem(new Item.Properties())
                     .withAttributes(
                             new AttributeContainer(GLAttributes.DRAW_SPEED, -0.5, ADD_VALUE),
                             new AttributeContainer(GLAttributes.ARROW_GRAVITY, 1, ADD_VALUE),
@@ -728,7 +728,7 @@ public class CuriositiesItems {
                     ));
 
     public static final Holder<Item> QUIVER_OF_ABSURDITY = ITEMS.register("quiver_of_absurdity",
-            () -> new CuriositiesCurioItem(new Item.Properties()
+            () -> new QuiverCurioItem(new Item.Properties()
                     .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
                             ItemDescriptions.forItem("quiver_of_absurdity")
                                     .add(DescriptionType.PASSIVE)
@@ -740,7 +740,7 @@ public class CuriositiesItems {
                     ));
 
     public static final Holder<Item> INVERSION_QUIVER = ITEMS.register("inversion_quiver",
-            () -> new CuriositiesCurioItem(new Item.Properties())
+            () -> new QuiverCurioItem(new Item.Properties())
                     .withAttributes(
                             new AttributeContainer(GLAttributes.ARROW_VELOCITY, -0.5, ADD_VALUE),
                             new AttributeContainer(GLAttributes.ARROW_GRAVITY, -2, ADD_VALUE),
@@ -756,14 +756,14 @@ public class CuriositiesItems {
                                     .pop()
                                     .add(DescriptionType.ON_ARROW_HIT)
                                     .lines(1)
-                                    .pop().build()), 10, 2)
+                                    .pop().build()))
                     .withAttributes(
                             new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
                             new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
                     ));
 
     public static final Holder<Item> QUIVER_OF_THE_FIRST_FLAME = ITEMS.register("quiver_of_the_first_flame",
-            () -> new MoltenQuiver(new Item.Properties()
+            () -> new QuiverOfTheFirstFlame(new Item.Properties()
                     .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
                             ItemDescriptions.forItem("quiver_of_the_first_flame")
                                     .add(DescriptionType.PASSIVE)
@@ -771,7 +771,19 @@ public class CuriositiesItems {
                                     .pop()
                                     .add(DescriptionType.ON_ARROW_HIT)
                                     .lines(1)
-                                    .pop().build()), 20, 3)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> PHOENIX_QUIVER = ITEMS.register("phoenix_quiver",
+            () -> new PhoenixQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("phoenix_quiver")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(1)
+                                    .pop().build()))
                     .withAttributes(
                             new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
                             new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
@@ -824,6 +836,38 @@ public class CuriositiesItems {
                             new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
                             new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
                     ));
+
+    public static final Holder<Item> ELEMENTAL_QUIVER = ITEMS.register("elemental_quiver",
+            () -> new ElementalQuiver(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("elemental_quiver")
+                                    .add(DescriptionType.ON_ARROW_HIT)
+                                    .lines(2)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> INFINIQUIVER = ITEMS.register("infiniquiver",
+            () -> new QuiverCurioItem(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("infiniquiver")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(2)
+                                    .pop().build()))
+                    .withAttributes(
+                            new AttributeContainer(GLAttributes.ARROW_VELOCITY, 0.5, ADD_VALUE),
+                            new AttributeContainer(GLAttributes.ARROW_DAMAGE, 0.1, ADD_VALUE)
+                    ));
+
+    public static final Holder<Item> MAGNETIC_ARROWHEAD = ITEMS.register("magnetic_arrowhead",
+            () -> new MagneticArrowhead(new Item.Properties()
+                    .component(CuriositiesDataComponents.ITEM_DESCRIPTIONS,
+                            ItemDescriptions.forItem("magnetic_arrowhead")
+                                    .add(DescriptionType.PASSIVE)
+                                    .lines(1)
+                                    .pop().build())));
 
     public static final Holder<Item> EXTENDO_GRIP = ITEMS.register("extendo_grip",
             () -> new CuriositiesCurioItem(new Item.Properties())

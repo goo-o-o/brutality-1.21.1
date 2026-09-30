@@ -1,6 +1,6 @@
 package com.goo.curiosities.common.item.curio.back;
 
-import com.goo.curiosities.common.item.CuriositiesCurioItem;
+import com.goo.curiosities.common.item.QuiverCurioItem;
 import com.goo.curiosities.util.EntityUtil;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -13,7 +13,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 import java.util.List;
 
-public class QuiverOfTheBlackDeath extends CuriositiesCurioItem {
+public class QuiverOfTheBlackDeath extends QuiverCurioItem {
     public QuiverOfTheBlackDeath(Properties properties) {
         super(properties);
     }

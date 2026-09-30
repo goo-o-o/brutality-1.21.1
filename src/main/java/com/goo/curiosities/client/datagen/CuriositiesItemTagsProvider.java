@@ -55,6 +55,7 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
         tag(CuriositiesTags.Items.FIRE_TOOLTIP).add(
                 CuriositiesItems.MOLTEN_QUIVER.value(),
                 CuriositiesItems.QUIVER_OF_THE_FIRST_FLAME.value(),
+                CuriositiesItems.PHOENIX_QUIVER.value(),
                 CuriositiesItems.INFERNAL_FISHING_LINE.value(),
                 CuriositiesItems.LAVAPROOF_FISHING_HOOK.value(),
                 CuriositiesItems.PORTABLE_FIRE_EXTINGUISHER.value(),
@@ -113,6 +114,7 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
                 CuriositiesItems.QUIVER_OF_TEN_THOUSAND_POISONS.value(),
                 CuriositiesItems.QUIVER_OF_DECAY.value(),
                 CuriositiesItems.QUIVER_OF_THE_BLACK_DEATH.value(),
+                CuriositiesItems.INFINIQUIVER.value(),
                 CuriositiesItems.QUIVER_OF_FAMINE.value(),
                 CuriositiesItems.QUIVER_OF_STARVATION.value(),
                 CuriositiesItems.STALKERS_QUIVER.value(),
@@ -122,6 +124,7 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
                 CuriositiesItems.INVERSION_QUIVER.value(),
                 CuriositiesItems.MOLTEN_QUIVER.value(),
                 CuriositiesItems.QUIVER_OF_THE_FIRST_FLAME.value(),
+                CuriositiesItems.PHOENIX_QUIVER.value(),
                 CuriositiesItems.SUPREME_MASTER_ANGLERS_BACKPACK_OF_PEERLESS_FISHING.value(),
                 CuriositiesItems.NETHERITE_JETPACK.value(),
                 CuriositiesItems.ARCHITECT_GIZMO_PACK.value(),
@@ -132,6 +135,7 @@ public class CuriositiesItemTagsProvider extends ItemTagsProvider {
 
     private void addCharmTags() {
         this.tag(CuriosTags.CHARM).add(
+                CuriositiesItems.MAGNETIC_ARROWHEAD.value(),
                 CuriositiesItems.APPRENTICES_FISHING_BOBBER.value(),
                 CuriositiesItems.JOURNEYMANS_FISHING_BOBBER.value(),
                 CuriositiesItems.EXPERTS_FISHING_BOBBER.value(),
